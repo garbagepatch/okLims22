@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using okLims.Extensions;
+
 using okLims.Models;
 using okLims.Models.AccountViewModels;
 using System;
@@ -12,6 +12,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using okLims.Services;
+using okLims.Extensions;
+
 namespace okLims.Controllers
 {
 
