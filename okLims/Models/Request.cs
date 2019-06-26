@@ -9,13 +9,13 @@ namespace okLims.Models
     public class Request
     {
         public int RequestId { get; set; }
-        public Method Method { get; set; }
+     
         [Required]
         public string MethodName { get; set; }
 
         public string RequesterEmail { get; set; }
 
-        public Laboratory Laboratory { get; set; }
+
         [Required]
         public string LaboratoryName { get; set; }
         [Required]

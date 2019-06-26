@@ -78,8 +78,7 @@
     "summernote": "^0.8.12",
     "sweetalert2": "^8.12.1",
     "tempusdominus-bootstrap-4": "^5.1.2",
-    "toastr": "^2.1.4",
-    "webpack": "^4.35.0"
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

@@ -258,12 +258,8 @@ namespace okLims.Migrations
 
                     b.Property<DateTimeOffset>("DueDate");
 
-                    b.Property<int?>("LaboratoryId");
-
                     b.Property<string>("LaboratoryName")
                         .IsRequired();
-
-                    b.Property<int?>("MethodId");
 
                     b.Property<string>("MethodName")
                         .IsRequired();
@@ -271,10 +267,6 @@ namespace okLims.Migrations
                     b.Property<string>("RequesterEmail");
 
                     b.HasKey("RequestId");
-
-                    b.HasIndex("LaboratoryId");
-
-                    b.HasIndex("MethodId");
 
                     b.ToTable("Request");
                 });
@@ -372,17 +364,6 @@ namespace okLims.Migrations
 
             modelBuilder.Entity("okLims.Models.MethodLine", b =>
                 {
-                    b.HasOne("okLims.Models.Method", "Method")
-                        .WithMany()
-                        .HasForeignKey("MethodId");
-                });
-
-            modelBuilder.Entity("okLims.Models.Request", b =>
-                {
-                    b.HasOne("okLims.Models.Laboratory", "Laboratory")
-                        .WithMany()
-                        .HasForeignKey("LaboratoryId");
-
                     b.HasOne("okLims.Models.Method", "Method")
                         .WithMany()
                         .HasForeignKey("MethodId");

@@ -12,27 +12,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>@ViewData["Title"] - Inventory</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
+    <title>@ViewData["Title"] - BioreactorLims</title>
     <!--AdminLTE-->
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/adminlte/components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.min.css">
     <!-- Ionicons -->
-    <!-- Ionicons -->
     <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="~/lib/admin-lte/css/AdminLTE.min.css">
     <!-- Pace style -->
-    <link rel="stylesheet" href="~/lib/pace/pace.min.css">
+    <link rel="stylesheet" href="~/adminlte/plugins/pace-progress/themes/blue/pace-theme-barber-shop.css">
     <!-- Theme style -->
-
+    <link rel="stylesheet" href="~/adminlte/dist/css/adminlte.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="~/lib/admin-lte/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="~/adminlte/dist/skins/_all-skins.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -41,14 +35,12 @@
     <![endif]-->
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <link href="~/lib/fullcalendar-scheduler/scheduler.min.css" />
 
     <!--Snycfusion-->
-    <link href="~/scripts/bootstrap-theme/ej.web.all.min.css" rel="stylesheet" />
-    <link href="~/scripts/default-responsive.css" rel="stylesheet" />
-    <link href="~/scripts/responsive-css/ej.responsive.css" rel="stylesheet" />
-    <link href="~/scripts/responsive-css/ejgrid.responsive.css" rel="stylesheet" />
-
+    <link href="~/content/ejthemes/bootstrap-theme/ej.web.all.min.css" rel="stylesheet" />
+    <link href="~/content/default-responsive.css" rel="stylesheet" />
+    <link href="~/content/ejthemes/responsive-css/ej.responsive.css" rel="stylesheet" />
+    <link href="~/content/ejthemes/responsive-css/ejgrid.responsive.css" rel="stylesheet" />
     @RenderSection("Styles", required: false)
 
 </head>
@@ -65,26 +57,24 @@
     <!-- ./wrapper -->
     <!--AdminLTE-->
     <!-- jQuery 3 -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/adminlte/components/jquery/dist/jquery.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/adminlte/components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Slimscroll -->
     <script src="~/lib/jQuery-slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="~/lib/fastclick/fastclick.min.js"></script>
+
+    <script src="~/adminlte/plugins/fastclick/fastclick.js"></script>
     <!-- AdminLTE App -->
-    <script src="~/lib/admin-lte/js/adminlte.min.js"></script>
+    <script src="~/adminlte/dist/js/adminlte.min.js"></script>
     <!-- PACE -->
-    <script src="~/lib/pace/pace.min.js"></script>
-    <!----Full Calender Scheduler-->
-    <script src="~/lib/fullcalendar-scheduler/scheduler.min.js"></script>
+    <script src="~/adminlte/plugins/pace-progress/pace.min.js"></script>
+
     <!--Syncfusion-->
     <script src="~/scripts/jsrender.min.js"></script>
     <script src="~/scripts/ej.web.all.min.js" type="text/javascript"></script>
     <script src="~/scripts/properties.js" type="text/javascript"></script>
     <script src="~/scripts/jquery.validate.min.js"></script>
     <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
-
     @RenderSection("Scripts", required: false)
 
 </body>
