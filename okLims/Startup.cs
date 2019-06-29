@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -63,6 +62,7 @@ namespace okLims
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+       
 
             // cookie settings
             services.ConfigureApplicationCookie(options =>
@@ -114,6 +114,7 @@ namespace okLims
            
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+              
             }
             else
             {

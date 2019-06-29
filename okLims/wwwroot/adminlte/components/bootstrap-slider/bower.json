@@ -1,26 +1,22 @@
 {
-  "name": "seiyria-bootstrap-slider",
-  "version": "10.6.1",
-  "homepage": "https://github.com/seiyria/bootstrap-slider",
+  "name": "bootstrap-slider",
+  "main": ["bootstrap-slider.js", "slider.css"],
+  "version": "2.0.0",
+  "homepage": "https://github.com/pammacdotnet/bootstrap-slider",
   "authors": [
-    "Kyle Kemp <kyle@seiyria.com>",
-    "Rohit Kalkur <rohit.kalkur@gmail.com>"
+    "pammacdotnet"
   ],
-  "description": "a slider element for bootstrap 2/3",
-  "main": [
-    "dist/bootstrap-slider.js",
-    "dist/css/bootstrap-slider.css"
-  ],
+  "description": "Eyecon Slider for Bootstrap",
   "keywords": [
     "slider",
-    "bootstrap2",
-    "bootstrap3",
     "bootstrap"
   ],
-  "license": "MIT",
+  "license": "Apache",
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components"
+    "bower_components",
+    "test",
+    "tests"
   ]
 }

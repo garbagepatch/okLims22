@@ -13,67 +13,32 @@ using System.Threading.Tasks;
 
 namespace okLims.Services
 {
-    public class Functional : IFunctional
-    {
+   
+        public class Functional : IFunctional
+        {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly ApplicationDbContext _context;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IRoles _roles;
-        private readonly SuperAdminDefaultOptions _superAdminDefaultOptions;
+            private readonly RoleManager<IdentityRole> _roleManager;
+            private readonly ApplicationDbContext _context;
+            private readonly SignInManager<ApplicationUser> _signInManager;
+            private readonly IRoles _roles;
+            private readonly SuperAdminDefaultOptions _superAdminDefaultOptions;
 
-        public Functional(UserManager<ApplicationUser> userManager,
-           RoleManager<IdentityRole> roleManager,
-           ApplicationDbContext context,
-           SignInManager<ApplicationUser> signInManager,
-           IRoles roles,
-           IOptions<SuperAdminDefaultOptions> superAdminDefaultOptions)
-        {
-            _userManager = userManager;
-            _roleManager = roleManager;
-            _context = context;
-            _signInManager = signInManager;
-            _roles = roles;
-            _superAdminDefaultOptions = superAdminDefaultOptions.Value;
-        }
-
-
-
-        public async Task CreateDefaultSuperAdmin()
-        {
-            try
+            public Functional(UserManager<ApplicationUser> userManager,
+               RoleManager<IdentityRole> roleManager,
+               ApplicationDbContext context,
+               SignInManager<ApplicationUser> signInManager,
+               IRoles roles,
+               IOptions<SuperAdminDefaultOptions> superAdminDefaultOptions)
             {
-                await _roles.GenerateRolesFromPagesAsync();
-
-                ApplicationUser superAdmin = new ApplicationUser();
-                superAdmin.Email = _superAdminDefaultOptions.Email;
-                superAdmin.UserName = superAdmin.Email;
-                superAdmin.EmailConfirmed = true;
-
-                var result = await _userManager.CreateAsync(superAdmin, _superAdminDefaultOptions.Password);
-
-                if (result.Succeeded)
-                {
-                    //add to user profile
-                    UserProfile profile = new UserProfile();
-                    profile.FirstName = "Super";
-                    profile.LastName = "Admin";
-                    profile.Email = superAdmin.Email;
-                    profile.ApplicationUserId = superAdmin.Id;
-                    await _context.UserProfile.AddAsync(profile);
-                    await _context.SaveChangesAsync();
-
-                    await _roles.AddToRoles(superAdmin.Id);
-                }
+                _userManager = userManager;
+                _roleManager = roleManager;
+                _context = context;
+                _signInManager = signInManager;
+                _roles = roles;
+                _superAdminDefaultOptions = superAdminDefaultOptions.Value;
             }
-            catch (Exception)
-            {
 
-                throw;
-            }
-        }
-
-        public async Task InitAppData()
+            public async Task InitAppData()
         {
             try
             {
@@ -151,5 +116,10 @@ namespace okLims.Services
 
             }
 
+        }
+
+        public Task CreateDefaultSuperAdmin()
+        {
+            throw new NotImplementedException();
         }
     } }

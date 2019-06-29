@@ -10,8 +10,8 @@ namespace okLims.Models
         public int RequestLineId { get; set; }
         public Request Request { get; set; }
         public int RequestId { get; set; }
-        public DateTimeOffset DateSubmitted { get; set; }
-        public DateTimeOffset DueDate { get; set; }
-        public DateTimeOffset DateCompleted { get; set; }
+        public string Start { get; set; }
+        public string End { get; set; }
+        public string DateCompleted { get; set; }
     }
 }

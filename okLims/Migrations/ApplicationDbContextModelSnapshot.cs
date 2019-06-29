@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+
 using okLims.Data;
 
 namespace okLims.Migrations
@@ -254,9 +254,8 @@ namespace okLims.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTimeOffset>("DateSubmitted");
-
-                    b.Property<DateTimeOffset>("DueDate");
+                    b.Property<string>("End")
+                        .IsRequired();
 
                     b.Property<string>("LaboratoryName")
                         .IsRequired();
@@ -265,6 +264,9 @@ namespace okLims.Migrations
                         .IsRequired();
 
                     b.Property<string>("RequesterEmail");
+
+                    b.Property<string>("Start")
+                        .IsRequired();
 
                     b.HasKey("RequestId");
 
@@ -277,13 +279,13 @@ namespace okLims.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTimeOffset>("DateCompleted");
+                    b.Property<string>("DateCompleted");
 
-                    b.Property<DateTimeOffset>("DateSubmitted");
-
-                    b.Property<DateTimeOffset>("DueDate");
+                    b.Property<string>("End");
 
                     b.Property<int>("RequestId");
+
+                    b.Property<string>("Start");
 
                     b.HasKey("RequestLineId");
 

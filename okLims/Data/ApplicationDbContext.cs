@@ -24,7 +24,7 @@ namespace okLims.Data
         }
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
-        public DbSet<Models.NumberSequence> NumberSequence { get; set; }
+        public DbSet<NumberSequence> NumberSequence { get; set; }
         public DbSet<Request> Request { get; set; }
         public DbSet<Laboratory> Laboratory { get; set; }
         public DbSet<Method> Method { get; set; }

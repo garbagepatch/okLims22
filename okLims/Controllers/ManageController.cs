@@ -522,7 +522,7 @@ namespace okLims.Controllers
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("okLims"),
+                _urlEncoder.Encode("coderush"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
-@inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
 @inject okLims.Data.ApplicationDbContext Context
 @{
 
@@ -15,18 +15,18 @@
     <title>@ViewData["Title"] - BioreactorLims</title>
     <!--AdminLTE-->
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="~/adminlte/components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.min.css" />
+    <!--  <link rel="stylesheet" href="~/adminlte/components/bootstrap/dist/css/bootstrap.min.css">-->
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.min.css">
+    <!--<link rel="stylesheet" href="~/adminlte/components/font-awesome/css/font-awesome.min.css">-->
     <!-- Ionicons -->
-    <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.min.css">
-    <!-- Pace style -->
-    <link rel="stylesheet" href="~/adminlte/plugins/pace-progress/themes/blue/pace-theme-barber-shop.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="~/adminlte/dist/css/adminlte.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="~/adminlte/dist/skins/_all-skins.min.css">
+   <!-- <link rel="stylesheet" href="~/adminlte/components/Ionicons/css/ionicons.min.css">
+  
+    <link rel="stylesheet" href="~/adminlte/plugins/pace/pace.min.css">
+
+    <link rel="stylesheet" href="~/adminlte/dist/css/AdminLTE.min.css">
+
+    <link rel="stylesheet" href="~/adminlte/dist/css/skins/_all-skins.min.css"> -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -36,45 +36,43 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-    <!--Snycfusion-->
+    
     <link href="~/content/ejthemes/bootstrap-theme/ej.web.all.min.css" rel="stylesheet" />
     <link href="~/content/default-responsive.css" rel="stylesheet" />
     <link href="~/content/ejthemes/responsive-css/ej.responsive.css" rel="stylesheet" />
-    <link href="~/content/ejthemes/responsive-css/ejgrid.responsive.css" rel="stylesheet" />
+    <link href="~/content/ejthemes/responsive-css/ejgrid.responsive.css" rel="stylesheet" /> -->
     @RenderSection("Styles", required: false)
 
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
     <div class="wrapper">
-        @Html.PartialAsync("_AdminlteMainHeader", appUser)
+        @Html.Partial("_AdminlteMainHeader", appUser)
         <!-- Left side column. contains the logo and sidebar -->
-        @Html.PartialAsync("_AdminlteMainSidebar", appUser)
+        @Html.Partial("_AdminlteMainSidebar", appUser)
         <!-- Content Wrapper. Contains page content -->
         @RenderBody()
         <!-- /.content-wrapper -->
-        @Html.PartialAsync("_AdminlteFooter")
+        @Html.Partial("_AdminlteFooter")
     </div>
     <!-- ./wrapper -->
     <!--AdminLTE-->
     <!-- jQuery 3 -->
-    <script src="~/adminlte/components/jquery/dist/jquery.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="~/adminlte/components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Slimscroll -->
-    <script src="~/lib/jQuery-slimScroll/jquery.slimscroll.min.js"></script>
 
-    <script src="~/adminlte/plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
+  <!--  --><script src="~/adminlte/components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="~/adminlte/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+    <script src="~/adminlte/components/fastclick/lib/fastclick.js"></script>
+
     <script src="~/adminlte/dist/js/adminlte.min.js"></script>
-    <!-- PACE -->
-    <script src="~/adminlte/plugins/pace-progress/pace.min.js"></script>
 
-    <!--Syncfusion-->
+    <script src="~/adminlte/components/PACE/pace.min.js"></script>
+
     <script src="~/scripts/jsrender.min.js"></script>
     <script src="~/scripts/ej.web.all.min.js" type="text/javascript"></script>
     <script src="~/scripts/properties.js" type="text/javascript"></script>
     <script src="~/scripts/jquery.validate.min.js"></script>
-    <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script> 
     @RenderSection("Scripts", required: false)
 
 </body>

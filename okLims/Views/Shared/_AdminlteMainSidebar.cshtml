@@ -8,13 +8,29 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
-        <div class="user-panel">            <div class="pull-left info">
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="~/images/ulslogo.png" class="image" alt="User Image">
+            </div>
+            <div class="pull-left info">
                 <p>@profile.FirstName @profile.LastName</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
+
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">DASHBOARD</li>
+            <li class="@Html.IsSelected(controller: MainMenu.Request.ControllerName)">
+                <a href="@MainMenu.Request.Path">
+                    <i> class="fa fa-joint"></i><span>@MainMenu.Request.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Request.ControllerName)">
+                <a href="@MainMenu.RequestCalendar.Path">
+                <i> class="fa fa-calendar"></i><span>@MainMenu.RequestCalendar.PageName</span>
+            </li>
+            </li>
             <li class="header">USER & ROLE</li>
             <li class="@Html.IsSelected(controller: MainMenu.User.ControllerName, action: MainMenu.User.ActionName)">
                 <a href="@MainMenu.User.Path">

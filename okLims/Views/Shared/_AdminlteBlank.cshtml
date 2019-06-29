@@ -10,14 +10,15 @@
     <title>@ViewData["Title"]</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
+    <!-- Bootstrap 3.3.7 
     <link rel="stylesheet" href="~/adminlte/components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="~/adminlte/dist/css/adminlte.min.css">
+ 
+    <link rel="stylesheet" href="~/adminlte/components/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/adminlte/components/Ionicons/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/adminlte/dist/css/AdminLTE.min.css">-->
+    <link rel="stylesheet" href="~/css/site.min.css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -30,7 +31,7 @@
     @RenderSection("Styles", required: false)
 
 </head>
-<body class="hold-transition lockscreen" style="background-image: url('/images/bg1.jpg') ; background-size: cover; ">
+<body class="hold-transition lockscreen" style="background-image: url('/images/fractal.png') ; background-size: cover; ">
     <!-- Automatic element centering -->
     <div class="lockscreen-wrapper">
         @RenderBody()
@@ -40,10 +41,11 @@
 
     </div>
     <!-- /.center -->
-    <!-- jQuery 3 -->
+    <!-- jQuery 3 --->
     <script src="~/adminlte/components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
+
     <script src="~/adminlte/components/bootstrap/dist/js/bootstrap.min.js"></script>
+
 
     @RenderSection("Scripts", required: false)
 </body>

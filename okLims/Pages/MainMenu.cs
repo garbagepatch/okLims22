@@ -23,6 +23,14 @@ namespace okLims.Pages
             public const string ControllerName = "Request";
             public const string ActionName = "Index";
         }
+        public static class RequestCalendar
+        {
+            public const string PageName = "RequestCalendar";
+            public const string RoleName = "Request";
+            public const string Path = "/Request/RequestCalendar";
+            public const string ControllerName = "Request";
+            public const string ActionName = "RequestCalendar";
+        }
         public static class Laboratory
         {
             public const string PageName = "Laboratory";

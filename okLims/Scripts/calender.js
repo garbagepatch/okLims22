@@ -1,31 +1,31 @@
 ﻿
-let currentEvent;
+let currentRequest;
 const formatDate = date => date === null ? '' : moment(date).format("MM/DD/YYYY h:mm A");
-const fpStartTime = flatpickr("#StartTime", {
+const fpStart = flatpickr("#Start", {
     enableTime: true,
     dateFormat: "m/d/Y h:i K"
 });
-const fpEndTime = flatpickr("#EndTime", {
+const fpEnd = flatpickr("#End", {
     enableTime: true,
     dateFormat: "m/d/Y h:i K"
 });
 
-$('#calendar').fullCalendar({
+$('#calendar').fullcalendar({
     defaultView: 'month',
     height: 'parent',
     header: {
         left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay'
+        center: 'MethodName',
+        right: 'month,agEndaWeek,agEndaDay'
     },
-    eventRender(event, $el) {
+    RequestREnder(Request, $el) {
         $el.qtip({
             content: {
-                title: event.title,
-                text: event.description
+                MethodName: Request.MethodName,
+                text: Request.description
             },
             hide: {
-                event: 'unfocus'
+                Request: 'unfocus'
             },
             show: {
                 solo: true
@@ -40,199 +40,183 @@ $('#calendar').fullCalendar({
             }
         });
     },
-    events: '/Home/GetCalendarEvents',
-    eventClick: updateEvent,
+    Requests: '/api/Request/GetRequest',
+    RequestClick: UpdatRequest,
     selectable: true,
-    select: addEvent
+    select: addRequest
 });
 
 /**
- * Calendar Methods
+ * calendar Methods
  **/
 
-function updateEvent(event, element) {
-    currentEvent = event;
+function UpdateRequest(Request, element) {
+    currentRequest = Request;
 
     if ($(this).data("qtip")) $(this).qtip("hide");
 
-    $('#eventModalLabel').html('Edit Event');
-    $('#eventModalSave').html('Update Event');
-    $('#EventTitle').val(event.title);
-    $('#Description').val(event.description);
-    $('#isNewEvent').val(false);
+    $('#RequestModalLabel').html('Edit Request');
+    $('#RequestModalSave').html('Update Request');
+    $('#RequestMethodName').val(Request.MethodName);
+    $('#Description').val(Request.description);
+    $('#RequestLaboratoryName')
+    $('#isNewRequest').val(false);
 
-    const start = formatDate(event.start);
-    const end = formatDate(event.end);
+    const Start = formatDate(Request.Start);
+    const End = formatDate(Request.End);
 
-    fpStartTime.setDate(start);
-    fpEndTime.setDate(end);
+    fpStart.setDate(Start);
+    fpEnd.setDate(End);
 
-    $('#StartTime').val(start);
-    $('#EndTime').val(end);
+    $('#Start').val(Start);
+    $('#End').val(End);
 
-    if (event.allDay) {
-        $('#AllDay').prop('checked', 'checked');
-    } else {
-        $('#AllDay')[0].checked = false;
-    }
+   
 
-    $('#eventModal').modal('show');
+    $('#RequestModal').modal('show');
 }
 
-function addEvent(start, end) {
-    $('#eventForm')[0].reset();
+function addRequest(Start, End) {
+    $('#RequestForm')[0].reset();
 
-    $('#eventModalLabel').html('Add Event');
-    $('#eventModalSave').html('Create Event');
-    $('#isNewEvent').val(true);
+    $('#RequestModalLabel').html('Add Request');
+    $('#RequestModalSave').html('Create Request');
+    $('#isNewRequest').val(true);
 
-    start = formatDate(start);
-    end = formatDate(end);
+    Start = formatDate(Start);
+    End = formatDate(End);
 
-    fpStartTime.setDate(start);
-    fpEndTime.setDate(end);
+    fpStart.setDate(Start);
+    fpEnd.setDate(End);
 
-    $('#eventModal').modal('show');
+    $('#RequestModal').modal('show');
 }
 
 /**
  * Modal
  * */
 
-$('#eventModalSave').click(() => {
-    const title = $('#EventTitle').val();
+$('#RequestModalSave').click(() => {
+    const MethodName = $('#RequestMethodName').val();
     const description = $('#Description').val();
-    const startTime = moment($('#StartTime').val());
-    const endTime = moment($('#EndTime').val());
-    const isAllDay = $('#AllDay').is(":checked");
-    const isNewEvent = $('#isNewEvent').val() === 'true' ? true : false;
+    const Start = moment($('#Start').val());
+    const End = moment($('#End').val());
+   
+    const isNewRequest = $('#isNewRequest').val() === 'true' ? true : false;
 
-    if (startTime > endTime) {
+    if (Start > End) {
         alert('Start Time cannot be greater than End Time');
 
         return;
-    } else if ((!startTime.isValid() || !endTime.isValid()) && !isAllDay) {
+    } else if ((!Start.isValid() || !End.isValid()) ) {
         alert('Please enter both Start Time and End Time');
 
         return;
     }
 
-    const event = {
-        title,
+    const Request = {
+        MethodName,
         description,
-        isAllDay,
-        startTime: startTime._i,
-        endTime: endTime._i
+        LaboratoryName,
+        Start: Start._i,
+        End: End._i
     };
 
-    if (isNewEvent) {
-        sendAddEvent(event);
+    if (isNewRequest) {
+        sendAddRequest(Request);
     } else {
-        sendUpdateEvent(event);
+        sendUpdateRequest(Request);
     }
 });
 
-function sendAddEvent(event) {
+function sendInsert(Request) {
     axios({
         method: 'post',
-        url: '/Home/AddEvent',
+        url: '/api/Request/Insert',
         data: {
-            "Title": event.title,
-            "Description": event.description,
-            "Start": event.startTime,
-            "End": event.endTime,
-            "AllDay": event.isAllDay
+            "method": Request.MethodName,
+            "Description": Request.description,
+            "Start": Request.Start,
+            "End": Request.End,
+            "Laboratory": Request.LaboratoryName,
         }
     })
         .then(res => {
-            const { message, eventId } = res.data;
+            const { payload, RequestId } = res.data;
 
-            if (message === '') {
-                const newEvent = {
-                    start: event.startTime,
-                    end: event.endTime,
-                    allDay: event.isAllDay,
-                    title: event.title,
-                    description: event.description,
-                    eventId
+            if (payload === '') {
+                const newRequest = {
+                    Start: Request.Start,
+                    End: Request.End,
+                    LaboratoryName: Request.LaboratoryName,
+                    MethodName: Request.MethodName,
+                    description: Request.description,
+                    RequestId
                 };
 
-                $('#calendar').fullCalendar('renderEvent', newEvent);
-                $('#calendar').fullCalendar('unselect');
+                $('#calendar').fullcalendar('rEnderRequest', newRequest);
+                $('#calendar').fullcalendar('unselect');
 
-                $('#eventModal').modal('hide');
+                $('#RequestModal').modal('hide');
             } else {
-                alert(`Something went wrong: ${message}`);
+                alert(`Something went wrong: ${payload}`);
             }
         })
         .catch(err => alert(`Something went wrong: ${err}`));
 }
 
-function sendUpdateEvent(event) {
+function sendUpdate(Request) {
     axios({
         method: 'post',
-        url: '/Home/UpdateEvent',
+        url: '/api/Request/Update',
         data: {
-            "EventId": currentEvent.eventId,
-            "Title": event.title,
-            "Description": event.description,
-            "Start": event.startTime,
-            "End": event.endTime,
-            "AllDay": event.isAllDay
+            "RequestId": currentRequest.RequestId,
+            "MethodName": Request.MethodName,
+            "Description": Request.description,
+            "Start": Request.Start,
+            "End": Request.End,
+            "Laboratory": Request.LaboratoryName,
         }
     })
         .then(res => {
-            const { message } = res.data;
+            const { payload } = res.data;
 
-            if (message === '') {
-                currentEvent.title = event.title;
-                currentEvent.description = event.description;
-                currentEvent.start = event.startTime;
-                currentEvent.end = event.endTime;
-                currentEvent.allDay = event.isAllDay;
+            if (payload === '') {
+                currentRequest.MethodName = Request.MethodName;
+                currentRequest.description = Request.description;
+                currentRequest.Start = Request.Start;
+                currentRequest.End = Request.End;
+                currentRequest.LaboratoryName = Request.LaboratoryName;
 
-                $('#calendar').fullCalendar('updateEvent', currentEvent);
-                $('#eventModal').modal('hide');
+                $('#calendar').fullcalendar('updateRequest', currentRequest);
+                $('#RequestModal').modal('hide');
             } else {
-                alert(`Something went wrong: ${message}`);
+                alert(`Something went wrong: ${payload}`);
             }
         })
         .catch(err => alert(`Something went wrong: ${err}`));
 }
 
-$('#deleteEvent').click(() => {
-    if (confirm(`Do you really want to delte "${currentEvent.title}" event?`)) {
+$('#deleteRequest').click(() => {
+    if (confirm(`Do you really want to delte "${currentRequest.MethodName}" Request?`)) {
         axios({
             method: 'post',
-            url: '/Home/DeleteEvent',
+            url: '/Home/DeleteRequest',
             data: {
-                "EventId": currentEvent.eventId
+                "RequestId": currentRequest.RequestId
             }
         })
             .then(res => {
-                const { message } = res.data;
+                const { payload } = res.data;
 
-                if (message === '') {
-                    $('#calendar').fullCalendar('removeEvents', currentEvent._id);
-                    $('#eventModal').modal('hide');
+                if (payload === '') {
+                    $('#calendar').fullcalendar('removeRequests', currentRequest._id);
+                    $('#RequestModal').modal('hide');
                 } else {
-                    alert(`Something went wrong: ${message}`);
+                    alert(`Something went wrong: ${payload}`);
                 }
             })
             .catch(err => alert(`Something went wrong: ${err}`));
     }
 });
 
-$('#AllDay').on('change', function (e) {
-    if (e.target.checked) {
-        $('#EndTime').val('');
-        fpEndTime.clear();
-        this.checked = true;
-    } else {
-        this.checked = false;
-    }
-});
-
-$('#EndTime').on('change', () => {
-    $('#AllDay')[0].checked = false;
-});

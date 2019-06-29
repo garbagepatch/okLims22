@@ -1,4 +1,5 @@
 ﻿using okLims.Helpers;
+using okLims.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -30,52 +31,52 @@ namespace okLims.Data
             conn.Close();
         }
 
-        public List<Event> GetCalendarEvents(string start, string end)
+        public List<Request> GetCalendarRequests(string Start, string End)
         {
-            List<Event> events = new List<Event>();
+            List<Request> Requests = new List<Request>();
 
             using (SqlConnection conn = GetConnection())
             {
                 using (SqlCommand cmd = new SqlCommand(@"select
-                                                            event_id
-                                                            ,title
-                                                            ,[description]
-                                                            ,event_start
-                                                            ,event_end
-                                                            ,all_day
+                                                            RequestId
+                                                            ,MethodName
+                                                            ,LaboratoryName
+                                                            ,RequesterEmail
+                                                            ,Start
+                                                            ,End
                                                         from
-                                                            [Events]
+                                                            [Request]
                                                         where
-                                                            event_start between @start and @end", conn)
+                                                            Start between @Start and @End", conn)
                 {
                     CommandType = CommandType.Text
                 })
                 {
-                    cmd.Parameters.Add("@start", SqlDbType.VarChar).Value = start;
-                    cmd.Parameters.Add("@end", SqlDbType.VarChar).Value = end;
+                    cmd.Parameters.Add("@Start", SqlDbType.VarChar).Value = Start;
+                    cmd.Parameters.Add("@End", SqlDbType.VarChar).Value = End;
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
                         {
-                            events.Add(new Event()
+                            Requests.Add(new Request()
                             {
-                                EventId = Convert.ToInt32(dr["event_id"]),
-                                Title = Convert.ToString(dr["title"]),
-                                Description = Convert.ToString(dr["description"]),
-                                Start = Convert.ToString(dr["event_start"]),
-                                End = Convert.ToString(dr["event_end"]),
-                                AllDay = Convert.ToBoolean(dr["all_day"])
+                                RequestId = Convert.ToInt32(dr["RequestId"]),
+                                MethodName = Convert.ToString(dr["MethodName"]),
+                               RequesterEmail = Convert.ToString(dr["RequesterEmail"]),
+                                Start = Convert.ToString(dr["Start"]),
+                                End = Convert.ToString(dr["End"]),
+                                LaboratoryName = Convert.ToString(dr["LaboratoryName"])
                             });
                         }
                     }
                 }
             }
 
-            return events;
+            return Requests;
         }
 
-        public string UpdateEvent(Event evt)
+        public string UpdateRequest(Request evt)
         {
             string message = "";
             SqlConnection conn = GetConnection();
@@ -84,24 +85,24 @@ namespace okLims.Data
             try
             {
                 SqlCommand cmd = new SqlCommand(@"update
-	                                                [Events]
+	                                                [Requests]
                                                 set
-	                                                [description]=@description
-                                                    ,title=@title
-	                                                ,event_start=@start
-	                                                ,event_end=@end 
-	                                                ,all_day=@allDay
+	                                                RequesterEmail=@RequesterEmail
+                                                    ,MethodName=@MethodName
+	                                                ,Start=@Start
+	                                                ,End=@End 
+	                                                ,LaboratoryName=@LaboratoryName
                                                 where
-	                                                event_id=@eventId", conn, trans)
+	                                                RequestId=@RequestId", conn, trans)
                 {
                     CommandType = CommandType.Text
                 };
-                cmd.Parameters.Add("@eventId", SqlDbType.Int).Value = evt.EventId;
-                cmd.Parameters.Add("@title", SqlDbType.VarChar).Value = evt.Title;
-                cmd.Parameters.Add("@description", SqlDbType.VarChar).Value = evt.Description;
-                cmd.Parameters.Add("@start", SqlDbType.DateTime).Value = evt.Start;
-                cmd.Parameters.Add("@end", SqlDbType.DateTime).Value = Helper.ToDBNullOrDefault(evt.End);
-                cmd.Parameters.Add("@allDay", SqlDbType.Bit).Value = evt.AllDay;
+                cmd.Parameters.Add("@RequestId", SqlDbType.Int).Value = evt.RequestId;
+                cmd.Parameters.Add("@MethodName", SqlDbType.VarChar).Value = evt.MethodName;
+                cmd.Parameters.Add("@RequesterEmail", SqlDbType.VarChar).Value = evt.RequesterEmail;
+                cmd.Parameters.Add("@Start", SqlDbType.DateTime).Value = evt.Start;
+                cmd.Parameters.Add("@End", SqlDbType.DateTime).Value = Helper.ToDBNullOrDefault(evt.End);
+        
                 cmd.ExecuteNonQuery();
 
                 trans.Commit();
@@ -119,42 +120,42 @@ namespace okLims.Data
             return message;
         }
 
-        public string AddEvent(Event evt, out int eventId)
+        public string AddRequest(Request evt, out int RequestId)
         {
             string message = "";
             SqlConnection conn = GetConnection();
             SqlTransaction trans = conn.BeginTransaction();
-            eventId = 0;
+            RequestId = 0;
 
             try
             {
-                SqlCommand cmd = new SqlCommand(@"insert into [Events]
+                SqlCommand cmd = new SqlCommand(@"insert into [Requests]
                                                 (
-	                                                title
-	                                                ,[description]
-	                                                ,event_start
-	                                                ,event_end
-	                                                ,all_day
+	                                                MethodName
+	                                                ,[RequesterEmail]
+	                                                ,Start
+	                                                ,End
+	                                                ,LaboratoryName
                                                 )
                                                 values
                                                 (
-	                                                @title
-	                                                ,@description
-	                                                ,@start
-	                                                ,@end
-	                                                ,@allDay
+	                                                @MethodName
+	                                                ,@RequesterEmail
+	                                                ,@Start
+	                                                ,@End
+	                                                ,@LaboratoryName
                                                 );
                                                 select scope_identity()", conn, trans)
                 {
                     CommandType = CommandType.Text
                 };
-                cmd.Parameters.Add("@title", SqlDbType.VarChar).Value = evt.Title;
-                cmd.Parameters.Add("@description", SqlDbType.VarChar).Value = evt.Description;
-                cmd.Parameters.Add("@start", SqlDbType.DateTime).Value = evt.Start;
-                cmd.Parameters.Add("@end", SqlDbType.DateTime).Value = Helper.ToDBNullOrDefault(evt.End);
-                cmd.Parameters.Add("@allDay", SqlDbType.Bit).Value = evt.AllDay;
+                cmd.Parameters.Add("@MethodName", SqlDbType.VarChar).Value = evt.MethodName;
+                cmd.Parameters.Add("@RequesterEmail", SqlDbType.VarChar).Value = evt.RequesterEmail;
+                cmd.Parameters.Add("@Start", SqlDbType.DateTime).Value = evt.Start;
+                cmd.Parameters.Add("@End", SqlDbType.DateTime).Value = Helper.ToDBNullOrDefault(evt.End);
+                cmd.Parameters.Add("@LaboratoryName", SqlDbType.VarChar).Value = evt.LaboratoryName;
 
-                eventId = Convert.ToInt32(cmd.ExecuteScalar());
+                RequestId = Convert.ToInt32(cmd.ExecuteScalar());
 
                 trans.Commit();
             }
@@ -171,7 +172,7 @@ namespace okLims.Data
             return message;
         }
 
-        public string DeleteEvent(int eventId)
+        public string DeleteRequest(int RequestId)
         {
             string message = "";
             SqlConnection conn = GetConnection();
@@ -180,13 +181,13 @@ namespace okLims.Data
             try
             {
                 SqlCommand cmd = new SqlCommand(@"delete from 
-	                                                [Events]
+	                                                [Requests]
                                                 where
-	                                                event_id=@eventId", conn, trans)
+	                                                Request_id=@RequestId", conn, trans)
                 {
                     CommandType = CommandType.Text
                 };
-                cmd.Parameters.Add("@eventId", SqlDbType.Int).Value = eventId;
+                cmd.Parameters.Add("@RequestId", SqlDbType.Int).Value = RequestId;
                 cmd.ExecuteNonQuery();
 
                 trans.Commit();

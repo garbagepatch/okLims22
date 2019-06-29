@@ -19,9 +19,9 @@ namespace okLims.Models
         [Required]
         public string LaboratoryName { get; set; }
         [Required]
-        public DateTimeOffset DateSubmitted { get; set; }
+        public string Start { get; set; }
         [Required]
-        public DateTimeOffset DueDate { get; set; }
+        public string End { get; set; }
         public List<RequestLine> RequestLines { get; set; } = new List<RequestLine>();
     }
 }

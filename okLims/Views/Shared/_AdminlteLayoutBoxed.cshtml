@@ -7,17 +7,17 @@
     <title>@ViewData["Title"]</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <l    <link rel="stylesheet" href="~/adminlte/components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="~/adminlte/dist/css/adminlte.min.css">
+    <!-- Bootstrap 3.3.7 
+    <link rel="stylesheet" href="~/adminlte/components/bootstrap/dist/css/bootstrap.min.css">
+ 
+    <link rel="stylesheet" href="~/adminlte/components/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/adminlte/components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/adminlte/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="~/adminlte/dist/css/skins/_all-skins.min.css">
+       
+    <link rel="stylesheet" href="~/adminlte/dist/css/skins/_all-skins.min.css">-->
+    <link rel="stylesheet" href="~/css/site.min.css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -31,28 +31,27 @@
 <body class="hold-transition skin-blue layout-boxed sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
-        @Html.PartialAsync("_AdminlteMainHeader")
+        @Html.Partial("_AdminlteMainHeader")
         <!-- Left side column. contains the logo and sidebar -->
-        @Html.PartialAsync("_AdminlteMainSidebar")
+        @Html.Partial("_AdminlteMainSidebar")
         <!-- Content Wrapper. Contains page content -->
         @RenderBody()
         <!-- /.content-wrapper -->
-        @Html.PartialAsync("_AdminlteFooter")
+        @Html.Partial("_AdminlteFooter")
         <!-- Control Sidebar -->
-        @Html.PartialAsync("_AdminlteControlSidebar")
+        @Html.Partial("_AdminlteControlSidebar")
     </div>
-
-    <!-- ./wrapper -->
-    <!-- jQuery 3 -->
-    <script src="~/adminlte/components/jquery/dist/jquery.js"></script>
-    <!-- Bootstrap 3.3.7 -->
+ <!--  --> <script src="~/adminlte/components/jquery/dist/jquery.min.js"></script>
+ 
     <script src="~/adminlte/components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Slimscroll -->
-    <script src="~/lib/jQuery-slimScroll/jquery.slimscroll.min.js"></script>
 
-    <script src="~/adminlte/plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <!-- AdminLTE for demo purposes -->
-    <script src="~/adminlte/dist/js/demo.js"></script>
+    <script src="~/adminlte/components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+ 
+    <script src="~/adminlte/components/fastclick/lib/fastclick.js"></script>
+
+    <script src="~/adminlte/dist/js/adminlte.min.js"></script>
+
+    <script src="~/adminlte/dist/js/demo.js"></script> 
+
 </body>
 </html>
