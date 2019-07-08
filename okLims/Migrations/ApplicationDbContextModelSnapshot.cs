@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using okLims.Data;
 
 namespace okLims.Migrations
@@ -15,7 +15,7 @@ namespace okLims.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -180,6 +180,69 @@ namespace okLims.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("okLims.Models.ControllerType", b =>
+                {
+                    b.Property<int>("ControllerID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("controllerType");
+
+                    b.HasKey("ControllerID");
+
+                    b.ToTable("ControllerType");
+                });
+
+            modelBuilder.Entity("okLims.Models.FilterSize", b =>
+                {
+                    b.Property<int>("SizeID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("filterSize");
+
+                    b.HasKey("SizeID");
+
+                    b.ToTable("FilterSize");
+                });
+
+            modelBuilder.Entity("okLims.Models.FilterType", b =>
+                {
+                    b.Property<int>("FilterID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("filterType");
+
+                    b.HasKey("FilterID");
+
+                    b.ToTable("FilterType");
+                });
+
+            modelBuilder.Entity("okLims.Models.Instrument", b =>
+                {
+                    b.Property<int>("InstrumentId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTimeOffset>("CalibrationDate");
+
+                    b.Property<DateTimeOffset>("CalibrationDue");
+
+                    b.Property<int>("CalibrationLength");
+
+                    b.Property<string>("InstrumentName")
+                        .IsRequired();
+
+                    b.Property<DateTime>("MaintenanceDate");
+
+                    b.Property<int>("MaintenanceInterval");
+
+                    b.HasKey("InstrumentId");
+
+                    b.ToTable("Instrument");
+                });
+
             modelBuilder.Entity("okLims.Models.Laboratory", b =>
                 {
                     b.Property<int>("LaboratoryId")
@@ -192,38 +255,6 @@ namespace okLims.Migrations
                     b.HasKey("LaboratoryId");
 
                     b.ToTable("Laboratory");
-                });
-
-            modelBuilder.Entity("okLims.Models.Method", b =>
-                {
-                    b.Property<int>("MethodId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("MethodName")
-                        .IsRequired();
-
-                    b.Property<bool?>("Validated")
-                        .IsRequired();
-
-                    b.HasKey("MethodId");
-
-                    b.ToTable("Method");
-                });
-
-            modelBuilder.Entity("okLims.Models.MethodLine", b =>
-                {
-                    b.Property<int>("MethodLineId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("MethodId");
-
-                    b.HasKey("MethodLineId");
-
-                    b.HasIndex("MethodId");
-
-                    b.ToTable("MethodLine");
                 });
 
             modelBuilder.Entity("okLims.Models.NumberSequence", b =>
@@ -254,21 +285,33 @@ namespace okLims.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ControllerID");
+
                     b.Property<string>("End")
                         .IsRequired();
 
-                    b.Property<string>("LaboratoryName")
-                        .IsRequired();
+                    b.Property<int>("FilterID");
 
-                    b.Property<string>("MethodName")
-                        .IsRequired();
+                    b.Property<int?>("LaboratoryId");
 
                     b.Property<string>("RequesterEmail");
+
+                    b.Property<int>("SizeID");
+
+                    b.Property<string>("SpecialDetails");
 
                     b.Property<string>("Start")
                         .IsRequired();
 
                     b.HasKey("RequestId");
+
+                    b.HasIndex("ControllerID");
+
+                    b.HasIndex("FilterID");
+
+                    b.HasIndex("LaboratoryId");
+
+                    b.HasIndex("SizeID");
 
                     b.ToTable("Request");
                 });
@@ -364,11 +407,26 @@ namespace okLims.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("okLims.Models.MethodLine", b =>
+            modelBuilder.Entity("okLims.Models.Request", b =>
                 {
-                    b.HasOne("okLims.Models.Method", "Method")
+                    b.HasOne("okLims.Models.ControllerType", "ControllerType")
                         .WithMany()
-                        .HasForeignKey("MethodId");
+                        .HasForeignKey("ControllerID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("okLims.Models.FilterType", "FilterType")
+                        .WithMany()
+                        .HasForeignKey("FilterID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("okLims.Models.Laboratory", "Laboratory")
+                        .WithMany()
+                        .HasForeignKey("LaboratoryId");
+
+                    b.HasOne("okLims.Models.FilterSize", "FilterSize")
+                        .WithMany()
+                        .HasForeignKey("SizeID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("okLims.Models.RequestLine", b =>

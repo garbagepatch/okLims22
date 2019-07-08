@@ -1,6 +1,7 @@
 ﻿@model okLims.Models.ApplicationUser
 @inject okLims.Data.ApplicationDbContext Context
 
+
 @{
     UserProfile profile = Context.UserProfile.SingleOrDefault(x => x.ApplicationUserId.Equals(Model.Id));
 }
@@ -9,9 +10,9 @@
     <!-- Logo -->
     <a href="/" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>IT</b></span>
+        <span class="logo-mini"><b>Stuff and Things</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Inven</b>Tory</span>
+        <span class="logo-lg"><b>Bioreator</b>LIMSy</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -25,16 +26,17 @@
                 {
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="user-footer">
-                <div class="pull-left">
-                    <a href="@Url.Action("UserProfile", "UserRole")" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
-                    <div class="pull-right">
-                        <button type="submit" class="btn btn-default btn-flat">Sign out</button>
-                    </div>
-                </form>
-                        </li>}                 
+                        <div class="pull-left">
+                            <a href="@Url.Action("UserProfile", "UserRole")" class="btn btn-default btn-flat">Profile</a>                       
+                        </div>
+                        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-default btn-flat">Sign out</button>
+                            </div>
+                        </form>
+                    </li>}
             </ul>
-        </div>
-    </nav>
+
+            </div>
+            </nav>
 </header>

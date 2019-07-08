@@ -18,49 +18,25 @@ namespace okLims.Controllers.api
     {
         private readonly ApplicationDbContext _context;
         private readonly INumberSequence _numberSequence;
-        private readonly Method _MethodName;
-        private readonly Laboratory _LaboratoryName;
+
 
         public RequestController(ApplicationDbContext context,
-                        INumberSequence numberSequence, Method MethodName, Laboratory LaboratoryName)
+                        INumberSequence numberSequence)
         {
             _context = context;
             _numberSequence = numberSequence;
-            _MethodName = MethodName;
-            _LaboratoryName = LaboratoryName;
-        }
 
+        }
         // GET: api/Request
         [HttpGet]
         public async Task<IActionResult> GetRequest()
         {
             List<Request> Items = await _context.Request.ToListAsync();
             int Count = Items.Count();
+
             return Ok(new { Items, Count });
         }
 
-        [HttpGet("[action]")]
-        public async Task<IActionResult> GetMethod()
-        {
-            List<Request> Requests = new List<Request>();
-            try
-            {
-                List<Method> Methods = new List<Method>();
-               Methods = await _context.Method.ToListAsync();
-                List<int> ids = new List<int>();
-
-
-                Requests = await _context.Request
-                    .Where(x => !ids.Contains(x.RequestId))
-                    .ToListAsync();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            return Ok(Requests);
-        }
 
         [HttpGet("[action]/{id}")]
         public async Task<IActionResult> GetById(int id)
@@ -69,7 +45,6 @@ namespace okLims.Controllers.api
                 .Where(x => x.RequestId.Equals(id))
                 .Include(x => x.RequestLines)
                 .FirstOrDefaultAsync();
-
             return Ok(result);
         }
 
@@ -77,43 +52,33 @@ namespace okLims.Controllers.api
         {
             try
             {
-
                 Request Request = new Request();
                 Request = _context.Request
                     .Where(x => x.RequestId.Equals(RequestId))
                     .FirstOrDefault();
-
                 if (Request != null)
                 {
                     List<RequestLine> lines = new List<RequestLine>();
                     lines = _context.RequestLine.Where(x => x.RequestId.Equals(RequestId)).ToList();
-
-                    //update master data by its lines
-               
-                         
+                    //update master data by its lines                                       
                     _context.Update(Request);
-
                     _context.SaveChanges();
                 }
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
         [HttpPost("[action]")]
         public IActionResult Insert([FromBody]CrudViewModel<Request> payload)
         {
-            Request Request = payload.value;
-            
+            Request Request = payload.value;            
             _context.Request.Add(Request);
             _context.SaveChanges();
             this.UpdateRequest(Request.RequestId);
             return Ok(Request);
         }
-
         [HttpPost("[action]")]
         public IActionResult Update([FromBody]CrudViewModel<Request> payload)
         {
@@ -132,7 +97,6 @@ namespace okLims.Controllers.api
             _context.Request.Remove(Request);
             _context.SaveChanges();
             return Ok(Request);
-
         }
     }
 }

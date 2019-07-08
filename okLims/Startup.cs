@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using Syncfusion.Licensing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,7 +22,8 @@ namespace okLims
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+SyncfusionLicenseProvider.RegisterLicense("MDAxQDMxMzcyZTMyMmUzMEZna05lYWxBSk1abUIzRHM0UGE4SnczSkxnaVl0TWJweHo0NU4xeE9SL289");
+Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }

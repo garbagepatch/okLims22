@@ -76,10 +76,8 @@ namespace okLims.Controllers.api
             {
                 return NotFound();
             }
-
             _context.NumberSequence.Remove(numberSequence);
             await _context.SaveChangesAsync();
-
             return Ok(numberSequence);
         }
 

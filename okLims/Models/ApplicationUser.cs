@@ -9,4 +9,4 @@ namespace okLims.Models
     public class ApplicationUser : IdentityUser
     {
     }
-}
+} 

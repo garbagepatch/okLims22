@@ -23,13 +23,24 @@
             <li class="header">DASHBOARD</li>
             <li class="@Html.IsSelected(controller: MainMenu.Request.ControllerName)">
                 <a href="@MainMenu.Request.Path">
-                    <i> class="fa fa-joint"></i><span>@MainMenu.Request.PageName</span>
+                    <i class="fa fa-joint"></i><span>@MainMenu.Request.PageName</span>
                 </a>
             </li>
             <li class="@Html.IsSelected(controller: MainMenu.Request.ControllerName)">
                 <a href="@MainMenu.RequestCalendar.Path">
-                <i> class="fa fa-calendar"></i><span>@MainMenu.RequestCalendar.PageName</span>
+                    <i class="fa fa-calendar"></i><span>@MainMenu.RequestCalendar.PageName</span>
+                </a>
             </li>
+         
+            <li class="@Html.IsSelected(controller: MainMenu.Laboratory.ControllerName, action: MainMenu.Laboratory.ActionName)">
+                <a href="@MainMenu.Laboratory.Path" >
+                <i class="fa fa-gear"></i><span>@MainMenu.Laboratory.PageName</span>
+            </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Instrument.ControllerName, action: MainMenu.Instrument.ActionName)">
+                <a href="@MainMenu.Instrument.Path" >   
+                <i class="fa fa-circle"></i><span>@MainMenu.Instrument.PageName</span>
+                </a>
             </li>
             <li class="header">USER & ROLE</li>
             <li class="@Html.IsSelected(controller: MainMenu.User.ControllerName, action: MainMenu.User.ActionName)">

@@ -1,78 +1,63 @@
-﻿@{
-    Layout = "/Views/Shared/_LayoutCalender.cshtml";
-  @ViewData["Title"] = "Request";
-  
+﻿@using Syncfusion.EJ2.Schedule
+@using Syncfusion.EJ2
+@using Syncfusion.EJ2.Buttons
+@model okLims.Models.Request
+
+@{
+    ViewData["Title"] = "Request";
+}
+<div>
+    <ejs-button id="btn1" content="ADD"></ejs-button>
+    <ejs-button id="btn2" content="EDIT"></ejs-button>
+    <ejs-button id="btn3" content="DELETE"></ejs-button>
+</div>
+<ejs-schedule id="schedule" height="550">
+    <e-schedule-eventsettings dataSource="@ViewBag.shitfucks">
+        <e-eventsettings-fields id="RequestId">
+            <e-field-subject name="RequesterEmail"></e-field-subject>
+            <e-field-location name="LaboratoryName"></e-field-location>
+            <e-field-description name="MethodName"></e-field-description>
+            <e-field-starttime name="Start"></e-field-starttime>
+            <e-field-endtime name="End"></e-field-endtime>
+        </e-eventsettings-fields>
+    </e-schedule-eventsettings>
+</ejs-schedule>
+@section Styles{
 
 }
 
-<!-- Main content -->
-<div class="layout-top-nav">
-    <!-- Main content -->
-    <section class="content">
-        <!-- Default box -->
-        <div class="box">
-            <div class="box-header with-border">
-                <h3 class="box-title text-primary"><i class="fa fa-tag"></i> @ViewData["Title"]</h3>
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                            title="Collapse">
-                        <i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fa fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div id="calendar-wrapper">
-                <div id='calendar'></div>
-            </div>
+    <script type="text/javascript">
+        document.getElementById('btn1').onclick = function () {
+            var scheduleObj = document.getElementById('Request').ej2_instances[0];
+            var Data = [{
+                RequestId: shitfucks.RequestId,
+                RequesterEmail: shitfucks.RequesterEmail,
+                MethodName: shitfucks.MethodName,
+                LaboratoryName: shitfucks.LaboratoryName,
+                Start: shitfucks.Start,
+                EndTime: shitfucks.End
 
-            <div class="modal fade" id="eventModal" role="dialog" aria-labelledby="eventModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="eventModalLabel">Request</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="eventForm">
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-3 col-form-label">Method</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="EventTitle">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-3 col-form-label">Start Time</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="StartTime">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-3 col-form-label">End Time</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="EndTime">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-sm-3 col-form-label">Description</label>
-                                    <div class="col-sm-9">
-                                        <textarea class="form-control" id="Description" rows="5"></textarea>
-                                    </div>
-                                </div>
-                                <input type="hidden" id="isNewEvent" />
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" id="deleteEvent">Delete</button>
-                            <div>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="eventModalSave">Save Changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+            }];
+            scheduleObj.addEvent(Data);
+            document.getElementById('btn1').setAttribute('disabled', 'true');
+        };
+        document.getElementById('btn2').onclick = function () {
+            var scheduleObj = document.getElementById('schedule').ej2_instances[0];
+            var Data = {
+                RequestId: _context.RequestId,
+                RequesterEmail: _context.RequesterEmail,
+                MethodName: _context.MethodName,
+                LaboratoryName: _context.LaboratoryName,
+                Start: _context.Start,
+                EndTime: _context.End
+
+            };
+            scheduleObj.saveEvent(Data);
+            document.getElementById('btn2').setAttribute('disabled', 'true');
+        };
+        document.getElementById('btn3').onclick = function () {
+            var scheduleObj = document.getElementById('schedule').ej2_instances[0];
+            scheduleObj.deleteEvent(4);
+            document.getElementById('btn3').setAttribute('disabled', 'true');
+        };
+    </script>

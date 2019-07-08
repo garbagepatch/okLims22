@@ -42,13 +42,36 @@ namespace okLims.Services
         {
             try
             {
-
+                await _context.Instrument.AddAsync(new Instrument {  InstrumentName = "Bioreactor" });
                 await _context.Laboratory.AddAsync(new Laboratory { LaboratoryName = "Default" });
                 await _context.SaveChangesAsync();
-                List<Method> methods = new List<Method>();
-                await _context.Method.AddRangeAsync(methods);
+                await _context.FilterSize.AddAsync(new FilterSize { SizeID = 1, filterSize = "30 kDa" });
+                   await _context.FilterSize.AddAsync(new FilterSize{ SizeID = 2,  filterSize = "75 kDa" });
+                await _context.FilterSize.AddAsync(new FilterSize
+                {
+                   SizeID = 3, filterSize =
+                    "0.2 um"
+                });
+                await _context.FilterSize.AddAsync(new FilterSize
+                {
+                    SizeID = 4, 
+                    filterSize =
+
+                    ".45 um"
+                });
                 await _context.SaveChangesAsync();
 
+                await _context.FilterType.AddAsync(new FilterType { FilterID = 1 , filterType = "FedBatch" });
+                await _context.FilterType.AddAsync(new FilterType {FilterID = 2,  filterType = "FedBatch Mod" });
+                await _context.FilterType.AddAsync(new FilterType { FilterID = 3, filterType = "Atf Single" });
+                await _context.FilterType.AddAsync(new FilterType {FilterID = 4,  filterType = "ATF t" });
+                await _context.FilterType.AddAsync(new FilterType { FilterID = 5,  filterType = "ATF mod" });
+                await _context.SaveChangesAsync();
+                await _context.ControllerType.AddAsync(new ControllerType { ControllerID = 1, controllerType = "Finesse" });
+                await _context.ControllerType.AddAsync(new ControllerType { ControllerID = 2, controllerType = "In-Control" });
+                await _context.SaveChangesAsync();
+
+          
                 List<Request> requests = new List<Request>();
                 await _context.Request.AddRangeAsync(requests);
                 await _context.SaveChangesAsync();

@@ -27,9 +27,12 @@ namespace okLims.Data
         public DbSet<NumberSequence> NumberSequence { get; set; }
         public DbSet<Request> Request { get; set; }
         public DbSet<Laboratory> Laboratory { get; set; }
-        public DbSet<Method> Method { get; set; }
+        public DbSet<FilterType> FilterType { get; set; }
+        public DbSet<ControllerType> ControllerType { get; set; }
+        public DbSet<FilterSize> FilterSize { get; set; }
         public DbSet<UserProfile> UserProfile { get; set; }
-        public DbSet<MethodLine> MethodLine { get; set; }
+     
         public DbSet<RequestLine> RequestLine { get; set; }
+        public DbSet<Instrument> Instrument { get; set; }
     }
 }

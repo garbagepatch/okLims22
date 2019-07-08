@@ -7,14 +7,14 @@ namespace okLims.Pages
 {
     public static class MainMenu
     {
-        public static class Method
+    /*    public static class Method
         {
             public const string PageName = "Method";
             public const string RoleName = "Method";
             public const string Path = "/Method/Index";
             public const string ControllerName = "Method";
             public const string ActionName = "Index";
-        }
+        }*/
         public static class Request
         {
             public const string PageName = "Request";
@@ -83,14 +83,7 @@ namespace okLims.Pages
             public const string ControllerName = "Dashboard";
             public const string ActionName = "Index";
         }
-        public static class MethodLine
-        {
-            public const string PageName = "MethodLine";
-            public const string RoleName = "MethodLine";
-            public const string Path = "/MethodLine/Index";
-            public const string ControllerName = "MethodLine";
-            public const string ActionName = "Index";
-        }
+
         public static class RequestLine
         {
             public const string PageName = "RequestLine";
@@ -98,6 +91,14 @@ namespace okLims.Pages
             public const string Path = "/RequestLine/Index";
             public const string ControllerName = "RequestLine";
             public const string ActionName = "RequestLine";
+        }
+        public static class Instrument
+        {
+            public const string PageName = "Instrument";
+            public const string RoleName = "Instrument";
+            public const string Path = "/Instrument/Index";
+            public const string ControllerName = "Instrument";
+            public const string ActionName = "Index";
         }
     }
 }
