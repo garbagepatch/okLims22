@@ -21,7 +21,8 @@ namespace okLims.Services
             private readonly ApplicationDbContext _context;
             private readonly SignInManager<ApplicationUser> _signInManager;
             private readonly IRoles _roles;
-            private readonly SuperAdminDefaultOptions _superAdminDefaultOptions;
+        private readonly SuperAdminDefaultOptions _superAdminDefaultOptions;
+
 
             public Functional(UserManager<ApplicationUser> userManager,
                RoleManager<IdentityRole> roleManager,
@@ -71,8 +72,14 @@ namespace okLims.Services
                 await _context.ControllerType.AddAsync(new ControllerType { ControllerID = 2, controllerType = "In-Control" });
                 await _context.SaveChangesAsync();
 
-          
-                List<Request> requests = new List<Request>();
+
+                List<Request> requests = new List<Request>()
+                {
+                    new Request{RequesterEmail = "crossmedders@gmail.com"},
+
+                    new Request{RequesterEmail = "cmedders@amgen.com"},
+
+                };
                 await _context.Request.AddRangeAsync(requests);
                 await _context.SaveChangesAsync();
             }

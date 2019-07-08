@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿
+
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using okLims.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace okLims.Data
 {
@@ -13,6 +11,7 @@ namespace okLims.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+         
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -30,8 +29,7 @@ namespace okLims.Data
         public DbSet<FilterType> FilterType { get; set; }
         public DbSet<ControllerType> ControllerType { get; set; }
         public DbSet<FilterSize> FilterSize { get; set; }
-        public DbSet<UserProfile> UserProfile { get; set; }
-     
+        public DbSet<UserProfile> UserProfile { get; set; }  
         public DbSet<RequestLine> RequestLine { get; set; }
         public DbSet<Instrument> Instrument { get; set; }
     }

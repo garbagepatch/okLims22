@@ -19,6 +19,7 @@ namespace okLims.Controllers.api
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+           
 
         public UserController(ApplicationDbContext context,
                         UserManager<ApplicationUser> userManager,
