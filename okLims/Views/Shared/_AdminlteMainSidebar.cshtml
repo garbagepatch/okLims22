@@ -31,15 +31,31 @@
                     <i class="fa fa-calendar"></i><span>@MainMenu.RequestCalendar.PageName</span>
                 </a>
             </li>
-         
+
             <li class="@Html.IsSelected(controller: MainMenu.Laboratory.ControllerName, action: MainMenu.Laboratory.ActionName)">
-                <a href="@MainMenu.Laboratory.Path" >
-                <i class="fa fa-gear"></i><span>@MainMenu.Laboratory.PageName</span>
-            </a>
+                <a href="@MainMenu.Laboratory.Path">
+                    <i class="fa fa-gear"></i><span>@MainMenu.Laboratory.PageName</span>
+                </a>
             </li>
             <li class="@Html.IsSelected(controller: MainMenu.Instrument.ControllerName, action: MainMenu.Instrument.ActionName)">
-                <a href="@MainMenu.Instrument.Path" >   
-                <i class="fa fa-circle"></i><span>@MainMenu.Instrument.PageName</span>
+                <a href="@MainMenu.Instrument.Path">
+                    <i class="fa fa-circle"></i><span>@MainMenu.Instrument.PageName</span>
+                </a>
+            </li>
+            <li class="header">FILTER INFO</li>
+            <li class="@Html.IsSelected(controller: MainMenu.FilterSize.ControllerName, action: MainMenu.FilterSize.ActionName)">
+                <a href="@MainMenu.FilterSize.Path">
+                    <i class="fa fa-flask"></i><span>@MainMenu.FilterSize.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.FilterType.ControllerName, action: MainMenu.FilterType.ActionName)">
+                <a href="@MainMenu.FilterType.Path">
+                    <i class="fa fa-magnet"></i><span>@MainMenu.FilterType.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.ControllerType.ControllerName, action: MainMenu.ControllerType.ActionName)">
+                <a href="@MainMenu.ControllerType.Path">
+                    <i class="fa fa-floppy-o"></i><span>@MainMenu.ControllerType.PageName</span>
                 </a>
             </li>
             <li class="header">USER & ROLE</li>

@@ -100,5 +100,29 @@ namespace okLims.Pages
             public const string ControllerName = "Instrument";
             public const string ActionName = "Index";
         }
-    }
+        public static class FilterType
+        {
+            public const string PageName = "FilterType";
+            public const string RoleName = "FilterType";
+            public const string Path = "/FilterType/Index";
+            public const string ControllerName = "FilterType";
+            public const string ActionName = "Index";
+        }
+        public static class FilterSize
+        {
+            public const string PageName = "FilterSize";
+            public const string RoleName = "FilterSize";
+            public const string Path = "/FilterSize/Index";
+            public const string ControllerName = "FilterSize";
+            public const string ActionName = "Index";
+        }
+        public static class ControllerType
+        {
+            public const string PageName = "ControllerType";
+            public const string RoleName = "ControllerType";
+            public const string Path = "/ControllerType/Index";
+            public const string ControllerName = "ControllerType";
+            public const string ActionName = "Index";
+        }
+        }
 }

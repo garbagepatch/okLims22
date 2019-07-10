@@ -1,6 +1,4 @@
-﻿@inject okLims.Data.ApplicationDbContext  Context
-@model okLims.Models.Request
-@{
+﻿@{
     ViewData["Title"] = "Request";
 }
 <div class="content-wrapper">
@@ -10,7 +8,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title text-primary"><i class="fa fa-gear"></i> @ViewData["Title"]</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-certificate"></i> @ViewData["Title"]</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                             title="Collapse">
@@ -36,21 +34,95 @@
 </div>
 
 
-<div class="control-section">
-    <ejs-grid id="Grid" dataSource="@ViewBag.DataSource"  toolbar="@(new List<string>(){"Add","Delete","Update","Cancel", "ExcelExport", "Search"})" allowPaging=true>
-        <e-data-manager url="/api/Request" adaptor="WebApiAdaptor" crossDomain="true"></e-data-manager>
-        <e-grid-editSettings allowDeleting="true" allowAdding="true" allowEditing="true" mode="Dialog"  newRowPosition="Bottom"></e-grid-editSettings>
-        <e-grid-pageSettings pageCount="5"></e-grid-pageSettings>
-        <e-grid-columns>
-            <e-grid-column field="RequestId" headerText="Request ID" isPrimaryKey="true" isIdentity="true" visible="true" type="number" textAlign="Center" width="120"></e-grid-column>
-            <e-grid-column field="RequesterEmail" headerText="Requester Email" type="string" width="140"></e-grid-column>
-            <e-grid-column field="ControllerType" allowEditing="true" headerText="Controller Type" type="string" width="140" foreignKeyField="ControllerID" foreignKeyValue="controllerType" editType="dropdownedit" dataSource="@ViewBag.ControllerType"></e-grid-column>
-            <e-grid-column field="FilterType" headerText="Filter Type" foreignKeyField="FilterID" foreignKeyValue="filterType" editType="dropdownedit" width="140" dataSource="Context.FilterType"></e-grid-column>
-            <e-grid-column field="FilterSize" headerText="Filter Size" foreignKeyField="SizeID" foreignKeyValue="filterSize" editType="dropdownedit" width="140" dataSource="Context.FilterSize"></e-grid-column>
-            <e-grid-column field="Start" headerText="Start Date" textAlign="Center" editType="datepickeredit" format='dd:MM:yy' width="100"></e-grid-column>
-            <e-grid-column field="End" headerText="Due Date" format='dd:MM:yy' textAlign="Center" editType="datepickeredit" width="100"></e-grid-column>
-            <e-grid-column field="LaboratoryName" headerText="Lab Name" foreignKeyField="LaboratoryId" foreignKeyValue="LaboratoryName" type="string" textAlign="Center" width="120"></e-grid-column>
-            <e-grid-column field="SpecialDetails" headerText="Special Details" width="140" type="text"></e-grid-column>
-        </e-grid-columns>
-    </ejs-grid>
-</div>
+@section Scripts{
+
+    <script type="text/javascript">
+        $(function () {
+
+            var dataManager = ej.DataManager({
+                url: "/api/Request",
+                adaptor: new ej.WebApiAdaptor(),
+                offline: true
+            });
+
+            var dataManagerFilterType = ej.DataManager({
+                url: "/api/FilterType",
+                adaptor: new ej.WebApiAdaptor()
+            });
+
+            var dataManagerFilterSize = ej.DataManager({
+                url: "/api/FilterSize",
+                adaptor: new ej.WebApiAdaptor()
+            });
+
+            var dataManagerControllerType = ej.DataManager({
+                url: "/api/ControllerType",
+                adaptor: new ej.WebApiAdaptor()
+            });
+            var dataManagerLaboratory = ej.DataManager({
+                url: "/api/Laboratory",
+                adaptor: new ej.WebApiAdaptor()
+            });
+
+
+
+            dataManager.ready.done(function (e) {
+                $("#Grid").ejGrid({
+                    dataSource: ej.DataManager({
+                        json: e.result,
+                        adaptor: new ej.remoteSaveAdaptor(),
+                        insertUrl: "/api/Request/Insert",
+                        updateUrl: "/api/Request/Update",
+                        removeUrl: "/api/Request/Remove",
+                    }),
+                    toolbarSettings: {
+                        showToolbar: true,
+                        toolbarItems: ["add", "edit", "delete", "update", "cancel", "search", "printGrid"]
+                    },
+                    editSettings: {
+                        allowEditing: true,
+                        allowAdding: true,
+                        allowDeleting: true,
+                        showDeleteConfirmDialog: true,
+                        editMode: "dialog"
+                    },
+                    isResponsive: true,
+                    enableResponsiveRow: true,
+                    allowSorting: true,
+                    allowSearching: true,
+                    allowFiltering: true,
+                    filterSettings: {
+                        filterType: "excel",
+                        maxFilterChoices: 100,
+                        enableCaseSensitivity: false
+                    },
+                    allowPaging: true,
+                    pageSettings: { pageSize: 10, printMode: ej.Grid.PrintMode.CurrentPage },
+                    columns: [
+                        { headerText: 'Detail', template: "<a href='/Request/Detail/{{:RequestId}}'>Detail</a>" },
+                        { field: "RequestId", headerText: 'Request ID', isPrimaryKey: true, isIdentity: true, visible: false },
+                        { field: "RequesterEmail", headerText: 'RequesterEmail', allowEditing: true },
+                        { field: "FilterID", headerText: 'Filter Type', foreignKeyField: "FilterID", foreignKeyValue: "filterType", dataSource: dataManagerFilterType, editType: "dropdownedit" },
+                        { field: "SizeID", headerText: 'FilterSize', foreignKeyField: "SizeID", foreignKeyValue: "filterSize", dataSource: dataManagerFilterSize, editType: "dropdownedit" },
+                        { field: "Start", headerText: 'Order Date', editType: "datepicker", format: "{0:MM/dd/yyyy}" },
+                        { field: "End", headerText: 'Delivery Date', editType: "datepicker", format: "{0:MM/dd/yyyy}" },
+                        { field: "ControllerID", headerText: 'Controller Type', foreignKeyField: "ControllerID", foreignKeyValue: "controllerType", dataSource: dataManagerControllerType },
+                        { field: "LaboratoryId", headerText: 'Laboratory Name', allowEditing: true, foreignKeyField: "LaboratoryId", foreignKeyValue: "LaboratoryName", dataSource: dataManagerLaboratory },
+                        {field: "SpecialDetails", headerText: 'Special Details', allowEditing: true, editTye: "text",},
+                    ],
+                    actionComplete: "complete",
+                });
+            });
+
+
+        });
+
+        function complete(args) {
+            if (args.requestType == 'beginedit') {
+                $("#" + this._id + "_dialogEdit").ejDialog({ title: "Edit Record" });
+            }
+        }
+
+    </script>
+}
+   

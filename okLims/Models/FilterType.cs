@@ -13,12 +13,14 @@ namespace okLims.Models
         [Key]
         public int FilterID { get; set; }
         public string filterType { get; set; }
+     
         public static FilterType[] GetFilterTypes()
         {
             FilterType fedbatch = new FilterType
             {
                 FilterID = 1,
                 filterType = "FedBatch"
+               
             };
             FilterType fedbatchmod = new FilterType
             {

@@ -1,11 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>aspnet-oklims-10F86EC1-A7B9-40B3-A943-2C9C114B0BDE</UserSecretsId>
     <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190708090832_kkkk.cs" />
+    <Compile Remove="Migrations\20190708090832_kkkk.Designer.cs" />
+    <Compile Remove="Migrations\20190708182659_yoobly.cs" />
+    <Compile Remove="Migrations\20190708182659_yoobly.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Web.config" />
+  </ItemGroup>
 
 
   <ItemGroup>
@@ -15,12 +26,22 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" PrivateAssets="All" />
     <PackageReference Include="Sendgrid" Version="9.9.0" />
     <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="17.1.0.53" />
+    <PackageReference Include="WorkflowEngine.NETCore-Designer" Version="3.5.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="3.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.2" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Web.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\WorkflowEngineTest\WorkflowEngineTest\WorkflowEngineTest.csproj" />
   </ItemGroup>
 
 </Project>

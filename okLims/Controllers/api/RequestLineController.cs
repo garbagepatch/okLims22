@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 [Authorize]
 [Produces("application/json")]
-[Route("api/Request Line")]
+[Route("api/RequestLine")]
 public class RequestLineController : Controller
 {
     private readonly ApplicationDbContext _context;

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using okLims.Data;
 using okLims.Models;
@@ -6,6 +8,7 @@ using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -147,9 +150,72 @@ namespace okLims.Services
             }
 
         }
-
-        public Task CreateDefaultSuperAdmin()
+        public async Task CreateDefaultSuperAdmin()
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _roles.GenerateRolesFromPagesAsync();
+
+                ApplicationUser superAdmin = new ApplicationUser();
+                superAdmin.Email = _superAdminDefaultOptions.Email;
+                superAdmin.UserName = superAdmin.Email;
+                superAdmin.EmailConfirmed = true;
+
+                var result = await _userManager.CreateAsync(superAdmin, _superAdminDefaultOptions.Password);
+
+                if (result.Succeeded)
+                {
+                    //add to user profile
+                    UserProfile profile = new UserProfile();
+                    profile.FirstName = "Super";
+                    profile.LastName = "Admin";
+                    profile.Email = superAdmin.Email;
+                    profile.ApplicationUserId = superAdmin.Id;
+                    await _context.UserProfile.AddAsync(profile);
+                    await _context.SaveChangesAsync();
+
+                    await _roles.AddToRoles(superAdmin.Id);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
-    } }
+
+
+        public async Task<string> UploadFile(List<IFormFile> files, IHostingEnvironment env, string uploadFolder)
+        {
+            var result = "";
+
+            var webRoot = env.WebRootPath;
+            var uploads = System.IO.Path.Combine(webRoot, uploadFolder);
+            var extension = "";
+            var filePath = "";
+            var fileName = "";
+
+
+            foreach (var formFile in files)
+            {
+                if (formFile.Length > 0)
+                {
+                    extension = System.IO.Path.GetExtension(formFile.FileName);
+                    fileName = Guid.NewGuid().ToString() + extension;
+                    filePath = System.IO.Path.Combine(uploads, fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await formFile.CopyToAsync(stream);
+                    }
+
+                    result = fileName;
+
+                }
+            }
+
+            return result;
+        }
+
+    }
+}

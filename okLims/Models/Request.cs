@@ -27,11 +27,11 @@ namespace okLims.Models
         public FilterType FilterType { get; set; }
   [ForeignKey("ControllerID")]
         public ControllerType ControllerType {get; set;}
-
+        public int LaboratoryId { get; set; }
         
         public string SpecialDetails { get; set; }
         public string RequesterEmail { get; set; }
-
+        [ForeignKey("LaboratoryId")]
         public Laboratory Laboratory { get; set; }
 
         [Required]

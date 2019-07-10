@@ -11,8 +11,47 @@ namespace okLims.Models
 
 
         public int LaboratoryId { get; set; }
-        [Required]
+        
         public string LaboratoryName { get; set; }
+        public static Laboratory[] Laboratories()
+        {
+            Laboratory first = new Laboratory
+            {
+                LaboratoryId = 1,
+                LaboratoryName = "First Floor"
+            };
+            Laboratory second = new Laboratory
+            {
+                LaboratoryId = 2,
+                LaboratoryName = "Second Floor"
+            };
+            Laboratory third = new Laboratory
+            {
+                LaboratoryId = 3,
+                LaboratoryName = "Third Floor"
+            };
+            Laboratory fourth = new Laboratory
+            {
+                LaboratoryId = 4,
+                LaboratoryName = "fourth floor"
+            };
+            Laboratory fifth = new Laboratory
+            {
+                LaboratoryId = 5,
+                LaboratoryName = "fifth floor"
+            };
+            Laboratory sixth = new Laboratory
+            {
+                LaboratoryId = 6,
+                LaboratoryName = "sixth floor"
+            };
+            Laboratory seventh = new Laboratory
+            {
+                LaboratoryId = 7,
+                LaboratoryName = "seventh floor"
+            };
+            return new Laboratory[] { first, second, third, fourth, fifth, sixth, seventh };
+        }
 
 
     }

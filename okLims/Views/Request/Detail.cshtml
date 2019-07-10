@@ -31,10 +31,18 @@
                                 @Html.DisplayNameFor(model => model.RequestId)
                             </dt>
                             <dd>
-                                @Html.DisplayFor(model => model.RequestId)
+                                @Html.DisplayFor(model => model.RequesterEmail)
                             </dd>
-                  
-                        
+                            <dt>
+                                @Html.DisplayFor(model => model.FilterSize)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.FilterType)
+                            </dd>
+                            <dt>
+                                @Html.DisplayFor(model => model.ControllerType)
+                            </dt>
+
                             <dt>
                                 @Html.DisplayNameFor(model => model.Start)
                             </dt>
@@ -47,7 +55,7 @@
                             <dd>
                                 @Html.DisplayFor(model => model.RequesterEmail)
                             </dd>
-                                               </dl>
+                        </dl>
                     </div>
 
 
@@ -104,15 +112,33 @@
             });
 
             var dataManagerLaboratory = ej.DataManager({
-                url: "/api/LaboratoryName",
+                url: "/api/Laboratory",
                 adaptor: new ej.WebApiAdaptor()
             });
 
 
             $('#LaboratoryName').ejDropDownList({
-                dataSource: dataManagerCustomer,
-                fields: { id: 'LaboratoryId', text: 'LaboratoryName', value:'LaboratoryName' },
-                value: @Model.Laboratory,
+                dataSource: dataManagerLaboratory,
+                fields: { id: 'LaboratoryId', text: 'Laboratory Name', value:'LaboratoryName' },
+                value: @Model.LaboratoryId,
+                enabled: false,
+            });
+                  $('#FilterID').ejDropDownList({
+                dataSource: dataManagerFilterType,
+                fields: { id: 'FilterID', text: 'Filter Type', value:'filterType' },
+                value: @Model.FilterID,
+                enabled: false,
+                  });
+                    $('#SizeID').ejDropDownList({
+                dataSource: dataManagerFilterSize,
+                fields: { id: 'SizeID', text: 'Filter Size', value:'filterSize' },
+                value: @Model.SizeID,
+                enabled: false,
+                    });
+                    $('#ControllerID').ejDropDownList({
+                dataSource: dataManagerControllerType,
+                fields: { id: 'ControllerID', text: 'Controller Type', value:'controllerType' },
+                value: @Model.ControllerID,
                 enabled: false,
             });
 
@@ -140,13 +166,15 @@
                 allowPaging: true,
                 columns: [
                     { field: "RequestLineId", headerText: 'Line Id', isPrimaryKey: true, isIdentity: true, visible: false },
-                    { field: "RequestId", headerText: 'SO#', defaultValue: @Model.RequestId, foreignKeyField: "RequestId", dataSource: dataManagerRequest, visible: false },
-                 
-        
-                    { field: "Start", headerText: 'Start',  editType: "datetime", format: "{HH:MM:SS DD:MM:YY}" },
-                    { field: "End", headerText: 'End', editType: "datetime", format: "{HH:MM:SS DD:MM:YY}" },
-                    { field: "RequesterEmail", headerText: 'Email', allowEditing: false, editType: "emailedit", format: "{0:n2}" },
-                   
+                      { field: "RequestId", headerText: 'Request ID', defaultValue: @Model.RequestId, foreignKeyField: "RequestId", foreignKeyValue: "RequestId", dataSource: dataManagerRequest, visible: false },
+                        { field: "RequesterEmail", headerText: 'RequesterEmail', allowEditing: true },
+                        { field: "FilterID", headerText: 'Filter Type', foreignKeyField: "FilterID", foreignKeyValue: "filterType", dataSource: dataManagerFilterType },
+                        { field: "SizeID", headerText: 'FilterSize', foreignKeyField: "SizeID", foreignKeyValue: "filterSize", dataSource: dataManagerFilterSize },
+                        { field: "Start", headerText: 'Order Date', editType: "datepicker", format: "{0:MM/dd/yyyy}" },
+                        { field: "End", headerText: 'Delivery Date', editType: "datepicker", format: "{0:MM/dd/yyyy}" },
+                        { field: "ControllerID", headerText: 'Controller Type', foreignKeyField: "ControllerID", foreignKeyValue: "controllerType", dataSource: dataManagerControllerType },
+                        { field: "LaboratoryName", headerText: 'Laboratory Name', allowEditing: true, foreignKeyField: "LaboratoryId", foreignKeyValue: "LaboratoryName", dataSource: dataManagerLaboratory },
+                    {field: "SpecialDetails", headerText: 'Special Details', allowEditing: true, editType: "text",},
                 ],
                 actionComplete: "complete",
             });

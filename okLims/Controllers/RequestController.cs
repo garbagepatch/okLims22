@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using okLims.Data;
 using okLims.Models;
 using Syncfusion.EJ2;
+using Syncfusion.EJ2.Schedule;
 
 namespace okLims.Controllers
 {
@@ -21,8 +23,8 @@ namespace okLims.Controllers
         }
             public IActionResult Index()
             {
-            var request = _context.Request.ToListAsync();
-            ViewBag.request = request;
+      
+
             return View();
             }
         public IActionResult Detail(int id)
@@ -36,8 +38,20 @@ namespace okLims.Controllers
         }
         public IActionResult RequestCalendar()
         {
-           ViewBag.Request = _context.Request.Take(100).ToList();
+            ViewBag.appointments = _context.Request.ToListAsync() ;
+            List<ScheduleView> viewOption = new List<ScheduleView>()
+    {
+        new ScheduleView { Option = Syncfusion.EJ2.Schedule.View.Day },
+        new ScheduleView { Option = Syncfusion.EJ2.Schedule.View.Week },
+        new ScheduleView { Option = Syncfusion.EJ2.Schedule.View.WorkWeek }
+    };
+            ViewBag.view = viewOption;
             return View();
+            
+        }
+      public IActionResult SubmitRequest()
+        {
+            return View(); 
         }
     }
 }

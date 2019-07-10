@@ -243,8 +243,7 @@ namespace okLims.Migrations
                     b.Property<int>("LaboratoryId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("LaboratoryName")
-                        .IsRequired();
+                    b.Property<string>("LaboratoryName");
 
                     b.HasKey("LaboratoryId");
 
@@ -284,7 +283,7 @@ namespace okLims.Migrations
 
                     b.Property<int>("FilterID");
 
-                    b.Property<int?>("LaboratoryId");
+                    b.Property<int>("LaboratoryId");
 
                     b.Property<string>("RequesterEmail");
 
@@ -313,11 +312,21 @@ namespace okLims.Migrations
                     b.Property<int>("RequestLineId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("DateCompleted");
+                    b.Property<int>("ControllerID");
 
                     b.Property<string>("End");
 
+                    b.Property<int>("FilterID");
+
+                    b.Property<int>("LaboratoryId");
+
                     b.Property<int>("RequestId");
+
+                    b.Property<string>("RequesterEmail");
+
+                    b.Property<int>("SizeID");
+
+                    b.Property<string>("SpecialDetails");
 
                     b.Property<string>("Start");
 
@@ -411,7 +420,8 @@ namespace okLims.Migrations
 
                     b.HasOne("okLims.Models.Laboratory", "Laboratory")
                         .WithMany()
-                        .HasForeignKey("LaboratoryId");
+                        .HasForeignKey("LaboratoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("okLims.Models.FilterSize", "FilterSize")
                         .WithMany()
