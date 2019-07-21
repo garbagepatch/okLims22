@@ -6,9 +6,9 @@ FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR /src
 COPY ["okLims/okLims.csproj", "okLims/"]
 
-RUN dotnet restore "okLims/okLims.csproj"
+RUN dotnet restore "./okLims.csproj"
 COPY . .
-WORKDIR "/src/okLims"
+WORKDIR "/okLims"
 RUN dotnet build "okLims.csproj" -c Release -o /app
 
 FROM build AS publish
