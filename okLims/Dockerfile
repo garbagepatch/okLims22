@@ -1,8 +1,8 @@
-FROM microsoft/aspnetcore:2.1 AS base
+FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.1 AS build
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.1 AS build
 WORKDIR /src
 COPY ["okLims/okLims.csproj", "okLims/"]
 
