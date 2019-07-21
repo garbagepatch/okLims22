@@ -12,5 +12,5 @@ RUN dotnet publish -c Release -o out
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.1
 WORKDIR /okLims
-COPY --from=build-env /okLims/bin/Release/netcoreapp2.1/Publish /okLims .
-ENTRYPOINT ["dotnet", "aspnetapp.dll"
+COPY /okLims/bin/Release/netcoreapp2.1/Publish /okLims .
+ENTRYPOINT ["dotnet", "okLims/okLims.dll"
