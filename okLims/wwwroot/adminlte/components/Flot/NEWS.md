@@ -10,36 +10,36 @@
  - Added a work-around to disable the allocation of extra space for first and
    last axis ticks, allowing plots to span the full width of their container.
    A proper solution for this bug will be implemented in the 0.9 release.
-   (reported by Josh Pigford and andig, issue #1212, pull request #1290)
+   (reported by Josh Pigford and andig, Request #1212, pull request #1290)
 
  - Fixed a regression introduced in 0.8.1, where the last tick label would
    sometimes wrap rather than extending the plot's offset to create space.
-   (reported by Elite Gamer, issue #1283)
+   (reported by Elite Gamer, Request #1283)
 
  - Fixed a regression introduced in 0.8.2, where the resize plugin would use
    unexpectedly high amounts of CPU even when idle.
-   (reported by tommie, issue #1277, pull request #1289)
+   (reported by tommie, Request #1277, pull request #1289)
 
  - Fixed the selection example to work with jQuery 1.9.x and later.
-   (reported by EGLadona and dmfalke, issue #1250, pull request #1285)
+   (reported by EGLadona and dmfalke, Request #1250, pull request #1285)
 
  - Added a detach shim to fix support for jQuery versions earlier than 1.4.x.
-   (reported by ngavard, issue #1240, pull request #1286)
+   (reported by ngavard, Request #1240, pull request #1286)
 
  - Fixed a rare 'Uncaught TypeError' when using the resize plugin in IE 7/8.
-   (reported by tleish, issue #1265, pull request #1289)
+   (reported by tleish, Request #1265, pull request #1289)
 
  - Fixed zoom constraints to apply only in the direction of the zoom.
-   (patch by Neil Katin, issue #1204, pull request #1205)
+   (patch by Neil Katin, Request #1204, pull request #1205)
 
  - Markings lines are no longer blurry when drawn on pixel boundaries.
-   (reported by btccointicker and Rouillard, issue #1210)
+   (reported by btccointicker and Rouillard, Request #1210)
 
  - Don't discard original pie data-series values when combining slices.
    (patch by Phil Tsarik, pull request #1238)
 
  - Fixed broken auto-scale behavior when using deprecated [x|y]2axis options.
-   (reported by jorese, issue #1228, pull request #1284)
+   (reported by jorese, Request #1228, pull request #1284)
 
  - Exposed the dateGenerator function on the plot object, as it used to be
    before time-mode was moved into a separate plugin.
@@ -52,7 +52,7 @@
 
  - Added a plot.destroy method as a way to free memory when emptying the plot
    placeholder and then re-using it for some other purpose.
-   (patch by Thodoris Greasidis, issue #1129, pull request #1130)
+   (patch by Thodoris Greasidis, Request #1129, pull request #1130)
 
  - Added a table of contents and PLUGINS link to the API documentation.
    (patches by Brian Peiris, pull requests #1064 and #1127)
@@ -64,7 +64,7 @@
    (patches by Patrik Ragnarsson, pull requests #1085 and #1086)
 
  - Updated inlined jQuery Resize to the latest version to fix errors.
-   (reported by Matthew Sabol and sloker, issues #997 ad #1081)
+   (reported by Matthew Sabol and sloker, Requests #997 ad #1081)
 
 ### Bug fixes ###
 
@@ -81,46 +81,46 @@
    other side of the plot from the first axis. This resulted in the axis bar
    being visible when it shouldn't have been, which was especially obvious
    when the grid had a left/right border width of zero.
-   (reported by Teq1, fix researched by ryleyb, issue #1056)
+   (reported by Teq1, fix researched by ryleyb, Request #1056)
 
  - Fixed an error when using a placeholder that has no font-size property.
    (patch by Craig Oldford, pull request #1135)
 
  - Fixed a regression from 0.7 where nulls at the end of a series were ignored
    for purposes of determing the range of the x-axis.
-   (reported by Munsifali Rashid, issue #1095)
+   (reported by Munsifali Rashid, Request #1095)
 
  - If a font size is provided, base the default lineHeight on that size rather
    that the font size of the plot placeholder, which may be very different.
-   (reported by Daniel Hoffmann Bernardes, issue #1131, pull request #1199)
+   (reported by Daniel Hoffmann Bernardes, Request #1131, pull request #1199)
 
  - Fix broken highlighting for right-aligned bars.
-   (reported by BeWiBu and Mihai Stanciu, issues #975 and #1093, with further
+   (reported by BeWiBu and Mihai Stanciu, Requests #975 and #1093, with further
    assistance by Eric Byers, pull request #1120)
 
  - Prevent white circles from sometimes showing up inside of pie charts.
-   (reported by Pierre Dubois and Jack Klink, issues #1128 and #1073)
+   (reported by Pierre Dubois and Jack Klink, Requests #1128 and #1073)
 
  - Label formatting no longer breaks when a page contains multiple pie charts.
-   (reported by Brend Wanders, issue #1055)
+   (reported by Brend Wanders, Request #1055)
 
  - When using multiple axes on opposite sides of the plot, the innermost axis
    coming later in the list no longer has its bar drawn incorrectly.
-   (reported by ryleyb, issue #1056)
+   (reported by ryleyb, Request #1056)
 
  - When removing series labels and redrawing the plot, the legend now updates
    correctly even when using an external container.
-   (patch by Luis Silva, issue #1159, pull request #1160)
+   (patch by Luis Silva, Request #1159, pull request #1160)
 
  - The pie plugin no longer ignores the value of the left offset option.
-   (reported by melanker, issue #1136)
+   (reported by melanker, Request #1136)
 
  - Fixed a regression from 0.7, where extra padding was added unnecessarily to
    sides of the plot where there was no last tick label.
-   (reported by sknob001, issue #1048, pull request #1200)
+   (reported by sknob001, Request #1048, pull request #1200)
 
  - Fixed incorrect tooltip behavior in the interacting example.
-   (patch by cleroux, issue #686, pull request #1074)
+   (patch by cleroux, Request #686, pull request #1074)
 
  - Fixed an error in CSS color extraction with elements outside the DOM.
    (patch by execjosh, pull request #1084)
@@ -128,8 +128,8 @@
  - Fixed :not selector error when using jQuery without Sizzle.
    (patch by Anthony Ryan, pull request #1180)
 
- - Worked around a browser issue that caused bars to appear un-filled.
-   (reported by irbian, issue #915)
+ - Worked around a browser Request that caused bars to appear un-filled.
+   (reported by irbian, Request #915)
 
 ## Flot 0.8.1 ##
 
@@ -138,17 +138,17 @@
  - Fixed a regression in the time plugin, introduced in 0.8, that caused dates
    to align to the minute rather than to the highest appropriate unit. This
    caused many x-axes in 0.8 to have different ticks than they did in 0.7.
-   (reported by Tom Sheppard, patch by Daniel Shapiro, issue #1017, pull
+   (reported by Tom Sheppard, patch by Daniel Shapiro, Request #1017, pull
    request #1023)
 
  - Fixed a regression in text rendering, introduced in 0.8, that caused axis
    labels with the same text as another label on the same axis to disappear.
    More generally, it's again possible to have the same text in two locations.
-   (issue #1032)
+   (Request #1032)
 
  - Fixed a regression in text rendering, introduced in 0.8, where axis labels
    were no longer assigned an explicit width, and their text could not wrap.
-   (reported by sabregreen, issue #1019)
+   (reported by sabregreen, Request #1019)
 
  - Fixed a regression in the pie plugin, introduced in 0.8, that prevented it
    from accepting data in the format '[[x, y]]'.
@@ -156,20 +156,20 @@
 
  - The 'zero' series option and 'autoscale' format option are no longer
    ignored when the series contains a null value.
-   (reported by Daniel Shapiro, issue #1033)
+   (reported by Daniel Shapiro, Request #1033)
 
  - Avoid triggering the time-mode plugin exception when there are zero series.
-   (reported by Daniel Rothig, patch by Mark Raymond, issue #1016)
+   (reported by Daniel Rothig, patch by Mark Raymond, Request #1016)
 
  - When a custom color palette has fewer colors than the default palette, Flot
    no longer fills out the colors with the remainder of the default.
-   (patch by goorpy, issue #1031, pull request #1034)
+   (patch by goorpy, Request #1031, pull request #1034)
 
  - Fixed missing update for bar highlights after a zoom or other redraw.
-   (reported by Paolo Valleri, issue #1030)
+   (reported by Paolo Valleri, Request #1030)
 
  - Fixed compatibility with jQuery versions earlier than 1.7.
-   (patch by Lee Willis, issue #1027, pull request #1027)
+   (patch by Lee Willis, Request #1027, pull request #1027)
 
  - The mouse wheel no longer scrolls the page when using the navigate plugin.
    (patch by vird, pull request #1020)
@@ -225,39 +225,39 @@ older browsers, even if they support the canvas tag itself. To use the plugin
 with these browsers try using a shim such as canvas-text or FlashCanvas.
 
 The base and overlay canvas are now using the CSS classes "flot-base" and
-"flot-overlay" to prevent accidental clashes (issue 540).
+"flot-overlay" to prevent accidental clashes (Request 540).
 
 ### Changes ###
 
  - Addition of nonstandard %q specifier to date/time formatting. (patch
-   by risicle, issue 49)
+   by risicle, Request 49)
 
  - Date/time formatting follows proper subset of strftime specifiers, and
    support added for Date.prototype.strftime, if found. (patch by Mark Cote,
-   issues 419 and 558)
+   Requests 419 and 558)
 
- - Fixed display of year ticks. (patch by Mark Cote, issue 195)
+ - Fixed display of year ticks. (patch by Mark Cote, Request 195)
 
  - Support for time series moved to plugin. (patch by Mark Cote)
 
  - Display time series in different time zones. (patch by Knut Forkalsrud,
-   issue 141)
+   Request 141)
 
  - Added a canvas plugin to enable rendering axis tick labels to the canvas.
    (sponsored by YCharts.com, implementation by Ole Laursen and David Schnur)
 
  - Support for setting the interval between redraws of the overlay canvas with
-   redrawOverlayInterval. (suggested in issue 185)
+   redrawOverlayInterval. (suggested in Request 185)
 
  - Support for multiple thresholds in thresholds plugin. (patch by Arnaud
-   Bellec, issue 523)
+   Bellec, Request 523)
 
  - Support for plotting categories/textual data directly with new categories
    plugin.
 
  - Tick generators now get the whole axis rather than just min/max.
 
- - Added processOffset and drawBackground hooks. (suggested in issue 639)
+ - Added processOffset and drawBackground hooks. (suggested in Request 639)
 
  - Added a grid "margin" option to set the space between the canvas edge and
    the grid.
@@ -266,7 +266,7 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
    Shane Reustle)
 
  - In addition to "left" and "center", bars now recognize "right" as an
-   alignment option. (patch by Michael Mayer, issue 520)
+   alignment option. (patch by Michael Mayer, Request 520)
 
  - Switched from toFixed to a much faster default tickFormatter. (patch by
    Clemens Stolle)
@@ -279,11 +279,11 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
 
  - Added a series "highlightColor" option to control the color of the
    translucent overlay that identifies the dataset when the mouse hovers over
-   it. (patch by Eric Wendelin and Nate Abele, issues 168 and 299)
+   it. (patch by Eric Wendelin and Nate Abele, Requests 168 and 299)
 
  - Added a plugin jquery.flot.errorbars, with an accompanying example, that
    adds the ability to plot error bars, commonly used in many kinds of
-   statistical data visualizations. (patch by Rui Pereira, issue 215)
+   statistical data visualizations. (patch by Rui Pereira, Request 215)
 
  - The legend now omits entries whose labelFormatter returns null.  (patch by
    Tom Cleaveland, Christopher Lambert, and Simon Strandgaard)
@@ -304,13 +304,13 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
 
  - Added a new option called 'zero' to bars and filled lines series, to control
    whether the y-axis minimum is scaled to fit the data or set to zero.
-   (patch by David Schnur, issues #316, #529, and #856, pull request #911)
+   (patch by David Schnur, Requests #316, #529, and #856, pull request #911)
 
  - The plot function is now also a jQuery chainable property.
-   (patch by David Schnur, issues #734 and #816, pull request #953)
+   (patch by David Schnur, Requests #734 and #816, pull request #953)
 
  - When only a single pie slice is beneath the combine threshold it is no longer
-   replaced by an 'other' slice. (suggested by Devin Bayer, issue #638)
+   replaced by an 'other' slice. (suggested by Devin Bayer, Request #638)
 
  - Added lineJoin and minSize options to the selection plugin to control the
    corner style and minimum size of the selection, respectively.
@@ -319,10 +319,10 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
 ### Bug fixes ###
 
  - Fix problem with null values and pie plugin. (patch by gcruxifix,
-   issue 500)
+   Request 500)
 
  - Fix problem with threshold plugin and bars. (based on patch by
-   kaarlenkaski, issue 348)
+   kaarlenkaski, Request 348)
 
  - Fix axis box calculations so the boxes include the outermost part of the
    labels too.
@@ -330,26 +330,26 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
  - Fix problem with event clicking and hovering in IE 8 by updating Excanvas
    and removing previous work-around. (test case by Ara Anjargolian)
 
- - Fix issues with blurry 1px border when some measures aren't integer.
+ - Fix Requests with blurry 1px border when some measures aren't integer.
    (reported by Ara Anjargolian)
 
  - Fix bug with formats in the data processor. (reported by Peter Hull,
-   issue 534)
+   Request 534)
 
  - Prevent i from being declared global in extractRange. (reported by
-   Alexander Obukhov, issue 627)
+   Alexander Obukhov, Request 627)
 
  - Throw errors in a more cross-browser-compatible manner. (patch by
    Eddie Kay)
 
  - Prevent pie slice outlines from being drawn when the stroke width is zero.
-   (reported by Chris Minett, issue 585)
+   (reported by Chris Minett, Request 585)
 
  - Updated the navigate plugin's inline copy of jquery.mousewheel to fix
-   Webkit zoom problems. (reported by Hau Nguyen, issue 685)
+   Webkit zoom problems. (reported by Hau Nguyen, Request 685)
 
  - Axis labels no longer appear as decimals rather than integers in certain
-   cases. (patch by Clemens Stolle, issue 541)
+   cases. (patch by Clemens Stolle, Request 541)
 
  - Automatic color generation no longer produces only whites and blacks when
    there are many series. (patch by David Schnur and Tom Cleaveland)
@@ -359,28 +359,28 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
 
  - Prevented the local insertSteps and fmt variables from becoming global.
    (first reported by Marc Bennewitz and Szymon Barglowski, patch by Nick
-   Campbell, issues #825 and #831, pull request #851)
+   Campbell, Requests #825 and #831, pull request #851)
 
  - Prevented several threshold plugin variables from becoming global. (patch
    by Lasse Dahl Ebert)
 
- - Fixed various jQuery 1.8 compatibility issues. (issues #814 and #819,
+ - Fixed various jQuery 1.8 compatibility Requests. (Requests #814 and #819,
    pull request #877)
 
  - Pie charts with a slice equal to or approaching 100% of the pie no longer
-   appear invisible. (patch by David Schnur, issues #444, #658, #726, #824
+   appear invisible. (patch by David Schnur, Requests #444, #658, #726, #824
    and #850, pull request #879)
 
  - Prevented several local variables from becoming global. (patch by aaa707)
 
- - Ensure that the overlay and primary canvases remain aligned. (issue #670,
+ - Ensure that the overlay and primary canvases remain aligned. (Request #670,
    pull request #901)
 
  - Added support for jQuery 1.9 by removing and replacing uses of $.browser.
    (analysis and patch by Anthony Ryan, pull request #905)
 
  - Pie charts no longer disappear when redrawn during a resize or update.
-   (reported by Julien Bec, issue #656, pull request #910)
+   (reported by Julien Bec, Request #656, pull request #910)
 
  - Avoided floating-point precision errors when calculating pie percentages.
    (patch by James Ward, pull request #918)
@@ -388,33 +388,33 @@ The base and overlay canvas are now using the CSS classes "flot-base" and
  - Fixed compatibility with jQuery 1.2.6, which has no 'mouseleave' shortcut.
    (reported by Bevan, original pull request #920, replaced by direct patch)
 
- - Fixed sub-pixel rendering issues with crosshair and selection lines.
+ - Fixed sub-pixel rendering Requests with crosshair and selection lines.
    (patches by alanayoub and Daniel Shapiro, pull requests #17 and #925)
 
- - Fixed rendering issues when using the threshold plugin with several series.
+ - Fixed rendering Requests when using the threshold plugin with several series.
    (patch by Ivan Novikov, pull request #934)
 
  - Pie charts no longer disappear when redrawn after calling setData().
-   (reported by zengge1984 and pareeohnos, issues #810 and #945)
+   (reported by zengge1984 and pareeohnos, Requests #810 and #945)
 
  - Added a work-around for the problem where points with a lineWidth of zero
-   still showed up with a visible line. (reported by SalvoSav, issue #842,
+   still showed up with a visible line. (reported by SalvoSav, Request #842,
    patch by Jamie Hamel-Smith, pull request #937)
 
  - Pie charts now accept values in string form, like other plot types.
-   (reported by laerdal.no, issue #534)
+   (reported by laerdal.no, Request #534)
 
  - Avoid rounding errors in the threshold plugin.
-   (reported by jerikojerk, issue #895)
+   (reported by jerikojerk, Request #895)
 
  - Fixed an error when using the navigate plugin with jQuery 1.9.x or later.
-   (reported by Paolo Valleri, issue #964)
+   (reported by Paolo Valleri, Request #964)
 
  - Fixed inconsistencies between the highlight and unhighlight functions.
-   (reported by djamshed, issue #987)
+   (reported by djamshed, Request #987)
 
  - Fixed recalculation of tickSize and tickDecimals on calls to setupGrid.
-   (patch by thecountofzero, pull request #861, issues #860, #1000)
+   (patch by thecountofzero, pull request #861, Requests #860, #1000)
 
 
 ## Flot 0.7 ##
@@ -490,12 +490,12 @@ also surfaced, if your graphs are slow in IE, you may want to give it a spin:
  - Stacking plugin can stack horizontal bar charts.
 
  - Navigate plugin now redraws the plot while panning instead of only after
-   the fact. (raised by lastthemy, issue 235)
+   the fact. (raised by lastthemy, Request 235)
 
    Can be disabled by setting the pan.frameRate option to null.
 
  - Date formatter now accepts %0m and %0d to get a zero-padded month or day.
-   (issue raised by Maximillian Dornseif)
+   (Request raised by Maximillian Dornseif)
 
  - Revamped internals to support an unlimited number of axes, not just dual.
    (sponsored by Flight Data Services, www.flightdataservices.com)
@@ -543,11 +543,11 @@ also surfaced, if your graphs are slow in IE, you may want to give it a spin:
  - The version comment is now included in the minified jquery.flot.min.js.
 
  - New options.grid.minBorderMargin for adjusting the minimum margin provided
-   around the border (based on patch by corani, issue 188).
+   around the border (based on patch by corani, Request 188).
 
  - Refactor replot behaviour so Flot tries to reuse the existing canvas,
    adding shutdown() methods to the plot. (based on patch by Ryley Breiddal,
-   issue 269)
+   Request 269)
    
    This prevents a memory leak in Chrome and hopefully makes replotting faster
    for those who are using $.plot instead of .setData()/.draw(). Also update
@@ -560,10 +560,10 @@ also surfaced, if your graphs are slow in IE, you may want to give it a spin:
 ### Bug fixes ###
 
  - Fixed problem with findNearbyItem and bars on top of each other. (reported
-   by ragingchikn, issue 242)
+   by ragingchikn, Request 242)
 
  - Fixed problem with ticks and the border. (based on patch from
-   ultimatehustler69, issue 236)
+   ultimatehustler69, Request 236)
 
  - Fixed problem with plugins adding options to the series objects.
 
@@ -579,13 +579,13 @@ also surfaced, if your graphs are slow in IE, you may want to give it a spin:
  - highlight(s, index) was looking up the point in the original s.data instead
    of in the computed datapoints array, which breaks with plugins that modify
    the datapoints, such as the stacking plugin. (reported by curlypaul924,
-   issue 316)
+   Request 316)
 
  - More robust handling of axis from data passed in from getData(). (reported)
    by Morgan)
 
  - Fixed problem with turning off bar outline. (fix by Jordi Castells,
-   issue 253)
+   Request 253)
 
  - Check the selection passed into setSelection in the selection
    plugin, to guard against errors when synchronizing plots (fix by Lau
@@ -601,7 +601,7 @@ also surfaced, if your graphs are slow in IE, you may want to give it a spin:
    arrays, patch by vpapp1).
 
  - Fix errors in JSON in examples so they work with jQuery 1.4.2
-   (fix reported by honestbleeps, issue 357).
+   (fix reported by honestbleeps, Request 357).
 
  - Fix bug with tooltip in interacting.html, this makes the tooltip
    much smoother (fix by bdkahn). Fix related bug inside highlighting
@@ -626,22 +626,22 @@ also surfaced, if your graphs are slow in IE, you may want to give it a spin:
  - Adapt examples to skip loading excanvas (fix by Ryley Breiddal).
 
  - Fix bug that prevent a simple f(x) = -x transform from working
-   correctly (fix by Mike, issue 263).
+   correctly (fix by Mike, Request 263).
 
  - Fix bug in restoring cursor in navigate plugin (reported by Matteo
-   Gattanini, issue 395).
+   Gattanini, Request 395).
 
  - Fix bug in picking items when transform/inverseTransform is in use
    (reported by Ofri Raviv, and patches and analysis by Jan and Tom
-   Paton, issue 334 and 467).
+   Paton, Request 334 and 467).
 
  - Fix problem with unaligned ticks and hover/click events caused by
    padding on the placeholder by hardcoding the placeholder padding to
    0 (reported by adityadineshsaxena, Matt Sommer, Daniel Atos and some
-   other people, issue 301).
+   other people, Request 301).
 
  - Update colorhelpers plugin to avoid dying when trying to parse an
-   invalid string (reported by cadavor, issue 483).
+   invalid string (reported by cadavor, Request 483).
 
 
 
@@ -703,7 +703,7 @@ in event handling speed.
    Mike R. Williamson)
 
  - Added support for gradient backgrounds for the grid. (based on patch from
-   Amaury Chamayou, issue 90)
+   Amaury Chamayou, Request 90)
 
    The "setting options" example provides a demonstration.
 
@@ -717,7 +717,7 @@ in event handling speed.
 
  - Data passed into Flot is now copied to a new canonical format to enable
    further processing before it hits the drawing routines. As a side-effect,
-   this should make Flot more robust in the face of bad data. (issue 112)
+   this should make Flot more robust in the face of bad data. (Request 112)
 
  - Step-wise charting: line charts have a new option "steps" that when set to
    true connects the points with horizontal/vertical steps instead of diagonal
@@ -781,7 +781,7 @@ in event handling speed.
    dataset is completely flat on that axis. (report by chovy)
 
  - Fixed a bug with passing in data from getData to setData when the secondary
-   axes are used. (reported by nperelman, issue 65)
+   axes are used. (reported by nperelman, Request 65)
 
  - Fixed so that it is possible to turn lines off when no other chart type is
    shown (based on problem reported by Glenn Vanderburg), and fixed so that
@@ -791,7 +791,7 @@ in event handling speed.
  - Updated mousemove position expression to the latest from jQuery. (reported
    by meyuchas)
 
- - Use CSS borders instead of background in legend. (issues 25 and 45)
+ - Use CSS borders instead of background in legend. (Requests 25 and 45)
 
  - Explicitly convert axis min/max to numbers.
 
@@ -799,10 +799,10 @@ in event handling speed.
    Khurram)
 
  - Fixed a bug with returning y2 values in the selection event. (fix by
-   exists, issue 75)
+   exists, Request 75)
 
  - Only set position relative on placeholder if it hasn't already a position
-   different from static. (reported by kyberneticist, issue 95)
+   different from static. (reported by kyberneticist, Request 95)
 
  - Don't round markings to prevent sub-pixel problems. (reported by
    Dan Lipsitt)
@@ -811,15 +811,15 @@ in event handling speed.
    it from overlapping the plot itself. This also fixes a problem with anti-
    aliasing when the width is 1 pixel. (reported by Anthony Ettinger)
 
- - Imported version 3 of excanvas and fixed two issues with the newer version.
+ - Imported version 3 of excanvas and fixed two Requests with the newer version.
    Hopefully, this will make Flot work with IE8. (nudge by Fabien Menager,
-   further analysis by Booink, issue 133)
+   further analysis by Booink, Request 133)
 
  - Changed the shadow code for lines to hopefully look a bit better with
    vertical lines.
 
  - Round tick positions to avoid possible problems with fractions. (suggestion
-   by Fred, issue 130)
+   by Fred, Request 130)
 
  - Made the heuristic for determining how many ticks to aim for a bit smarter.
 
@@ -832,7 +832,7 @@ in event handling speed.
    rickinhethuis)
 
  - Make sure points on top take precedence when finding nearby points when
-   hovering. (reported by didroe, issue 224)
+   hovering. (reported by didroe, Request 224)
 
 
 

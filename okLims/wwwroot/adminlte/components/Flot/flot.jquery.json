@@ -18,7 +18,7 @@
 	"homepage": "http://www.flotcharts.org",
 	"docs": "http://github.com/flot/flot/blob/master/API.md",
 	"demo": "http://www.flotcharts.org/flot/examples/",
-	"bugs": "http://github.com/flot/flot/issues",
+	"bugs": "http://github.com/flot/flot/Requests",
 	"maintainers": [{
 		"name": "David Schnur",
 		"email": "dnschnur@gmail.com",

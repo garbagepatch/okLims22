@@ -227,7 +227,7 @@
 	FastClick.prototype.needsClick = function(target) {
 		switch (target.nodeName.toLowerCase()) {
 
-		// Don't send a synthetic click to disabled inputs (issue #62)
+		// Don't send a synthetic click to disabled inputs (Request #62)
 		case 'button':
 		case 'select':
 		case 'textarea':
@@ -238,7 +238,7 @@
 			break;
 		case 'input':
 
-			// File inputs need real clicks on iOS 6 due to a browser bug (issue #68)
+			// File inputs need real clicks on iOS 6 due to a browser bug (Request #68)
 			if ((deviceIsIOS && target.type === 'file') || target.disabled) {
 				return true;
 			}
@@ -310,7 +310,7 @@
 
 	FastClick.prototype.determineEventType = function(targetElement) {
 
-		//Issue #159: Android Chrome Select Box does not open with a synthetic click event
+		//Request #159: Android Chrome Select Box does not open with a synthetic click event
 		if (deviceIsAndroid && targetElement.tagName.toLowerCase() === 'select') {
 			return 'mousedown';
 		}
@@ -325,7 +325,7 @@
 	FastClick.prototype.focus = function(targetElement) {
 		var length;
 
-		// Issue #160: on iOS 7, some input elements (e.g. date datetime month) throw a vague TypeError on setSelectionRange. These elements don't have an integer value for the selectionStart and selectionEnd properties, but unfortunately that can't be used for detection because accessing the properties also throws a TypeError. Just check the type instead. Filed as Apple bug #15122724.
+		// Request #160: on iOS 7, some input elements (e.g. date datetime month) throw a vague TypeError on setSelectionRange. These elements don't have an integer value for the selectionStart and selectionEnd properties, but unfortunately that can't be used for detection because accessing the properties also throws a TypeError. Just check the type instead. Filed as Apple bug #15122724.
 		if (deviceIsIOS && targetElement.setSelectionRange && targetElement.type.indexOf('date') !== 0 && targetElement.type !== 'time' && targetElement.type !== 'month') {
 			length = targetElement.value.length;
 			targetElement.setSelectionRange(length, length);
@@ -373,7 +373,7 @@
 	 */
 	FastClick.prototype.getTargetElementFromEventTarget = function(eventTarget) {
 
-		// On some older browsers (notably Safari on iOS 4.1 - see issue #56) the event target may be a text node.
+		// On some older browsers (notably Safari on iOS 4.1 - see Request #56) the event target may be a text node.
 		if (eventTarget.nodeType === Node.TEXT_NODE) {
 			return eventTarget.parentNode;
 		}
@@ -391,7 +391,7 @@
 	FastClick.prototype.onTouchStart = function(event) {
 		var targetElement, touch, selection;
 
-		// Ignore multiple touches, otherwise pinch-to-zoom is prevented if both fingers are on the FastClick element (issue #111).
+		// Ignore multiple touches, otherwise pinch-to-zoom is prevented if both fingers are on the FastClick element (Request #111).
 		if (event.targetTouches.length > 1) {
 			return true;
 		}
@@ -401,7 +401,7 @@
 
 		if (deviceIsIOS) {
 
-			// Only trusted events will deselect text on iOS (issue #49)
+			// Only trusted events will deselect text on iOS (Request #49)
 			selection = window.getSelection();
 			if (selection.rangeCount && !selection.isCollapsed) {
 				return true;
@@ -409,12 +409,12 @@
 
 			if (!deviceIsIOS4) {
 
-				// Weird things happen on iOS when an alert or confirm dialog is opened from a click event callback (issue #23):
+				// Weird things happen on iOS when an alert or confirm dialog is opened from a click event callback (Request #23):
 				// when the user next taps anywhere else on the page, new touchstart and touchend events are dispatched
 				// with the same identifier as the touch event that previously triggered the click that triggered the alert.
-				// Sadly, there is an issue on iOS 4 that causes some normal touch events to have the same identifier as an
-				// immediately preceeding touch event (issue #52), so this fix is unavailable on that platform.
-				// Issue 120: touch.identifier is 0 when Chrome dev tools 'Emulate touch events' is set with an iOS device UA string,
+				// Sadly, there is an Request on iOS 4 that causes some normal touch events to have the same identifier as an
+				// immediately preceeding touch event (Request #52), so this fix is unavailable on that platform.
+				// Request 120: touch.identifier is 0 when Chrome dev tools 'Emulate touch events' is set with an iOS device UA string,
 				// which causes all touch events to be ignored. As this block only applies to iOS, and iOS identifiers are always long,
 				// random integers, it's safe to to continue if the identifier is 0 here.
 				if (touch.identifier && touch.identifier === this.lastTouchIdentifier) {
@@ -429,7 +429,7 @@
 				// 2) the user stops the fling scroll with another tap
 				// then the event.target of the last 'touchend' event will be the element that was under the user's finger
 				// when the fling scroll was started, causing FastClick to send a click event to that layer - unless a check
-				// is made to ensure that a parent layer was not scrolled before sending a synthetic click (issue #42).
+				// is made to ensure that a parent layer was not scrolled before sending a synthetic click (Request #42).
 				this.updateScrollParent(targetElement);
 			}
 		}
@@ -441,7 +441,7 @@
 		this.touchStartX = touch.pageX;
 		this.touchStartY = touch.pageY;
 
-		// Prevent phantom clicks on fast double-tap (issue #36)
+		// Prevent phantom clicks on fast double-tap (Request #36)
 		if ((event.timeStamp - this.lastClickTime) < this.tapDelay) {
 			event.preventDefault();
 		}
@@ -525,7 +525,7 @@
 			return true;
 		}
 
-		// Prevent phantom clicks on fast double-tap (issue #36)
+		// Prevent phantom clicks on fast double-tap (Request #36)
 		if ((event.timeStamp - this.lastClickTime) < this.tapDelay) {
 			this.cancelNextClick = true;
 			return true;
@@ -535,7 +535,7 @@
 			return true;
 		}
 
-		// Reset to prevent wrong click cancel on input (issue #156).
+		// Reset to prevent wrong click cancel on input (Request #156).
 		this.cancelNextClick = false;
 
 		this.lastClickTime = event.timeStamp;
@@ -547,7 +547,7 @@
 		// On some iOS devices, the targetElement supplied with the event is invalid if the layer
 		// is performing a transition or scroll, and has to be re-detected manually. Note that
 		// for this to function correctly, it must be called *after* the event target is checked!
-		// See issue #57; also filed as rdar://13048589 .
+		// See Request #57; also filed as rdar://13048589 .
 		if (deviceIsIOSWithBadTarget) {
 			touch = event.changedTouches[0];
 
@@ -569,8 +569,8 @@
 			}
 		} else if (this.needsFocus(targetElement)) {
 
-			// Case 1: If the touch started a while ago (best guess is 100ms based on tests for issue #36) then focus will be triggered anyway. Return early and unset the target element reference so that the subsequent click will be allowed through.
-			// Case 2: Without this exception for input elements tapped when the document is contained in an iframe, then any inputted text won't be visible even though the value attribute is updated as the user types (issue #37).
+			// Case 1: If the touch started a while ago (best guess is 100ms based on tests for Request #36) then focus will be triggered anyway. Return early and unset the target element reference so that the subsequent click will be allowed through.
+			// Case 2: Without this exception for input elements tapped when the document is contained in an iframe, then any inputted text won't be visible even though the value attribute is updated as the user types (Request #37).
 			if ((event.timeStamp - trackingClickStart) > 100 || (deviceIsIOS && window.top !== window && targetTagName === 'input')) {
 				this.targetElement = null;
 				return false;
@@ -592,7 +592,7 @@
 		if (deviceIsIOS && !deviceIsIOS4) {
 
 			// Don't send a synthetic click event if the target element is contained within a parent layer that was scrolled
-			// and this tap is being used to stop the scrolling (usually initiated by a fling - issue #42).
+			// and this tap is being used to stop the scrolling (usually initiated by a fling - Request #42).
 			scrollParent = targetElement.fastClickScrollParent;
 			if (scrollParent && scrollParent.fastClickLastScrollTop !== scrollParent.scrollTop) {
 				return true;
@@ -680,14 +680,14 @@
 	FastClick.prototype.onClick = function(event) {
 		var permitted;
 
-		// It's possible for another FastClick-like library delivered with third-party code to fire a click event before FastClick does (issue #44). In that case, set the click-tracking flag back to false and return early. This will cause onTouchEnd to return early.
+		// It's possible for another FastClick-like library delivered with third-party code to fire a click event before FastClick does (Request #44). In that case, set the click-tracking flag back to false and return early. This will cause onTouchEnd to return early.
 		if (this.trackingClick) {
 			this.targetElement = null;
 			this.trackingClick = false;
 			return true;
 		}
 
-		// Very odd behaviour on iOS (issue #18): if a submit element is present inside a form and the user hits enter in the iOS simulator or clicks the Go button on the pop-up OS keyboard the a kind of 'fake' click event will be triggered with the submit-type input element as the target.
+		// Very odd behaviour on iOS (Request #18): if a submit element is present inside a form and the user hits enter in the iOS simulator or clicks the Go button on the pop-up OS keyboard the a kind of 'fake' click event will be triggered with the submit-type input element as the target.
 		if (event.target.type === 'submit' && event.detail === 0) {
 			return true;
 		}
@@ -751,7 +751,7 @@
 				metaViewport = document.querySelector('meta[name=viewport]');
 
 				if (metaViewport) {
-					// Chrome on Android with user-scalable="no" doesn't need FastClick (issue #89)
+					// Chrome on Android with user-scalable="no" doesn't need FastClick (Request #89)
 					if (metaViewport.content.indexOf('user-scalable=no') !== -1) {
 						return true;
 					}
@@ -761,7 +761,7 @@
 					}
 				}
 
-			// Chrome desktop doesn't need FastClick (issue #15)
+			// Chrome desktop doesn't need FastClick (Request #15)
 			} else {
 				return true;
 			}
@@ -771,7 +771,7 @@
 			blackberryVersion = navigator.userAgent.match(/Version\/([0-9]*)\.([0-9]*)/);
 
 			// BlackBerry 10.3+ does not require Fastclick library.
-			// https://github.com/ftlabs/fastclick/issues/251
+			// https://github.com/ftlabs/fastclick/Requests/251
 			if (blackberryVersion[1] >= 10 && blackberryVersion[2] >= 3) {
 				metaViewport = document.querySelector('meta[name=viewport]');
 
@@ -788,7 +788,7 @@
 			}
 		}
 
-		// IE10 with -ms-touch-action: none or manipulation, which disables double-tap-to-zoom (issue #97)
+		// IE10 with -ms-touch-action: none or manipulation, which disables double-tap-to-zoom (Request #97)
 		if (layer.style.msTouchAction === 'none' || layer.style.touchAction === 'manipulation') {
 			return true;
 		}

@@ -42,7 +42,7 @@ Support for DataTables is available through the [DataTables forums](//datatables
 
 ### Contributing
 
-If you are thinking of contributing code to DataTables, first of all, thank you! All fixes, patches and enhancements to DataTables are very warmly welcomed. This repository is a distribution repo, so patches and issues sent to this repo will not be accepted. Instead, please direct pull requests to the [DataTables/DataTablesSrc](http://github.com/DataTables/DataTablesSrc). For issues / bugs, please direct your questions to the [DataTables forums](//datatables.net/forums).
+If you are thinking of contributing code to DataTables, first of all, thank you! All fixes, patches and enhancements to DataTables are very warmly welcomed. This repository is a distribution repo, so patches and Requests sent to this repo will not be accepted. Instead, please direct pull requests to the [DataTables/DataTablesSrc](http://github.com/DataTables/DataTablesSrc). For Requests / bugs, please direct your questions to the [DataTables forums](//datatables.net/forums).
 
 
 ## License

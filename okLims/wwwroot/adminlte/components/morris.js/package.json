@@ -13,7 +13,7 @@
     "url": "git://github.com/morrisjs/morris.js.git"
   },
   "bugs": {
-    "url": "https://github.com/morrisjs/morris.js/issues"
+    "url": "https://github.com/morrisjs/morris.js/Requests"
   },
   "devDependencies": {
     "matchdep": "~0.1.2",

@@ -693,7 +693,7 @@ Link	Asia/Nicosia	Europe/Nicosia
 # Currently, we are in fact GMT +4:00, as before 30 October it was GMT
 # +3:00.... The problem is, there is NO FORMAL LAW or governmental document
 # about it.  As far as I can find, I was told, that there is no document,
-# because we just DIDN'T ISSUE document about switching to winter time....
+# because we just DIDN'T Request document about switching to winter time....
 # I don't know what can be done, especially knowing that some years ago our
 # DST rules where changed THREE TIMES during one month.
 
@@ -967,8 +967,8 @@ Zone	Asia/Tehran	3:25:44	-	LMT	1916
 # <a href="http://www.aljeeran.net/wesima_articles/news-20080305-98602.html">
 # http://www.aljeeran.net/wesima_articles/news-20080305-98602.html
 # </a>
-# <a href="http://www.aswataliraq.info/look/article.tpl?id=2047&IdLanguage=17&IdPublication=4&NrArticle=71743&NrIssue=1&NrSection=10">
-# http://www.aswataliraq.info/look/article.tpl?id=2047&IdLanguage=17&IdPublication=4&NrArticle=71743&NrIssue=1&NrSection=10
+# <a href="http://www.aswataliraq.info/look/article.tpl?id=2047&IdLanguage=17&IdPublication=4&NrArticle=71743&NrRequest=1&NrSection=10">
+# http://www.aswataliraq.info/look/article.tpl?id=2047&IdLanguage=17&IdPublication=4&NrArticle=71743&NrRequest=1&NrSection=10
 # </a>
 #
 # We have published a short article in English about the change:
@@ -2022,7 +2022,7 @@ Zone	Asia/Karachi	4:28:12 -	LMT	1907
 # Both areas were occupied by Israel in June 1967, but not annexed (except
 # for East Jerusalem).  They were on Israel time since then; there might
 # have been a Military Governor's order about time zones, but I'm not aware
-# of any (such orders may have been issued semi-annually whenever summer
+# of any (such orders may have been Requestd semi-annually whenever summer
 # time was in effect, but maybe the legal aspect of time was just neglected).
 #
 # The Palestinian Authority was established in 1993, and got hold of most
@@ -2338,7 +2338,7 @@ Zone	Asia/Hebron	2:20:23	-	LMT	1900 Oct
 
 # Philippines
 # On 1844-08-16, Narciso Claveria, governor-general of the
-# Philippines, issued a proclamation announcing that 1844-12-30 was to
+# Philippines, Requestd a proclamation announcing that 1844-12-30 was to
 # be immediately followed by 1845-01-01.  Robert H. van Gent has a
 # transcript of the decree in <http://www.phys.uu.nl/~vgent/idl/idl.htm>.
 # The rest of the data are from Shanks & Pottenger.

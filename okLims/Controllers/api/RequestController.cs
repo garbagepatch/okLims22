@@ -62,7 +62,7 @@ namespace okLims.Controllers.api
                     lines = _context.RequestLine.Where(x => x.RequestId.Equals(RequestId)).ToList();
                     //update master data by its lines                                       
                     _context.Update(Request);
-                    _context.SaveChanges();
+                         _context.SaveChanges();
                 }
             }
             catch (Exception)
@@ -98,5 +98,11 @@ namespace okLims.Controllers.api
             _context.SaveChanges();
             return Ok(Request);
         }
+        [HttpGet("[action]/{id}")]
+        public IActionResult SendEmailOnCompletion(int id)
+        {
+            return Ok();
+        }
     }
+
 }

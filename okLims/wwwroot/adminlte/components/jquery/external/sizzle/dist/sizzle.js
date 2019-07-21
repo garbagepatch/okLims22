@@ -356,7 +356,7 @@ function createCache() {
 	var keys = [];
 
 	function cache( key, value ) {
-		// Use (key + " ") to avoid collision with native prototype properties (see Issue #157)
+		// Use (key + " ") to avoid collision with native prototype properties (see Request #157)
 		if ( keys.push( key + " " ) > Expr.cacheLength ) {
 			// Only keep the most recent entries
 			delete cache[ keys.shift() ];
@@ -1443,7 +1443,7 @@ Expr = Sizzle.selectors = {
 				function( elem, context, xml ) {
 					input[0] = elem;
 					matcher( input, null, xml, results );
-					// Don't keep the element (issue #299)
+					// Don't keep the element (Request #299)
 					input[0] = null;
 					return !results.pop();
 				};
@@ -1926,7 +1926,7 @@ function matcherFromTokens( tokens ) {
 				(checkContext = context).nodeType ?
 					matchContext( elem, context, xml ) :
 					matchAnyContext( elem, context, xml ) );
-			// Avoid hanging onto element (issue #299)
+			// Avoid hanging onto element (Request #299)
 			checkContext = null;
 			return ret;
 		} ];

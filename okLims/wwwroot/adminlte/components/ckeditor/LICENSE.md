@@ -265,7 +265,7 @@ You are not responsible for enforcing compliance by third parties to
 this License.
 
   7. If, as a consequence of a court judgment or allegation of patent
-infringement or for any other reason (not limited to patent issues),
+infringement or for any other reason (not limited to patent Requests),
 conditions are imposed on you (whether by court order, agreement or
 otherwise) that contradict the conditions of this License, they do not
 excuse you from the conditions of this License.  If you cannot
@@ -728,7 +728,7 @@ You are not responsible for enforcing compliance by third parties with
 this License.
 
   11. If, as a consequence of a court judgment or allegation of patent
-infringement or for any other reason (not limited to patent issues),
+infringement or for any other reason (not limited to patent Requests),
 conditions are imposed on you (whether by court order, agreement or
 otherwise) that contradict the conditions of this License, they do not
 excuse you from the conditions of this License.  If you cannot
@@ -888,7 +888,7 @@ Version 1.1
 
      1.12. "You" (or "Your")  means an individual or a legal entity
      exercising rights under, and complying with all of the terms of, this
-     License or a future version of this License issued under Section 6.1.
+     License or a future version of this License Requestd under Section 6.1.
      For legal entities, "You" includes any entity which controls, is
      controlled by, or is under common control with You. For purposes of
      this definition, "control" means (a) the power, direct or indirect,

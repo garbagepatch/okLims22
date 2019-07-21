@@ -1,7 +1,8 @@
 @using Syncfusion.EJ2.Schedule
 @using Syncfusion.EJ2
 @using Syncfusion.EJ2.Buttons
-@model okLims.Models.Request
+@model okLims.Models.Request;
+
 
 @{
   ViewData["Title"] = "Request";
@@ -125,15 +126,15 @@
       document.getElementById('btn2').onclick = function () {
         var scheduleObj = document.getElementById('RequestId').ej2_instances[0];
         var Data = {
-          RequestId: _context.RequestId,
-          RequesterEmail: _context.RequesterEmail,
-          SpecialDetails: _context.SpecialDetails,
-          LaboratoryId: _context.LaboratoryName,
-          Start: _context.Start,
-          EndTime: _context.End,
-          FilterID: _context.filtertype,
-          SizeID: _context.filtersize,
-          ControllerID: _context.controllertype
+          RequestId: dataManager.RequestId,
+          RequesterEmail: dataManager.RequesterEmail,
+          SpecialDetails: dataManager.SpecialDetails,
+          LaboratoryId: dataManager.LaboratoryName,
+          Start: datamanager.Start,
+          EndTime: dataManager.End,
+          FilterID: dataManager.filtertype,
+          SizeID: dataManager.filtersize,
+          ControllerID: dataManager.controllertype
 
         };
         scheduleObj.saveEvent(Data);

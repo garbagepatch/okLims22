@@ -79,6 +79,11 @@
                     <i class="fa fa-gear"></i> <span>@MainMenu.ChangeRole.PageName</span>
                 </a>
             </li>
+          <li class="@Html.IsSelected(controller: MainMenu.RequestStatus.ControllerName, action: MainMenu.RequestStatus.ActionName)">
+            <a href="@MainMenu.RequestStatus.Path">
+                <i class="fa fa-spin"></i> <span>@MainMenu.RequestStatus.PageName</span>
+            </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

@@ -19,7 +19,7 @@
     "Moment.js.nuspec",
     "package.js",
     "package.json",
-    "ISSUE_TEMPLATE.md",
+    "Request_TEMPLATE.md",
     "typing-tests",
     "min/tests.js"
   ]

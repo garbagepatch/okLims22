@@ -832,7 +832,7 @@ Zone	Pacific/Wallis	12:15:20 -	LMT	1901
 # From Paul Eggert (2005-12-08):
 # <a href="http://www.bom.gov.au/climate/averages/tables/dst_times.shtml">
 # Implementation Dates of Daylight Saving Time within Australia
-# </a> summarizes daylight saving issues in Australia.
+# </a> summarizes daylight saving Requests in Australia.
 
 # From Arthur David Olson (2005-12-12):
 # <a href="http://www.lawlink.nsw.gov.au/lawlink/Corporate/ll_agdinfo.nsf/pages/community_relations_daylight_saving">

@@ -183,16 +183,16 @@ Bugfixes:
  * Use $.on() instead $.bind()
  * Fixed right-click and edit-menu paste 
  * Ported prototype fix for Prototype Compability
- * Fixed issue with startview year
+ * Fixed Request with startview year
  * Fixed padding inconsistency with twitter bootstrap 3
  * prevents the click event from bubbling to any user defined click handlers
  * Added padding for .datepicker-dropdown
- * Fixes the issue with a date change firing mulitple change events
+ * Fixes the Request with a date change firing mulitple change events
  * removed hard dependency on bootstrap (because of twbs-sass package)
  * Clearing the date should reset to defaultViewDate
  * Datepicker orientation mix up - top = bottom and bottom = top 
  * Fix cursor thead styles
- * Fix date-reset issue when navigating to next with invalid date
+ * Fix date-reset Request when navigating to next with invalid date
  * Using orientation:auto but date picker still appears above, cut off, when there plenty of space below. 
  * lots of orientation fixes
 

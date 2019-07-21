@@ -5321,7 +5321,7 @@ input.e-fe-dialog-text:not(.e-textbox),
 .e-datepicker .e-datepicker-days .e-selected-days {
   border-radius: 0px;
   box-shadow: 0 0 0 transparent inset;
-  /*For flicker issue */
+  /*For flicker Request */
   color: white;
 }
 .e-datepicker .e-datepicker-days .e-selected-days {
@@ -5393,7 +5393,7 @@ input.e-fe-dialog-text:not(.e-textbox),
 .e-datepicker .e-active:hover,
 .e-datepicker .e-active.e-state-hover {
   box-shadow: 0 0 0 transparent inset;
-  /*For flicker issue */
+  /*For flicker Request */
   color: white;
   border-color: white;
   
@@ -5893,7 +5893,7 @@ input.e-fe-dialog-text:not(.e-textbox),
   border-color: white;
   border-radius: 4px;
   box-shadow: 0 0 0 transparent inset;
-  /*For flicker issue */
+  /*For flicker Request */
 
 }
 .e-timepicker table td.e-active,

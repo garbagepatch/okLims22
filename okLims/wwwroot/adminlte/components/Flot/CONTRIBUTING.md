@@ -3,23 +3,23 @@
 We welcome all contributions, but following these guidelines results in less
 work for us, and a faster and better response.
 
-### Issues ###
+### Requests ###
 
-Issues are not a way to ask general questions about Flot. If you see unexpected
+Requests are not a way to ask general questions about Flot. If you see unexpected
 behavior but are not 100% certain that it is a bug, please try posting to the
 [forum](http://groups.google.com/group/flot-graphs) first, and confirm that
-what you see is really a Flot problem before creating a new issue for it.  When
+what you see is really a Flot problem before creating a new Request for it.  When
 reporting a bug, please include a working demonstration of the problem, if
 possible, or at least a clear description of the options you're using and the
 environment (browser and version, jQuery version, other libraries) that you're
 running under.
 
 If you have suggestions for new features, or changes to existing ones, we'd
-love to hear them! Please submit each suggestion as a separate new issue.
+love to hear them! Please submit each suggestion as a separate new Request.
 
-If you would like to work on an existing issue, please make sure it is not
-already assigned to someone else. If an issue is assigned to someone, that
-person has already started working on it. So, pick unassigned issues to prevent
+If you would like to work on an existing Request, please make sure it is not
+already assigned to someone else. If an Request is assigned to someone, that
+person has already started working on it. So, pick unassigned Requests to prevent
 duplicated effort.
 
 ### Pull Requests ###

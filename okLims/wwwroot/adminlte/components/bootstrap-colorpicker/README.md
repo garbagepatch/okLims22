@@ -17,8 +17,8 @@ For downloading the source code, you have many choices:
 - For using the plugin you will only need the files under the `dist` folder
 - [Documentation and demos](https://farbelous.github.io/bootstrap-colorpicker/v2/)
 
-## Contributing and reporting issues
-If you want to contribute to the source code or report issues and suggestions, please read the [CONTRIBUTING.md](.github/CONTRIBUTING.md) guidelines first. Some steps are mandatory in order to accept a Pull Request.
+## Contributing and reporting Requests
+If you want to contribute to the source code or report Requests and suggestions, please read the [CONTRIBUTING.md](.github/CONTRIBUTING.md) guidelines first. Some steps are mandatory in order to accept a Pull Request.
 
 ## Credits
 Originally written by [Stefan Petre](http://www.eyecon.ro/)

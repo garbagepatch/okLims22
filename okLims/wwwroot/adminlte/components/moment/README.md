@@ -45,7 +45,7 @@ There are a number of small backwards incompatible changes with version 2.0.0. [
 We're looking for co-maintainers! If you want to become a master of time please
 write to [ichernev](https://github.com/ichernev).
 
-In addition to contributing code, you can help to triage issues. This can include reproducing bug reports, or asking for vital information such as version numbers or reproduction instructions. If you would like to start triaging issues, one easy way to get started is to [subscribe to moment/moment on CodeTriage](https://www.codetriage.com/moment/moment).
+In addition to contributing code, you can help to triage Requests. This can include reproducing bug reports, or asking for vital information such as version numbers or reproduction instructions. If you would like to start triaging Requests, one easy way to get started is to [subscribe to moment/moment on CodeTriage](https://www.codetriage.com/moment/moment).
 
 ## License
 

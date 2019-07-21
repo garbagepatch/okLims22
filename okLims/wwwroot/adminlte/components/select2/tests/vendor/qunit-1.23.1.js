@@ -3152,7 +3152,7 @@ QUnit.testDone( function( details ) {
 	}
 } );
 
-// Avoid readyState issue with phantomjs
+// Avoid readyState Request with phantomjs
 // Ref: #818
 var notPhantom = ( function( p ) {
 	return !( p && p.version && p.version.major > 0 );

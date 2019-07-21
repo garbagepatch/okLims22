@@ -1352,9 +1352,9 @@ define(["./raphael.core"], function(R) {
      * Paper.renderfix
      [ method ]
      **
-     * Fixes the issue of Firefox and IE9 regarding subpixel rendering. If paper is dependent
+     * Fixes the Request of Firefox and IE9 regarding subpixel rendering. If paper is dependent
      * on other elements after reflow it could shift half pixel which cause for lines to lost their crispness.
-     * This method fixes the issue.
+     * This method fixes the Request.
      **
        Special thanks to Mariusz Nowak (http://www.medikoo.com/) for this method.
     \*/

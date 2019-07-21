@@ -12,7 +12,7 @@ Cheers!
 ## Contributors wanted
 
 I'm unfortunately not able to actively support Morris.js any more. I keep an eye
-on the issues, but I rarely have the time to fix bugs or review pull requests.
+on the Requests, but I rarely have the time to fix bugs or review pull requests.
 
 If you're interested in actively contributing to Morris.js, please contact me on
 the email address above.
@@ -58,99 +58,99 @@ tests currently *only* pass on OS X.
 ### 0.5.1 - 15th June 2014
 
 - Fix touch event handling.
-- Fix stacked=false in bar chart [#275](https://github.com/morrisjs/morris.js/issues/275)
-- Configurable vertical segments [#297](https://github.com/morrisjs/morris.js/issues/297)
+- Fix stacked=false in bar chart [#275](https://github.com/morrisjs/morris.js/Requests/275)
+- Configurable vertical segments [#297](https://github.com/morrisjs/morris.js/Requests/297)
 - Deprecate continuousLine option.
 
 ### 0.5.0 - 19th March 2014
 
-- Update grunt dependency [#288](https://github.com/morrisjs/morris.js/issues/228)
-- Donut segment color config in data objects [#281](https://github.com/morrisjs/morris.js/issues/281)
-- Customisable line widths and point drawing [#272](https://github.com/morrisjs/morris.js/issues/272)
-- Bugfix for @options.smooth [#266](https://github.com/morrisjs/morris.js/issues/266)
-- Option to disable axes individually [#253](https://github.com/morrisjs/morris.js/issues/253)
-- Range selection [#252](https://github.com/morrisjs/morris.js/issues/252)
-- Week format for x-labels [#250](https://github.com/morrisjs/morris.js/issues/250)
-- Update developer quickstart instructions [#243](https://github.com/morrisjs/morris.js/issues/243)
+- Update grunt dependency [#288](https://github.com/morrisjs/morris.js/Requests/228)
+- Donut segment color config in data objects [#281](https://github.com/morrisjs/morris.js/Requests/281)
+- Customisable line widths and point drawing [#272](https://github.com/morrisjs/morris.js/Requests/272)
+- Bugfix for @options.smooth [#266](https://github.com/morrisjs/morris.js/Requests/266)
+- Option to disable axes individually [#253](https://github.com/morrisjs/morris.js/Requests/253)
+- Range selection [#252](https://github.com/morrisjs/morris.js/Requests/252)
+- Week format for x-labels [#250](https://github.com/morrisjs/morris.js/Requests/250)
+- Update developer quickstart instructions [#243](https://github.com/morrisjs/morris.js/Requests/243)
 - Experimenting with perceptual diffs.
-- Add original data row to hover callback [#264](https://github.com/morrisjs/morris.js/issues/264)
-- setData method for donut charts [#211](https://github.com/morrisjs/morris.js/issues/211)
-- Automatic resizing [#111](https://github.com/morrisjs/morris.js/issues/111)
-- Fix travis builds [#298](https://github.com/morrisjs/morris.js/issues/298)
-- Option for rounded corners on bar charts [#305](https://github.com/morrisjs/morris.js/issues/305)
-- Option to set padding for X axis labels [#306](https://github.com/morrisjs/morris.js/issues/306)
+- Add original data row to hover callback [#264](https://github.com/morrisjs/morris.js/Requests/264)
+- setData method for donut charts [#211](https://github.com/morrisjs/morris.js/Requests/211)
+- Automatic resizing [#111](https://github.com/morrisjs/morris.js/Requests/111)
+- Fix travis builds [#298](https://github.com/morrisjs/morris.js/Requests/298)
+- Option for rounded corners on bar charts [#305](https://github.com/morrisjs/morris.js/Requests/305)
+- Option to set padding for X axis labels [#306](https://github.com/morrisjs/morris.js/Requests/306)
 - Use local javascript for examples.
-- Events on non-time series [#314](https://github.com/morrisjs/morris.js/issues/314)
+- Events on non-time series [#314](https://github.com/morrisjs/morris.js/Requests/314)
 
 ### 0.4.3 - 12th May 2013
 
-- Fix flickering hover box [#186](https://github.com/morrisjs/morris.js/issues/186)
-- xLabelAngle option (diagonal labels!!) [#239](https://github.com/morrisjs/morris.js/issues/239)
-- Fix area chart fill bug [#190](https://github.com/morrisjs/morris.js/issues/190)
+- Fix flickering hover box [#186](https://github.com/morrisjs/morris.js/Requests/186)
+- xLabelAngle option (diagonal labels!!) [#239](https://github.com/morrisjs/morris.js/Requests/239)
+- Fix area chart fill bug [#190](https://github.com/morrisjs/morris.js/Requests/190)
 - Make event handlers chainable
 - gridTextFamily and gridTextWeight options
-- Fix hovers with setData [#213](https://github.com/morrisjs/morris.js/issues/213)
-- Fix hideHover behaviour [#236](https://github.com/morrisjs/morris.js/issues/236)
+- Fix hovers with setData [#213](https://github.com/morrisjs/morris.js/Requests/213)
+- Fix hideHover behaviour [#236](https://github.com/morrisjs/morris.js/Requests/236)
 
 ### 0.4.2 - 14th April 2013
 
-- Fix DST handling [#191](https://github.com/morrisjs/morris.js/issues/191)
-- Parse data values from strings in Morris.Donut [#189](https://github.com/morrisjs/morris.js/issues/189)
-- Non-cumulative area charts [#199](https://github.com/morrisjs/morris.js/issues/199)
+- Fix DST handling [#191](https://github.com/morrisjs/morris.js/Requests/191)
+- Parse data values from strings in Morris.Donut [#189](https://github.com/morrisjs/morris.js/Requests/189)
+- Non-cumulative area charts [#199](https://github.com/morrisjs/morris.js/Requests/199)
 - Round Y-axis labels to significant numbers [#162](https://github.com/morrisjs/morris.js/162)
 - Customising default hover content [#179](https://github.com/morrisjs/morris.js/179)
 
 ### 0.4.1 - 8th February 2013
 
-- Fix goal and event rendering. [#181](https://github.com/morrisjs/morris.js/issues/181)
-- Don't break when empty data is passed to setData [#142](https://github.com/morrisjs/morris.js/issues/142)
-- labelColor option for donuts [#159](https://github.com/morrisjs/morris.js/issues/159)
+- Fix goal and event rendering. [#181](https://github.com/morrisjs/morris.js/Requests/181)
+- Don't break when empty data is passed to setData [#142](https://github.com/morrisjs/morris.js/Requests/142)
+- labelColor option for donuts [#159](https://github.com/morrisjs/morris.js/Requests/159)
 
 ### 0.4.0 - 26th January 2013
 
-- Goals and events [#103](https://github.com/morrisjs/morris.js/issues/103).
+- Goals and events [#103](https://github.com/morrisjs/morris.js/Requests/103).
 - Bower package manager metadata.
-- More flexible formatters [#107](https://github.com/morrisjs/morris.js/issues/107).
+- More flexible formatters [#107](https://github.com/morrisjs/morris.js/Requests/107).
 - Color callbacks.
 - Decade intervals for time-axis labels.
-- Non-continous line tweaks [#116](https://github.com/morrisjs/morris.js/issues/116).
-- Stacked bars [#120](https://github.com/morrisjs/morris.js/issues/120).
-- HTML hover [#134](https://github.com/morrisjs/morris.js/issues/134).
-- yLabelFormat [#139](https://github.com/morrisjs/morris.js/issues/139).
-- Disable axes [#114](https://github.com/morrisjs/morris.js/issues/114).
+- Non-continous line tweaks [#116](https://github.com/morrisjs/morris.js/Requests/116).
+- Stacked bars [#120](https://github.com/morrisjs/morris.js/Requests/120).
+- HTML hover [#134](https://github.com/morrisjs/morris.js/Requests/134).
+- yLabelFormat [#139](https://github.com/morrisjs/morris.js/Requests/139).
+- Disable axes [#114](https://github.com/morrisjs/morris.js/Requests/114).
 
 ### 0.3.3 - 1st November 2012
 
-- **Bar charts!** [#101](https://github.com/morrisjs/morris.js/issues/101).
+- **Bar charts!** [#101](https://github.com/morrisjs/morris.js/Requests/101).
 
 ### 0.3.2 - 28th October 2012
 
-- **Area charts!** [#47](https://github.com/morrisjs/morris.js/issues/47).
+- **Area charts!** [#47](https://github.com/morrisjs/morris.js/Requests/47).
 - Some major refactoring and test suite improvements.
-- Set smooth parameter per series [#91](https://github.com/morrisjs/morris.js/issues/91).
-- Custom dateFormat for string x-values [#90](https://github.com/morrisjs/morris.js/issues/90).
+- Set smooth parameter per series [#91](https://github.com/morrisjs/morris.js/Requests/91).
+- Custom dateFormat for string x-values [#90](https://github.com/morrisjs/morris.js/Requests/90).
 
 ### 0.3.1 - 13th October 2012
 
-- Add `formatter` option for customising value labels in donuts [#75](https://github.com/morrisjs/morris.js/issues/75).
-- Cycle `lineColors` on line charts to avoid running out of colours [#78](https://github.com/morrisjs/morris.js/issues/78).
-- Add method to select donut segments. [#79](https://github.com/morrisjs/morris.js/issues/79).
-- Don't go negative on yMin when all y values are zero. [#80](https://github.com/morrisjs/morris.js/issues/80).
-- Don't sort data when parseTime is false [#83](https://github.com/morrisjs/morris.js/issues/83).
-- Customise styling for points. [#87](https://github.com/morrisjs/morris.js/issues/87).
+- Add `formatter` option for customising value labels in donuts [#75](https://github.com/morrisjs/morris.js/Requests/75).
+- Cycle `lineColors` on line charts to avoid running out of colours [#78](https://github.com/morrisjs/morris.js/Requests/78).
+- Add method to select donut segments. [#79](https://github.com/morrisjs/morris.js/Requests/79).
+- Don't go negative on yMin when all y values are zero. [#80](https://github.com/morrisjs/morris.js/Requests/80).
+- Don't sort data when parseTime is false [#83](https://github.com/morrisjs/morris.js/Requests/83).
+- Customise styling for points. [#87](https://github.com/morrisjs/morris.js/Requests/87).
 
 ### 0.3.0 - 15th September 2012
 
 - Donut charts!
-- Bugfix: ymin/ymax bug [#71](https://github.com/morrisjs/morris.js/issues/71).
-- Bugfix: infinite loop when data indicates horizontal line [#66](https://github.com/morrisjs/morris.js/issues/66).
+- Bugfix: ymin/ymax bug [#71](https://github.com/morrisjs/morris.js/Requests/71).
+- Bugfix: infinite loop when data indicates horizontal line [#66](https://github.com/morrisjs/morris.js/Requests/66).
 
 ### 0.2.10 - 26th June 2012
 
-- Support for decimal labels on y-axis [#58](https://github.com/morrisjs/morris.js/issues/58).
-- Better axis label clipping [#63](https://github.com/morrisjs/morris.js/issues/63).
-- Redraw graphs with updated data using `setData` method [#64](https://github.com/morrisjs/morris.js/issues/64).
-- Bugfix: series with zero or one non-null values [#65](https://github.com/morrisjs/morris.js/issues/65).
+- Support for decimal labels on y-axis [#58](https://github.com/morrisjs/morris.js/Requests/58).
+- Better axis label clipping [#63](https://github.com/morrisjs/morris.js/Requests/63).
+- Redraw graphs with updated data using `setData` method [#64](https://github.com/morrisjs/morris.js/Requests/64).
+- Bugfix: series with zero or one non-null values [#65](https://github.com/morrisjs/morris.js/Requests/65).
 
 ### 0.2.9 - 15th May 2012
 

@@ -4135,7 +4135,7 @@ span.e-icon.slidepanel-nav {
 }
 
 [class^="res-icon-"], [class*=" res-icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
+    /* use !important to prevent Requests with browser extensions that change fonts */
     font-family: 'sf-res-icons' !important;
     speak: none;
     font-style: normal;

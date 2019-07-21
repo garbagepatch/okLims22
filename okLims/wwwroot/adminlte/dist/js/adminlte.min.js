@@ -5,7 +5,7 @@
 * options and implements exclusive AdminLTE plugins.
 *
 * @author Colorlib
-* @support <https://github.com/ColorlibHQ/AdminLTE/issues>
+* @support <https://github.com/ColorlibHQ/AdminLTE/Requests>
 * @version 2.4.12
 * @repository git://github.com/ColorlibHQ/AdminLTE.git
 * @license MIT <http://opensource.org/licenses/MIT>

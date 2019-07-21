@@ -4974,7 +4974,7 @@ function filterLeaks(ok, globals) {
     // in ie6,7,8 and opera, iframeIndex is enumerable, this could cause leak
     if (global.navigator && /^\d+/.test(key)) return false;
 
-    // Opera and IE expose global variables for HTML element IDs (issue #243)
+    // Opera and IE expose global variables for HTML element IDs (Request #243)
     if (/^mocha-/.test(key)) return false;
 
     var matched = filter(ok, function(ok){

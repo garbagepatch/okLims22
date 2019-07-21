@@ -24,9 +24,9 @@ Some important points to note in my experience using ExplorerCanvas as a fallbac
 - New VML DOM elements are being created for each animation frame and there is no hardware acceleration. As a result animation is usually slow and jerky, with flashing text. It is a good idea to dynamically turn off animation based on canvas support. I recommend using the excellent <a href="http://modernizr.com/" target="_blank">Modernizr</a> to do this.
 - When declaring fonts, the library explorercanvas requires the font name to be in single quotes inside the string. For example, instead of your scaleFontFamily property being simply "Arial", explorercanvas support, use "'Arial'" instead. Chart.js does this for default values.
 
-### Bugs & issues
+### Bugs & Requests
 
-Please report these on the GitHub page - at <a href="https://github.com/nnnick/Chart.js" target="_blank">github.com/nnnick/Chart.js</a>. If you could include a link to a simple <a href="http://jsbin.com/" target="_blank">jsbin</a> or similar to demonstrate the issue, that'd be really helpful.
+Please report these on the GitHub page - at <a href="https://github.com/nnnick/Chart.js" target="_blank">github.com/nnnick/Chart.js</a>. If you could include a link to a simple <a href="http://jsbin.com/" target="_blank">jsbin</a> or similar to demonstrate the Request, that'd be really helpful.
 
 
 ### Contributing

@@ -1,6 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Request";
+
 }
+@model  Request
+
+
 <div class="content-wrapper">
 
     <!-- Main content -->
@@ -35,7 +39,7 @@
 
 
 @section Scripts{
-
+@using okLims.Extensions
     <script type="text/javascript">
         $(function () {
 
@@ -63,6 +67,11 @@
                 url: "/api/Laboratory",
                 adaptor: new ej.WebApiAdaptor()
             });
+              var dataManagerRequestStatus = ej.DataManager({
+                url: "/api/RequestStatus",
+                adaptor: new ej.WebApiAdaptor()
+            });
+
 
 
 
@@ -75,6 +84,9 @@
                         updateUrl: "/api/Request/Update",
                         removeUrl: "/api/Request/Remove",
                     }),
+                    actionBegin: {
+
+                    },
                     toolbarSettings: {
                         showToolbar: true,
                         toolbarItems: ["add", "edit", "delete", "update", "cancel", "search", "printGrid"]
@@ -96,8 +108,10 @@
                         maxFilterChoices: 100,
                         enableCaseSensitivity: false
                     },
+                    width: "100%",
                     allowPaging: true,
                     pageSettings: { pageSize: 10, printMode: ej.Grid.PrintMode.CurrentPage },
+                    actionBegin: "begin",
                     columns: [
                         { headerText: 'Detail', template: "<a href='/Request/Detail/{{:RequestId}}'>Detail</a>" },
                         { field: "RequestId", headerText: 'Request ID', isPrimaryKey: true, isIdentity: true, visible: false },
@@ -108,21 +122,38 @@
                         { field: "End", headerText: 'Delivery Date', editType: "datepicker", format: "{0:MM/dd/yyyy}" },
                         { field: "ControllerID", headerText: 'Controller Type', foreignKeyField: "ControllerID", foreignKeyValue: "controllerType", dataSource: dataManagerControllerType },
                         { field: "LaboratoryId", headerText: 'Laboratory Name', allowEditing: true, foreignKeyField: "LaboratoryId", foreignKeyValue: "LaboratoryName", dataSource: dataManagerLaboratory },
-                        {field: "SpecialDetails", headerText: 'Special Details', allowEditing: true, editTye: "text",},
+                        { field: "SpecialDetails", headerText: 'Special Details', allowEditing: true, editType: "text", },
+                        { field: "RequestStatus", headerText: 'Status', editType: "dropdownedit", allowEditing: true, foreignKeyField: "StatusID", foreignKeyValue: "Status", dataSource: dataManagerRequestStatus,  placeholder:"Submitted"},
+                           
+                        
                     ],
                     actionComplete: "complete",
+           
                 });
             });
 
 
         });
-
+       
         function complete(args) {
             if (args.requestType == 'beginedit') {
                 $("#" + this._id + "_dialogEdit").ejDialog({ title: "Edit Record" });
             }
-        }
+        };
+        function begin(args) {
+            if (args.requestType === "beginEdit") {
+                if (args.rowData.RequestStatus.value = "Completed") {
+                    args.cancel = true;
 
+                }
+            }
+        };
+                
+        
+        
+        
     </script>
+
+
 }
    

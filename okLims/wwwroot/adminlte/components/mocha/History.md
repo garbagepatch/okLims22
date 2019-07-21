@@ -19,9 +19,9 @@
 1.16.2 / 2013-12-23
 ==================
 
-  * fix: couple issues with ie 8 (#1082, #1081)
-  * fix: issue running the xunit reporter in browsers (#1068)
-  * fix: issue with firefox < 3.5 (#725)
+  * fix: couple Requests with ie 8 (#1082, #1081)
+  * fix: Request running the xunit reporter in browsers (#1068)
+  * fix: Request with firefox < 3.5 (#725)
 
 
 1.16.1 / 2013-12-19
@@ -316,7 +316,7 @@
   * Added warning when strings are thrown as errors
   * Changed: green arrows again in HTML reporter styling
   * Changed ul/li elements instead of divs for better copy-and-pasting [joliss]
-  * Fixed issue #325 - add better grep support to js api
+  * Fixed Request #325 - add better grep support to js api
   * Fixed: save timer references to avoid Sinon interfering.
 
 1.0.3 / 2012-04-30
@@ -455,7 +455,7 @@ Closes #247
 
   * Removed `mocha-debug(1)`, use `mocha --debug`
   * Fixed CWD relative requires
-  * Fixed growl issue on windows [Raynos]
+  * Fixed growl Request on windows [Raynos]
   * Fixed: platform specific line endings [TooTallNate]
   * Fixed: escape strings in HTML reporter. Closes #164
 

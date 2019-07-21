@@ -10752,7 +10752,7 @@ var effectBounce = $.effects.effect.bounce = function( o, done ) {
 		queue = el.queue(),
 		queuelen = queue.length;
 
-	// Avoid touching opacity to prevent clearType and PNG issues in IE
+	// Avoid touching opacity to prevent clearType and PNG Requests in IE
 	if ( show || hide ) {
 		props.push( "opacity" );
 	}

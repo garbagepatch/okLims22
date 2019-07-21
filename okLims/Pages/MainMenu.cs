@@ -7,6 +7,14 @@ namespace okLims.Pages
 {
     public static class MainMenu
     {
+        public static class RequestStatus
+        {
+            public const string PageName = "RequestStatus";
+            public const string RoleName = "RequestStatus";
+            public const string Path = "/RequestStatus/Index";
+            public const string ControllerName = "Request";
+            public const string ActionName = "Index";
+        }
     /*    public static class Method
         {
             public const string PageName = "Method";

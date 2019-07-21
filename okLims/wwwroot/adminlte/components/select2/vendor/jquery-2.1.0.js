@@ -848,7 +848,7 @@
                 var keys = [];
 
                 function cache( key, value ) {
-                    // Use (key + " ") to avoid collision with native prototype properties (see Issue #157)
+                    // Use (key + " ") to avoid collision with native prototype properties (see Request #157)
                     if ( keys.push( key + " " ) > Expr.cacheLength ) {
                         // Only keep the most recent entries
                         delete cache[ keys.shift() ];
@@ -3386,7 +3386,7 @@
             readyList = jQuery.Deferred();
 
             // Catch cases where $(document).ready() is called after the browser event has already occurred.
-            // we once tried to use readyState "interactive" here, but it caused issues like the one
+            // we once tried to use readyState "interactive" here, but it caused Requests like the one
             // discovered by ChrisS here: http://bugs.jquery.com/ticket/12282#comment:15
             if ( document.readyState === "complete" ) {
                 // Handle it asynchronously to allow scripts the opportunity to delay ready
@@ -4973,7 +4973,7 @@
                 inPage = jQuery.contains( elem.ownerDocument, elem );
 
             // Support: IE >= 9
-            // Fix Cloning issues
+            // Fix Cloning Requests
             if ( !support.noCloneChecked && ( elem.nodeType === 1 || elem.nodeType === 11 ) &&
                 !jQuery.isXMLDoc( elem ) ) {
 

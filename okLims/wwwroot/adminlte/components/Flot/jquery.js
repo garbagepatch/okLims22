@@ -640,7 +640,7 @@ jQuery.extend({
 
 		if ( arr != null ) {
 			// The window, strings (and functions) also have 'length'
-			// Tweaked logic slightly to handle Blackberry 4.7 RegExp issues #6930
+			// Tweaked logic slightly to handle Blackberry 4.7 RegExp Requests #6930
 			type = jQuery.type( arr );
 
 			if ( arr.length == null || type === "string" || type === "function" || type === "regexp" || jQuery.isWindow( arr ) ) {
@@ -845,7 +845,7 @@ jQuery.ready.promise = function( obj ) {
 		readyList = jQuery.Deferred();
 
 		// Catch cases where $(document).ready() is called after the browser event has already occurred.
-		// we once tried to use readyState "interactive" here, but it caused issues like the one
+		// we once tried to use readyState "interactive" here, but it caused Requests like the one
 		// discovered by ChrisS here: http://bugs.jquery.com/ticket/12282#comment:15
 		if ( document.readyState === "complete" ) {
 			// Handle it asynchronously to allow scripts the opportunity to delay ready
@@ -1294,7 +1294,7 @@ jQuery.support = (function() {
 
 		// Make sure that element opacity exists
 		// (IE uses filter instead)
-		// Use a regex to work around a WebKit issue. See #5145
+		// Use a regex to work around a WebKit Request. See #5145
 		opacity: /^0.5/.test( a.style.opacity ),
 
 		// Verify style float existence
@@ -2506,7 +2506,7 @@ if ( !getSetAttribute ) {
 	};
 
 	// Use this for any attribute in IE6/7
-	// This fixes almost every IE6/7 issue
+	// This fixes almost every IE6/7 Request
 	nodeHook = jQuery.valHooks.button = {
 		get: function( elem, name ) {
 			var ret;
@@ -3720,7 +3720,7 @@ var cachedruns,
 				delete cache[ keys.shift() ];
 			}
 
-			// Retrieve with (key + " ") to avoid collision with native Object.prototype properties (see Issue #157)
+			// Retrieve with (key + " ") to avoid collision with native Object.prototype properties (see Request #157)
 			return (cache[ key + " " ] = value);
 		}, cache );
 	},
@@ -7255,7 +7255,7 @@ function buildParams( prefix, obj, traditional, add ) {
 
 			} else {
 				// If array item is non-scalar (array or object), encode its
-				// numeric index to resolve deserialization ambiguity issues.
+				// numeric index to resolve deserialization ambiguity Requests.
 				// Note that rack (as of 1.0.0) can't currently deserialize
 				// nested arrays properly, and attempting to do so may cause
 				// a server error. Possible fixes are to modify rack's
@@ -7849,7 +7849,7 @@ jQuery.extend({
 		};
 
 		// Remove hash character (#7531: and string promotion)
-		// Add protocol if not provided (#5866: IE7 issue with protocol-less urls)
+		// Add protocol if not provided (#5866: IE7 Request with protocol-less urls)
 		// We also use the url parameter if available
 		s.url = ( ( url || s.url ) + "" ).replace( rhash, "" ).replace( rprotocol, ajaxLocParts[ 1 ] + "//" );
 
@@ -9454,7 +9454,7 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 window.jQuery = window.$ = jQuery;
 
 // Expose jQuery as an AMD module, but only for AMD loaders that
-// understand the issues with loading multiple versions of jQuery
+// understand the Requests with loading multiple versions of jQuery
 // in a page that all might call define(). The loader will indicate
 // they have special allowances for multiple jQuery versions by
 // specifying define.amd.jQuery = true. Register as a named module,

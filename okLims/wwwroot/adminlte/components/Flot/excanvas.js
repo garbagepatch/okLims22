@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-// Known Issues:
+// Known Requests:
 //
 // * Patterns only support repeat.
 // * Radial gradient are not implemented. The VML version of these look very

@@ -14,7 +14,7 @@ function curCSS( elem, name, computed ) {
 
 		// Support: Firefox 51+
 		// Retrieving style before computed somehow
-		// fixes an issue with getting wrong values
+		// fixes an Request with getting wrong values
 		// on detached elements
 		style = elem.style;
 

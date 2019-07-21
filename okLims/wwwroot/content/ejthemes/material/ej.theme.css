@@ -5511,7 +5511,7 @@ input.e-fe-dialog-text:not(.e-textbox),
   background-color: #fafafa;
   border-radius: 0px;
   box-shadow: 0 0 0 transparent inset;
-  /*For flicker issue */
+  /*For flicker Request */
   color: white;
 }
 .e-work-week .e-week-day,
@@ -5587,7 +5587,7 @@ input.e-fe-dialog-text:not(.e-textbox),
   /*.custom-gradient(@active-gradient-color, @active-bg-stcolor, @active-bg-endcolor, 0%, 0% );*/
   background-color: #fafafa;
   box-shadow: 0 0 0 transparent inset;
-  /*For flicker issue */
+  /*For flicker Request */
   color: white;
   border-color: #3f51b5;
 }

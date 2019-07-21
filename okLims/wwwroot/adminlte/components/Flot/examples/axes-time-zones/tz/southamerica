@@ -660,13 +660,13 @@ Zone	America/La_Paz	-4:32:36 -	LMT	1890
 # Santa Catarina (SC), Parana (PR), Sao Paulo (SP), Rio de Janeiro (RJ),
 # Espirito Santo (ES), Minas Gerais (MG), Bahia (BA), Goias (GO),
 # Distrito Federal (DF), Tocantins (TO), Sergipe [SE] and Alagoas [AL].
-# [The last three states are new to this issue of the IATA SSIM.]
+# [The last three states are new to this Request of the IATA SSIM.]
 
 # From Gwillim Law (1996-10-07):
 # Geography, history (Tocantins was part of Goias until 1989), and other
 # sources of time zone information lead me to believe that AL, SE, and TO were
 # always in BR1, and so the only change was whether or not they observed DST....
-# The earliest issue of the SSIM I have is 2/91.  Each issue from then until
+# The earliest Request of the SSIM I have is 2/91.  Each Request from then until
 # 9/95 says that DST is observed only in the ten states I quoted from 9/95,
 # along with Mato Grosso (MT) and Mato Grosso do Sul (MS), which are in BR2
 # (UTC-4)....  The other two time zones given for Brazil are BR3, which is
@@ -1529,7 +1529,7 @@ Rule	Para	1997	only	-	Feb	lastSun	0:00	0	-
 # (1999-09) reports no date; go with above sources and Gerd Knops (2001-02-27).
 Rule	Para	1998	2001	-	Mar	Sun>=1	0:00	0	-
 # From Rives McDow (2002-02-28):
-# A decree was issued in Paraguay (no. 16350) on 2002-02-26 that changed the
+# A decree was Requestd in Paraguay (no. 16350) on 2002-02-26 that changed the
 # dst method to be from the first Sunday in September to the first Sunday in
 # April.
 Rule	Para	2002	2004	-	Apr	Sun>=1	0:00	0	-
@@ -1545,7 +1545,7 @@ Rule	Para	2002	2003	-	Sep	Sun>=1	0:00	1:00	S
 Rule	Para	2004	2009	-	Oct	Sun>=15	0:00	1:00	S
 Rule	Para	2005	2009	-	Mar	Sun>=8	0:00	0	-
 # From Carlos Raul Perasso (2010-02-18):
-# By decree number 3958 issued yesterday (
+# By decree number 3958 Requestd yesterday (
 # <a href="http://www.presidencia.gov.py/v1/wp-content/uploads/2010/02/decreto3958.pdf">
 # http://www.presidencia.gov.py/v1/wp-content/uploads/2010/02/decreto3958.pdf
 # </a>

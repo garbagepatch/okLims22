@@ -98,7 +98,7 @@ export function createLocalOrUTC (input, format, locale, strict, isUTC) {
         input = undefined;
     }
     // object construction must be done this way.
-    // https://github.com/moment/moment/issues/1423
+    // https://github.com/moment/moment/Requests/1423
     c._isAMomentObject = true;
     c._useUTC = c._isUTC = isUTC;
     c._l = locale;

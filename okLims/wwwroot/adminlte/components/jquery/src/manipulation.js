@@ -34,7 +34,7 @@ var
 
 	/* eslint-disable max-len */
 
-	// See https://github.com/eslint/eslint/issues/3229
+	// See https://github.com/eslint/eslint/Requests/3229
 	rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
 
 	/* eslint-enable */
@@ -243,7 +243,7 @@ jQuery.extend( {
 			clone = elem.cloneNode( true ),
 			inPage = jQuery.contains( elem.ownerDocument, elem );
 
-		// Fix IE cloning issues
+		// Fix IE cloning Requests
 		if ( !support.noCloneChecked && ( elem.nodeType === 1 || elem.nodeType === 11 ) &&
 				!jQuery.isXMLDoc( elem ) ) {
 

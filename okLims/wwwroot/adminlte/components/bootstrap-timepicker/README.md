@@ -6,7 +6,7 @@ A simple timepicker component for Twitter Bootstrap.
 
 Status
 ======
-Please take a look at the `CHANGELOG.md` and the issues tab for issues we're
+Please take a look at the `CHANGELOG.md` and the Requests tab for Requests we're
 working on and their relative priorities.
 
 Installation
@@ -60,7 +60,7 @@ grunt watch // run jsHint and Jasmine tests whenever a file is changed
 grunt compile // minify the js and css files
 ```
 
-- Please make it easy on me by covering any new features or issues 
+- Please make it easy on me by covering any new features or Requests 
   with <a href="http://pivotal.github.com/jasmine">Jasmine</a> tests.
 - If your changes need documentation, please take the time to update the docs.
 

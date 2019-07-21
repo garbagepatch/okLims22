@@ -26,5 +26,13 @@ namespace okLims.Extensions
                 values: new { userId, code },
                 protocol: scheme);
         }
-   }
+       // public static string EmailOnCompletion(this IUrlHelper urlHelper, string requesterEmail, string scheme)
+        //{
+          //  return urlHelper.Action(
+           //     action: nameof(RequestController.EmailerOnCompletion),
+          //      controller: "Request",
+            //    values: new { requesterEmail });
+        //}
+    }
+
 }

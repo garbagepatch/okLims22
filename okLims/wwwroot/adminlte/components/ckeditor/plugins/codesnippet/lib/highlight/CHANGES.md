@@ -656,7 +656,7 @@ Styles:
 
 In other news. [One small bug][bug] was fixed, built-in keywords were added for
 Python and C++ which improved auto-detection for the latter (it was shame that
-[my wife's blog][alenacpp] had issues with it from time to time). And lastly
+[my wife's blog][alenacpp] had Requests with it from time to time). And lastly
 thanks go to Sam for getting rid of my stylistic comments in code that were
 getting in the way of [JSMin][].
 

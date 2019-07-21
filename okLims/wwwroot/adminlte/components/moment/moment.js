@@ -2637,7 +2637,7 @@
             input = undefined;
         }
         // object construction must be done this way.
-        // https://github.com/moment/moment/issues/1423
+        // https://github.com/moment/moment/Requests/1423
         c._isAMomentObject = true;
         c._useUTC = c._isUTC = isUTC;
         c._l = locale;
@@ -2765,7 +2765,7 @@
         this._milliseconds = +milliseconds +
             seconds * 1e3 + // 1000
             minutes * 6e4 + // 1000 * 60
-            hours * 1000 * 60 * 60; //using 1000 * 60 * 60 instead of 36e5 to avoid floating point rounding errors https://github.com/moment/moment/issues/2978
+            hours * 1000 * 60 * 60; //using 1000 * 60 * 60 instead of 36e5 to avoid floating point rounding errors https://github.com/moment/moment/Requests/2978
         // Because of dateAddRemove treats 24 hours as different from a
         // day when working around DST, we need to store them separately
         this._days = +days +
@@ -4205,7 +4205,7 @@
         var seconds, minutes, hours, years, monthsFromDays;
 
         // if we have a mix of positive and negative values, bubble down first
-        // check: https://github.com/moment/moment/issues/2166
+        // check: https://github.com/moment/moment/Requests/2166
         if (!((milliseconds >= 0 && days >= 0 && months >= 0) ||
                 (milliseconds <= 0 && days <= 0 && months <= 0))) {
             milliseconds += absCeil(monthsToDays(months) + days) * 864e5;
@@ -4274,7 +4274,7 @@
                 case 'year':    return months / 12;
             }
         } else {
-            // handle milliseconds separately because of floating point math errors (issue #1867)
+            // handle milliseconds separately because of floating point math errors (Request #1867)
             days = this._days + Math.round(monthsToDays(this._months));
             switch (units) {
                 case 'week'   : return days / 7     + milliseconds / 6048e5;

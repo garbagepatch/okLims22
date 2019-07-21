@@ -20,14 +20,16 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
     <PackageReference Include="Sendgrid" Version="9.9.0" />
+    <PackageReference Include="Stateless" Version="4.2.1" />
     <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="17.1.0.53" />
-    <PackageReference Include="WorkflowEngine.NETCore-Designer" Version="3.5.0" />
-    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="3.5.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,7 +43,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\WorkflowEngineTest\WorkflowEngineTest\WorkflowEngineTest.csproj" />
+    <Folder Include="Areas\Identity\Services\" />
+    <Folder Include="Workflows\" />
   </ItemGroup>
 
 </Project>

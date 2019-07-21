@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace okLims.Controllers
 {
     
-    [Authorize(Roles = Pages.MainMenu.Laboratory.RoleName)]
+    [Authorize(Roles = Pages.MainMenu.Instrument.RoleName)]
     public class InstrumentController : Controller
     {
         public IActionResult Index()

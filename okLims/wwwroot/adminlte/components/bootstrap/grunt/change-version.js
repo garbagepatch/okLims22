@@ -13,7 +13,7 @@ var sh = require('shelljs');
 sh.config.fatal = true;
 var sed = sh.sed;
 
-// Blame TC39... https://github.com/benjamingr/RegExp.escape/issues/37
+// Blame TC39... https://github.com/benjamingr/RegExp.escape/Requests/37
 RegExp.quote = function (string) {
   return string.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
 };

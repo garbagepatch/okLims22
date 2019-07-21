@@ -16,63 +16,67 @@ using System.Threading.Tasks;
 
 namespace okLims.Services
 {
-   
-        public class Functional : IFunctional
-        {
+
+    public class Functional : IFunctional
+    {
         private readonly UserManager<ApplicationUser> _userManager;
-            private readonly RoleManager<IdentityRole> _roleManager;
-            private readonly ApplicationDbContext _context;
-            private readonly SignInManager<ApplicationUser> _signInManager;
-            private readonly IRoles _roles;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ApplicationDbContext _context;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IRoles _roles;
         private readonly SuperAdminDefaultOptions _superAdminDefaultOptions;
 
 
-            public Functional(UserManager<ApplicationUser> userManager,
-               RoleManager<IdentityRole> roleManager,
-               ApplicationDbContext context,
-               SignInManager<ApplicationUser> signInManager,
-               IRoles roles,
-               IOptions<SuperAdminDefaultOptions> superAdminDefaultOptions)
-            {
-                _userManager = userManager;
-                _roleManager = roleManager;
-                _context = context;
-                _signInManager = signInManager;
-                _roles = roles;
-                _superAdminDefaultOptions = superAdminDefaultOptions.Value;
-            }
+        public Functional(UserManager<ApplicationUser> userManager,
+           RoleManager<IdentityRole> roleManager,
+           ApplicationDbContext context,
+           SignInManager<ApplicationUser> signInManager,
+           IRoles roles,
+           IOptions<SuperAdminDefaultOptions> superAdminDefaultOptions)
+        {
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _context = context;
+            _signInManager = signInManager;
+            _roles = roles;
+            _superAdminDefaultOptions = superAdminDefaultOptions.Value;
+        }
 
-            public async Task InitAppData()
+        public async Task InitAppData()
         {
             try
             {
-                await _context.Instrument.AddAsync(new Instrument {  InstrumentName = "Bioreactor" });
+                await _context.Instrument.AddAsync(new Instrument { InstrumentName = "Bioreactor" });
                 await _context.Laboratory.AddAsync(new Laboratory { LaboratoryName = "Default" });
                 await _context.SaveChangesAsync();
                 await _context.FilterSize.AddAsync(new FilterSize { SizeID = 1, filterSize = "30 kDa" });
-                   await _context.FilterSize.AddAsync(new FilterSize{ SizeID = 2,  filterSize = "75 kDa" });
+                await _context.FilterSize.AddAsync(new FilterSize { SizeID = 2, filterSize = "75 kDa" });
                 await _context.FilterSize.AddAsync(new FilterSize
                 {
-                   SizeID = 3, filterSize =
+                    SizeID = 3,
+                    filterSize =
                     "0.2 um"
                 });
                 await _context.FilterSize.AddAsync(new FilterSize
                 {
-                    SizeID = 4, 
+                    SizeID = 4,
                     filterSize =
 
                     ".45 um"
                 });
                 await _context.SaveChangesAsync();
 
-                await _context.FilterType.AddAsync(new FilterType { FilterID = 1 , filterType = "FedBatch" });
-                await _context.FilterType.AddAsync(new FilterType {FilterID = 2,  filterType = "FedBatch Mod" });
+                await _context.FilterType.AddAsync(new FilterType { FilterID = 1, filterType = "FedBatch" });
+                await _context.FilterType.AddAsync(new FilterType { FilterID = 2, filterType = "FedBatch Mod" });
                 await _context.FilterType.AddAsync(new FilterType { FilterID = 3, filterType = "Atf Single" });
-                await _context.FilterType.AddAsync(new FilterType {FilterID = 4,  filterType = "ATF t" });
-                await _context.FilterType.AddAsync(new FilterType { FilterID = 5,  filterType = "ATF mod" });
+                await _context.FilterType.AddAsync(new FilterType { FilterID = 4, filterType = "ATF t" });
+                await _context.FilterType.AddAsync(new FilterType { FilterID = 5, filterType = "ATF mod" });
                 await _context.SaveChangesAsync();
                 await _context.ControllerType.AddAsync(new ControllerType { ControllerID = 1, controllerType = "Finesse" });
                 await _context.ControllerType.AddAsync(new ControllerType { ControllerID = 2, controllerType = "In-Control" });
+                await _context.SaveChangesAsync();
+                await _context.RequestStatus.AddAsync(new RequestStatus { Status = "Submitted", StatusID = 1 });
+                await _context.RequestStatus.AddAsync(new RequestStatus { Status = "Completed", StatusID = 2 });
                 await _context.SaveChangesAsync();
 
 
@@ -85,9 +89,13 @@ namespace okLims.Services
                 };
                 await _context.Request.AddRangeAsync(requests);
                 await _context.SaveChangesAsync();
+                await _context.ApplicationUser.AddAsync(new ApplicationUser { Email = "crossmedders@gmail.com", EmailConfirmed = true, UserName = "crossmedders@gmail.com" });
+                await _context.SaveChangesAsync();
+                await _context.UserProfile.AddAsync(new UserProfile { Email = "crossmedders@gmail.com", Password = "qzpm1056", FirstName = "Cross", LastName = "Medders" });
+                await _context.SaveChangesAsync();
             }
-    
- 
+
+
             catch (Exception)
             {
 
@@ -190,7 +198,7 @@ namespace okLims.Services
             var result = "";
 
             var webRoot = env.WebRootPath;
-            var uploads = System.IO.Path.Combine(webRoot, uploadFolder);
+            var uploads = Path.Combine(webRoot, uploadFolder);
             var extension = "";
             var filePath = "";
             var fileName = "";
@@ -200,9 +208,9 @@ namespace okLims.Services
             {
                 if (formFile.Length > 0)
                 {
-                    extension = System.IO.Path.GetExtension(formFile.FileName);
+                    extension = Path.GetExtension(formFile.FileName);
                     fileName = Guid.NewGuid().ToString() + extension;
-                    filePath = System.IO.Path.Combine(uploads, fileName);
+                    filePath = Path.Combine(uploads, fileName);
 
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {

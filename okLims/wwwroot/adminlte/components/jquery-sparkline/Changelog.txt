@@ -10,7 +10,7 @@ http://omnipotent.net/jquery.sparkline/
 
 + Make compatible with jQuery 1.10
 
-+ Fix intermittent "undefined error" with IE8 (issue 64)
++ Fix intermittent "undefined error" with IE8 (Request 64)
 Thanks Tim Tucker
 
 + Performance/minification size improvement (PR 34)
@@ -22,41 +22,41 @@ Thanks Tim Tucker
 
 2.1.1 26/January/2013
 
-+ Fix a couple of issues rendering pie charts in IE when they slices that make
-up a negligible percentage of the whole chart (issue 49)
++ Fix a couple of Requests rendering pie charts in IE when they slices that make
+up a negligible percentage of the whole chart (Request 49)
 
-+ Don't display line chart final marker if final value is null (issue 46)
++ Don't display line chart final marker if final value is null (Request 46)
 
-+ Make compatible with jQuery 1.9.0 (issue 60)
++ Make compatible with jQuery 1.9.0 (Request 60)
 
 
 2.1 15/October/2012
 
-+ Added support for Internet Explorer 10 (issue 18)
++ Added support for Internet Explorer 10 (Request 18)
 Thanks Jonathan Sampson
 
-+ Enable the plugin to be loaded dynamically (issue 6)
++ Enable the plugin to be loaded dynamically (Request 6)
 Thanks joeenzminger
 
 + Pie charts with zero in the array of values will no longer
-cause IE to display "undefined" in the page (issue 9)
+cause IE to display "undefined" in the page (Request 9)
 
-+ Null values in bar charts are now correctly omitted by default (issue 23)
++ Null values in bar charts are now correctly omitted by default (Request 23)
 
 + Null values in line charts would cause value highligting to be
-incorrect (issue 4)
+incorrect (Request 4)
 
 + Raise default z-index for tooltips to ensure they always appear on top
-of the chart (issue 5)
+of the chart (Request 5)
 
 + Allow target and performance values to be set to null for bullet charts,
-omitting them from the chart (issue 3)
+omitting them from the chart (Request 3)
 
 + Fix clipping of highlight marker spots if min/max/final spots are disabled 
-in line charts (issue 31)
+in line charts (Request 31)
 
 + Line charts with normalRangeMin=0 will now render the normal range 
-correctly (issue 7)
+correctly (Request 7)
 Thanks Tim Mathewso
 
 + Add support for AMD based module loaders such as requirejs (PR 32)
@@ -221,7 +221,7 @@ not to be rendered in certain situations
 
 + Added the box plot chart type
 
-+ Fixed a canvas rendering issue that would display some charts with
++ Fixed a canvas rendering Request that would display some charts with
 fuzzy lines
 
 + Fixed error in bar charts which would causes bars to be too short.
@@ -236,7 +236,7 @@ with display:none) - Added a $.sparkline_display_visible() function
 to render any sparklines that were generated while a tag was
 hidden
 
-+ Fixed positioning issues where sparklines would be displayed a few
++ Fixed positioning Requests where sparklines would be displayed a few
 pixels offset from their containers in some browsers
 
 + Made a first attempt at IE8 support.  IE8 beta 2 seems to
@@ -251,8 +251,8 @@ on a line doesn't work correctly, nor do the markers on line charts
 1.2.1 24/November/2008
 
 + Pie chart bug fixes:  Divide by zero error resolved
-and IE rendering issue if a pie slice is equal to 0
-Thanks to Hubert Mandeville for a patch fixing both issues
+and IE rendering Request if a pie slice is equal to 0
+Thanks to Hubert Mandeville for a patch fixing both Requests
 
 
 1.2 - 19/November/2008

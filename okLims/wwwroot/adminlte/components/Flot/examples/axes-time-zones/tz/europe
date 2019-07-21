@@ -74,7 +74,7 @@
 # ...
 # There shouldn't be any [current members who are not using EU rules].
 # A Directive has the force of law, member states are obliged to enact
-# national law to implement it. The only contentious issue was the
+# national law to implement it. The only contentious Request was the
 # different end date for the UK and Ireland, and this was always allowed
 # in the Directive.
 
@@ -176,7 +176,7 @@
 # politics making a fortune, not computing.
 
 # From Chris Carrier (1996-06-14):
-# I remember reading in various wartime issues of the London Times the
+# I remember reading in various wartime Requests of the London Times the
 # acronym BDST for British Double Summer Time.  Look for the published
 # time of sunrise and sunset in The Times, when BDST was in effect, and
 # if you find a zone reference it will say, "All times B.D.S.T."
@@ -1210,7 +1210,7 @@ Zone	Europe/Paris	0:09:21 -	LMT	1891 Mar 15  0:01
 # <a href="http://www.parlament-berlin.de/pds-fraktion.nsf/727459127c8b66ee8525662300459099/defc77cb784f180ac1256c2b0030274b/$FILE/bersarint.pdf">
 # http://www.parlament-berlin.de/pds-fraktion.nsf/727459127c8b66ee8525662300459099/defc77cb784f180ac1256c2b0030274b/$FILE/bersarint.pdf
 # </a>
-# says that Bersarin issued an order to use Moscow time on May 20.
+# says that Bersarin Requestd an order to use Moscow time on May 20.
 # However, Moscow did not observe daylight saving in 1945, so
 # this was equivalent to CEMT (GMT+3), not GMT+4.
 
@@ -1922,7 +1922,7 @@ Zone	Europe/Warsaw	1:24:00 -	LMT	1880
 # IATA SSIM (1991-09) reports several 1991-09 and 1992-09 transitions
 # at 02:00u, not 01:00u.  Assume that these are typos.
 # IATA SSIM (1991/1992) reports that the Azores were at -1:00.
-# IATA SSIM (1993-02) says +0:00; later issues (through 1996-09) say -1:00.
+# IATA SSIM (1993-02) says +0:00; later Requests (through 1996-09) say -1:00.
 # Guess that the Azores changed to EU rules in 1992 (since that's when Portugal
 # harmonized with the EU), and that they stayed +0:00 that winter.
 #

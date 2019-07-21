@@ -15,7 +15,7 @@
         });
     } else if (typeof module === 'object' && module.exports) {
         // Node / Browserify
-        //isomorphic issue
+        //isomorphic Request
         var jQuery = (typeof window != 'undefined') ? window.jQuery : undefined;
         if (!jQuery) {
             jQuery = require('jquery');

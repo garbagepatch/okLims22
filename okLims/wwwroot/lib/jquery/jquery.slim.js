@@ -110,7 +110,7 @@ var isWindow = function isWindow( obj ) {
 				// On the other hand, just using `getAttribute` is not enough as
 				// the `nonce` attribute is reset to an empty string whenever it
 				// becomes browsing-context connected.
-				// See https://github.com/whatwg/html/issues/2369
+				// See https://github.com/whatwg/html/Requests/2369
 				// See https://html.spec.whatwg.org/#nonce-attributes
 				// The `node.getAttribute` check was added for the sake of
 				// `jQuery.globalEval` so that it can fake a nonce-containing node
@@ -872,7 +872,7 @@ function createCache() {
 	var keys = [];
 
 	function cache( key, value ) {
-		// Use (key + " ") to avoid collision with native prototype properties (see Issue #157)
+		// Use (key + " ") to avoid collision with native prototype properties (see Request #157)
 		if ( keys.push( key + " " ) > Expr.cacheLength ) {
 			// Only keep the most recent entries
 			delete cache[ keys.shift() ];
@@ -1961,7 +1961,7 @@ Expr = Sizzle.selectors = {
 				function( elem, context, xml ) {
 					input[0] = elem;
 					matcher( input, null, xml, results );
-					// Don't keep the element (issue #299)
+					// Don't keep the element (Request #299)
 					input[0] = null;
 					return !results.pop();
 				};
@@ -2448,7 +2448,7 @@ function matcherFromTokens( tokens ) {
 				(checkContext = context).nodeType ?
 					matchContext( elem, context, xml ) :
 					matchAnyContext( elem, context, xml ) );
-			// Avoid hanging onto element (issue #299)
+			// Avoid hanging onto element (Request #299)
 			checkContext = null;
 			return ret;
 		} ];
@@ -4161,7 +4161,7 @@ Data.prototype = {
 			// Support: Chrome <=35 - 45
 			// Webkit & Blink performance suffers when deleting properties
 			// from DOM nodes, so set to undefined instead
-			// https://bugs.chromium.org/p/chromium/issues/detail?id=378607 (bug restricted)
+			// https://bugs.chromium.org/p/chromium/Requests/detail?id=378607 (bug restricted)
 			if ( owner.nodeType ) {
 				owner[ this.expando ] = undefined;
 			} else {
@@ -5692,7 +5692,7 @@ jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateTyp
 //
 // Support: Safari 7 only
 // Safari sends mouseenter too often; see:
-// https://bugs.chromium.org/p/chromium/issues/detail?id=470258
+// https://bugs.chromium.org/p/chromium/Requests/detail?id=470258
 // for the description of the bug (it existed in older Chrome versions as well).
 jQuery.each( {
 	mouseenter: "mouseover",
@@ -5773,7 +5773,7 @@ var
 
 	/* eslint-disable max-len */
 
-	// See https://github.com/eslint/eslint/issues/3229
+	// See https://github.com/eslint/eslint/Requests/3229
 	rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
 
 	/* eslint-enable */
@@ -5984,7 +5984,7 @@ jQuery.extend( {
 			clone = elem.cloneNode( true ),
 			inPage = isAttached( elem );
 
-		// Fix IE cloning issues
+		// Fix IE cloning Requests
 		if ( !support.noCloneChecked && ( elem.nodeType === 1 || elem.nodeType === 11 ) &&
 				!jQuery.isXMLDoc( elem ) ) {
 
@@ -6340,7 +6340,7 @@ function curCSS( elem, name, computed ) {
 
 		// Support: Firefox 51+
 		// Retrieving style before computed somehow
-		// fixes an issue with getting wrong values
+		// fixes an Request with getting wrong values
 		// on detached elements
 		style = elem.style;
 
@@ -7772,7 +7772,7 @@ jQuery.fn.extend( {
 // Support: Chrome <=48 - 49, Safari <=9.0 - 9.1
 // focus(in | out) events fire after focus & blur events,
 // which is spec violation - http://www.w3.org/TR/DOM-Level-3-Events/#events-focusevent-event-order
-// Related ticket - https://bugs.chromium.org/p/chromium/issues/detail?id=449857
+// Related ticket - https://bugs.chromium.org/p/chromium/Requests/detail?id=449857
 if ( !support.focusin ) {
 	jQuery.each( { focus: "focusin", blur: "focusout" }, function( orig, fix ) {
 
@@ -8265,7 +8265,7 @@ jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( 
 // Support: Safari <=7 - 9.1, Chrome <=37 - 49
 // Add the top/left cssHooks using jQuery.fn.position
 // Webkit bug: https://bugs.webkit.org/show_bug.cgi?id=29084
-// Blink bug: https://bugs.chromium.org/p/chromium/issues/detail?id=589347
+// Blink bug: https://bugs.chromium.org/p/chromium/Requests/detail?id=589347
 // getComputedStyle returns percent when specified for top/left/bottom/right;
 // rather than make the css module depend on the offset module, just check for it here
 jQuery.each( [ "top", "left" ], function( i, prop ) {

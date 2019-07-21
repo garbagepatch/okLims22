@@ -569,7 +569,7 @@ define(["./raphael.core"], function(R) {
         !this.removed && (this.node.style.display = E);
         return this;
     };
-    // Needed to fix the vml setViewBox issues
+    // Needed to fix the vml setViewBox Requests
     elproto.auxGetBBox = R.el.getBBox;
     elproto.getBBox = function(){
       var b = this.auxGetBBox();

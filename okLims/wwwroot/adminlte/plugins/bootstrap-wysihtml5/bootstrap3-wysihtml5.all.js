@@ -90,7 +90,7 @@ var wysihtml5 = {
     var OBJECT = "object", FUNCTION = "function", UNDEFINED = "undefined";
 
     // Minimal set of properties required for DOM Level 2 Range compliance. Comparison constants such as START_TO_START
-    // are omitted because ranges in KHTML do not have them but otherwise work perfectly well. See issue 113.
+    // are omitted because ranges in KHTML do not have them but otherwise work perfectly well. See Request 113.
     var domRangeProperties = ["startContainer", "startOffset", "endContainer", "endOffset", "collapsed",
         "commonAncestorContainer"];
 
@@ -257,7 +257,7 @@ var wysihtml5 = {
     })();
 
 
-    // Very simple event handler wrapper function that doesn't attempt to solve issues such as "this" handling or
+    // Very simple event handler wrapper function that doesn't attempt to solve Requests such as "this" handling or
     // normalization of event properties
     var addListener;
     if (isHostMethod(document, "addEventListener")) {
@@ -1149,7 +1149,7 @@ var wysihtml5 = {
                     return;
                 }
                 // Don't include a boundary container if it is a character data node and the range does not contain any
-                // of its character data. See issue 190.
+                // of its character data. See Request 190.
                 var sc = range.startContainer;
                 if (node == sc && isCharacterDataNode(sc) && range.startOffset == sc.length) {
                     return;
@@ -1389,7 +1389,7 @@ var wysihtml5 = {
         var createContextualFragment = htmlParsingConforms ?
 
             // Implementation as per HTML parsing spec, trusting in the browser's implementation of innerHTML. See
-            // discussion and base code for this implementation at issue 67.
+            // discussion and base code for this implementation at Request 67.
             // Spec: http://html5.org/specs/dom-parsing.html#extensions-to-the-range-interface
             // Thanks to Aleks Williams.
             function(fragmentStr) {
@@ -2214,7 +2214,7 @@ var wysihtml5 = {
                     var endMoved = (range.endContainer !== endContainer || range.endOffset != endOffset);
                     var nativeRangeDifferent = !range.equals(range.nativeRange);
 
-                    // Always set both boundaries for the benefit of IE9 (see issue 35)
+                    // Always set both boundaries for the benefit of IE9 (see Request 35)
                     if (startMoved || endMoved || nativeRangeDifferent) {
                         range.setEnd(endContainer, endOffset);
                         range.setStart(startContainer, startOffset);
@@ -2385,7 +2385,7 @@ var wysihtml5 = {
 
                 /*--------------------------------------------------------------------------------------------------------*/
 
-                // Test for IE 9 deleteContents() and extractContents() bug and correct it. See issue 107.
+                // Test for IE 9 deleteContents() and extractContents() bug and correct it. See Request 107.
 
                 var el = document.createElement("div");
                 el.innerHTML = "123";
@@ -2506,8 +2506,8 @@ var wysihtml5 = {
 
                 var workingNode = dom.getDocument(containerElement).createElement("span");
 
-                // Workaround for HTML5 Shiv's insane violation of document.createElement(). See Rangy issue 104 and HTML5
-                // Shiv issue 64: https://github.com/aFarkas/html5shiv/issues/64
+                // Workaround for HTML5 Shiv's insane violation of document.createElement(). See Rangy Request 104 and HTML5
+                // Shiv Request 64: https://github.com/aFarkas/html5shiv/Requests/64
                 if (workingNode.parentNode) {
                     workingNode.parentNode.removeChild(workingNode);
                 }
@@ -2655,7 +2655,7 @@ var wysihtml5 = {
                 workingNode.innerHTML = "&#feff;";
 
                 // insertBefore is supposed to work like appendChild if the second parameter is null. However, a bug report
-                // for IERange suggests that it can crash the browser: http://code.google.com/p/ierange/issues/detail?id=12
+                // for IERange suggests that it can crash the browser: http://code.google.com/p/ierange/Requests/detail?id=12
                 if (boundaryNode) {
                     boundaryParent.insertBefore(workingNode, boundaryNode);
                 } else {
@@ -2912,7 +2912,7 @@ var wysihtml5 = {
 
             (function() {
                 // Previously an iframe was used but this caused problems in some circumstances in IE, so tests are
-                // performed on the current document's selection. See issue 109.
+                // performed on the current document's selection. See Request 109.
 
                 // Note also that if a selection previously existed, it is wiped by these tests. This should usually be fine
                 // because initialization usually happens when the document loads, but could be a problem for a script that
@@ -2950,7 +2950,7 @@ var wysihtml5 = {
                         // console error of "Discontiguous selection is not supported." that cannot be suppressed. There's
                         // nothing we can do about this while retaining the feature test so we have to resort to a browser
                         // sniff. I'm not happy about it. See
-                        // https://code.google.com/p/chromium/issues/detail?id=399791
+                        // https://code.google.com/p/chromium/Requests/detail?id=399791
                         var chromeMatch = window.navigator.appVersion.match(/Chrome\/(.*?) /);
                         if (chromeMatch && parseInt(chromeMatch[1]) >= 36) {
                             selectionSupportsMultipleRanges = false;
@@ -3278,7 +3278,7 @@ var wysihtml5 = {
                             }
                             // Clone the native range so that changing the selected range does not affect the selection.
                             // This is contrary to the spec but is the only way to achieve consistency between browsers. See
-                            // issue 80.
+                            // Request 80.
                             this.nativeSelection.addRange(getNativeRange(range).cloneRange());
 
                             // Check whether adding the range was successful
@@ -3331,11 +3331,11 @@ var wysihtml5 = {
                    implementsControlRange && useDocumentSelection) {
 
             selProto.removeAllRanges = function() {
-                // Added try/catch as fix for issue #21
+                // Added try/catch as fix for Request #21
                 try {
                     this.docSelection.empty();
 
-                    // Check for empty() not working (issue #24)
+                    // Check for empty() not working (Request #24)
                     if (this.docSelection.type != "None") {
                         // Work around failure to empty a control selection by instead selecting a TextRange and then
                         // calling empty()
@@ -3388,7 +3388,7 @@ var wysihtml5 = {
             if (index < 0 || index >= this.rangeCount) {
                 throw new DOMException("INDEX_SIZE_ERR");
             } else {
-                // Clone the range to preserve selection-range independence. See issue 80.
+                // Clone the range to preserve selection-range independence. See Request 80.
                 return this._ranges[index].cloneRange();
             }
         };
@@ -3904,7 +3904,7 @@ var wysihtml5 = {
                     markerEl.style.display = "inline";
                     var previousNode = markerEl.previousSibling;
 
-                    // Workaround for issue 17
+                    // Workaround for Request 17
                     if (previousNode && previousNode.nodeType == 3) {
                         markerEl.parentNode.removeChild(markerEl);
                         range.collapseToPoint(previousNode, previousNode.length);
@@ -4305,7 +4305,7 @@ wysihtml5.browser = (function() {
     /**
      * Firefox on OSX navigates through history when hitting CMD + Arrow right/left
      */
-    hasHistoryIssue: function() {
+    hasHistoryRequest: function() {
       return isGecko && navigator.platform.substr(0, 3) === "Mac";
     },
 
@@ -4537,14 +4537,14 @@ wysihtml5.browser = (function() {
      * This especially happens when the caret is positioned right after a <br> because then
      * insertNode() will insert the node right before the <br>
      */
-    hasInsertNodeIssue: function() {
+    hasInsertNodeRequest: function() {
       return isOpera;
     },
 
     /**
      * IE 8+9 don't fire the focus event of the <body> when the iframe gets focused (even though the caret gets set into the <body>)
      */
-    hasIframeFocusIssue: function() {
+    hasIframeFocusRequest: function() {
       return isIE();
     },
 
@@ -12425,7 +12425,7 @@ wysihtml5.views.View = Base.extend(
       }
 
       // Under certain circumstances Chrome + Safari create nested <p> or <hX> tags after paste
-      // Inserting an invisible white space in front of it fixes the issue
+      // Inserting an invisible white space in front of it fixes the Request
       // This is too hacky and causes selection not to replace content on paste in chrome
      /* if (browser.createsNestedInvalidMarkupAfterPaste()) {
         dom.observe(this.element, "paste", function(event) {
@@ -12543,7 +12543,7 @@ wysihtml5.views.View = Base.extend(
   var focusWithoutScrolling = function(element) {
     if (element.setActive) {
       // Following line could cause a js error when the textarea is invisible
-      // See https://github.com/xing/wysihtml5/issues/9
+      // See https://github.com/xing/wysihtml5/Requests/9
       try { element.setActive(); } catch(e) {}
     } else {
       var elementStyle = element.style,
@@ -12571,7 +12571,7 @@ wysihtml5.views.View = Base.extend(
       if (win.scrollTo) {
         // Some browser extensions unset this method to prevent annoyances
         // "Better PopUp Blocker" for Chrome http://code.google.com/p/betterpopupblocker/source/browse/trunk/blockStart.js#100
-        // Issue: http://code.google.com/p/betterpopupblocker/issues/detail?id=1
+        // Request: http://code.google.com/p/betterpopupblocker/Requests/detail?id=1
         win.scrollTo(originalScrollLeft, originalScrollTop);
       }
     }
@@ -12918,7 +12918,7 @@ wysihtml5.views.View = Base.extend(
         });
     }
 
-    if (browser.hasHistoryIssue() && browser.supportsSelectionModify()) {
+    if (browser.hasHistoryRequest() && browser.supportsSelectionModify()) {
       dom.observe(element, "keydown", function(event) {
         if (!event.metaKey && !event.ctrlKey) {
           return;
@@ -12983,7 +12983,7 @@ wysihtml5.views.View = Base.extend(
     });
 
     // --------- IE 8+9 focus the editor when the iframe is clicked (without actually firing the 'focus' event on the <body>) ---------
-    if (!this.config.contentEditableMode && browser.hasIframeFocusIssue()) {
+    if (!this.config.contentEditableMode && browser.hasIframeFocusRequest()) {
       dom.observe(container, "focus", function() {
         setTimeout(function() {
           if (that.doc.querySelector(":focus") !== that.element) {

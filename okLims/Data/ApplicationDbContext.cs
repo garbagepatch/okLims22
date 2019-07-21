@@ -32,5 +32,7 @@ namespace okLims.Data
         public DbSet<UserProfile> UserProfile { get; set; }  
         public DbSet<RequestLine> RequestLine { get; set; }
         public DbSet<Instrument> Instrument { get; set; }
+        public DbSet<RequestStatus> RequestStatus { get; set; }
+        
     }
 }

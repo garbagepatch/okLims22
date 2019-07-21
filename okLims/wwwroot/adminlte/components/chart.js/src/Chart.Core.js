@@ -1784,7 +1784,7 @@
 
 
 			// Get maximum radius of the polygon. Either half the height (minus the text width) or half the width.
-			// Use this to calculate the offset + change. - Make sure L/R protrusion is at least 0 to stop issues with centre points
+			// Use this to calculate the offset + change. - Make sure L/R protrusion is at least 0 to stop Requests with centre points
 			var largestPossibleRadius = min([(this.height/2 - this.pointLabelFontSize - 5), this.width/2]),
 				pointPosition,
 				i,

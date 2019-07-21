@@ -16,6 +16,9 @@ using okLims.Data;
 using okLims.Models;
 using okLims.Services;
 
+using okLims.Messages;
+
+
 
 namespace okLims
 {
@@ -34,7 +37,8 @@ Configuration = configuration;
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+         
+               
             // Get Identity Default Options
             IConfigurationSection identityDefaultOptionsConfigurationSection = Configuration.GetSection("IdentityDefaultOptions");
 
@@ -59,10 +63,13 @@ Configuration = configuration;
 
                 // User settings
                 options.User.RequireUniqueEmail = identityDefaultOptions.UserRequireUniqueEmail;
+                options.User.AllowedUserNameCharacters =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
 
                 // email confirmation require
                 options.SignIn.RequireConfirmedEmail = identityDefaultOptions.SignInRequireConfirmedEmail;
             })
+
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
@@ -95,7 +102,7 @@ Configuration = configuration;
             services.AddTransient<IRoles, Roles>();
 
             services.AddTransient<IFunctional, Functional>();
-
+           
             services.AddMvc()
             .AddJsonOptions(options =>
             {
@@ -103,8 +110,14 @@ Configuration = configuration;
                 //pascal case json
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
 
-            });
-
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+        .AddRazorPagesOptions(options =>
+        {
+            options.AllowAreas = true;
+            options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
+            options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
+        });
+         
 
         }
 
@@ -116,6 +129,7 @@ Configuration = configuration;
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+               
             }
             else
             {
@@ -126,12 +140,14 @@ Configuration = configuration;
 
             app.UseAuthentication();
 
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=UserRole}/{action=UserProfile}/{id?}");
-            });
+           
+ });
         }
     }
 }

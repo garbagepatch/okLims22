@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -21,6 +22,7 @@ namespace okLims.Models
         public int ControllerID { get; set; }
         public int SizeID { get; set; }
         public int FilterID { get; set; }
+        public int StatusID { get; set; }
         [ForeignKey("SizeID")]
         public FilterSize FilterSize { get; set; }
         [ForeignKey("FilterID")]
@@ -34,6 +36,7 @@ namespace okLims.Models
         [ForeignKey("LaboratoryId")]
         public Laboratory Laboratory { get; set; }
 
+       
         [Required]
         public string Start { get; set; }
 
@@ -41,5 +44,8 @@ namespace okLims.Models
         public string End { get; set; }
 
         public List<RequestLine> RequestLines { get; set; } = new List<RequestLine>();
+        [ForeignKey("StatusID")]
+        public RequestStatus RequestStatus { get; set; }
     }
+
 }

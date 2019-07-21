@@ -25,7 +25,7 @@
 - Support selecting options with blank or `0` option values [https://github.com/select2/select2/commit/16b4840c0e2df0461998e3b464ee0a546173950d, https://github.com/select2/select2/commit/0358ee528765157234643d289bce6b8ca5889c72]
 
 ### Bug fixes
-- Fix issue with entire form losing focus when tabbing away from a Select2 control (#4419)
+- Fix Request with entire form losing focus when tabbing away from a Select2 control (#4419)
 - Fix UMD support for CommonJS [https://github.com/select2/select2/commit/45a877345482956021161203ac789c25f40a7d5e]
 
 ### Documentation
@@ -49,7 +49,7 @@
 
 ## 4.0.3
 
-This is the third bugfix release of Select2 4.0.0. It builds upon the [second bugfix release](https://github.com/select2/select2/releases/tag/4.0.2) and fixes many common issues.
+This is the third bugfix release of Select2 4.0.0. It builds upon the [second bugfix release](https://github.com/select2/select2/releases/tag/4.0.2) and fixes many common Requests.
 
 ### New features / Improvements
 - The old `dropdownAutoWidth` option now properly works [https://github.com/select2/select2/commit/fe26b083eb830836061de1458e483782cefef424]
@@ -86,14 +86,14 @@ This is the second bugfix release of Select2 4.0.0. It builds upon the [first re
 ### New features / Improvements
 
 - Added `insertTag` option to control the placement of the `tags` option [https://github.com/select2/select2/pull/4008]
-- Added handler for AJAX errors [https://github.com/select2/select2/issues/3501]
+- Added handler for AJAX errors [https://github.com/select2/select2/Requests/3501]
 - Added insertTag to control the tag position [https://github.com/select2/select2/pull/4008]
 
 ### Bug fixes
 
-- Fixed positioning issues with static dropdown parents [https://github.com/select2/select2/issues/3970]
-- Fixed existing selections not always being respected with array data [https://github.com/select2/select2/issues/3990]
-- Sanitize automatically generated ids so CSS identifiers can be used [https://github.com/select2/select2/issues/3618]
+- Fixed positioning Requests with static dropdown parents [https://github.com/select2/select2/Requests/3970]
+- Fixed existing selections not always being respected with array data [https://github.com/select2/select2/Requests/3990]
+- Sanitize automatically generated ids so CSS identifiers can be used [https://github.com/select2/select2/Requests/3618]
 - Recursively apply defaults so AJAX defaults can be set [https://github.com/select2/select2/commit/983cd8e765c5345bfe7d3bdcc3b0c882a35461ca]
 - No need to recalculate the top of the dropdown twice [https://github.com/select2/select2/pull/4155]
 
@@ -103,8 +103,8 @@ This is the second bugfix release of Select2 4.0.0. It builds upon the [first re
 - Use Jekyll's highlighting instead of prettify [https://github.com/select2/select2/commit/54441e6a22be3969dd934ccb769f5d7dde684bfb, https://github.com/select2/select2/commit/74387b98632c75b06d15d83ad5359b9daf0f5dcb, https://github.com/select2/select2/commit/a126b53b4c90fac33b5d855894647cd8bcac3558, https://github.com/select2/select2/commit/75163d67cb80e4279965a97e9eeda5b171806085]
 - Corrected responsive width example to properly show it working [https://github.com/select2/select2/commit/63d531a9c0ab51f05327492a56f3245777762b45]
 - Replaced protocol-relative URLs with HTTPS protocol [https://github.com/select2/select2/pull/4127]
-- Code snippets for mapping `id` and `text` [https://github.com/select2/select2/issues/4086]
-- Document how to trigger `change` just for Select2 [https://github.com/select2/select2/issues/3620]
+- Code snippets for mapping `id` and `text` [https://github.com/select2/select2/Requests/4086]
+- Document how to trigger `change` just for Select2 [https://github.com/select2/select2/Requests/3620]
 - Added notes about DOM events [https://github.com/select2/select2/commit/37dbe059fce4578b46b7561e6243b7fdc63ac002]
 
 ### Translations
@@ -118,7 +118,7 @@ This is the first bugfix release of Select2 4.0.0. It builds upon the [first rel
 - The option container is now passed in as the second argument when templating selections using `templateResult` [https://github.com/select2/select2/commit/dc516e7073605723be59bc727b96a3b3dea1ae5a]
 - The option container is now passed in as the second argument when templating selections using `templateSelection` [https://github.com/select2/select2/pull/3324]
 - You can immediately start typing to search when tabbing into a multiple select [https://github.com/select2/select2/commit/02cca7baa7b78e73cdcf393172ee3a54be387167, https://github.com/select2/select2/commit/79cdcc0956e242c1ce642bbaa93e538c54f4be0]
-- All parameters passed in for AJAX requests are now set as query string parameters by default [https://github.com/select2/select2/issues/3548]
+- All parameters passed in for AJAX requests are now set as query string parameters by default [https://github.com/select2/select2/Requests/3548]
 
 ### Bug fixes
 - The search box will now be properly sized after removing a selection [https://github.com/select2/select2/commit/5f80c5d9f81f3c5398c3e6e3e84fd6c67c8873f1]
@@ -126,29 +126,29 @@ This is the first bugfix release of Select2 4.0.0. It builds upon the [first rel
 - Options are now properly cloned when initializing multiple instances at once [https://github.com/select2/select2/commit/3c8366e8769233a6b20ade934fe629279e7be6ff]
 - `selectOnClose` and now be used with `closeOnSelect` without getting a stack overflow [https://github.com/select2/select2/commit/393ca4cf7f7f7097d3a994bda3dbf195e945eba1]
 - Fixed positioning with non-static parents [https://github.com/select2/select2/commit/c9216b4b966653dd63a67e815b47899ef5325298]
-- Fixed bug where multiple selects with placeholders were buggy in IE [https://github.com/select2/select2/issues/3300]
+- Fixed bug where multiple selects with placeholders were buggy in IE [https://github.com/select2/select2/Requests/3300]
 - Fixed bug where AJAX selects could not be initialized with array data [https://github.com/select2/select2/pull/3375]
 - `:all:` is now correctly removed when used in `containerCss` and `dropdownCss` options [https://github.com/select2/select2/pull/3464]
 - Fixed bug where the multiple select search box would appear on the left in RTL mode [https://github.com/select2/select2/pull/3502]
 - Change ALT + UP to close the dropdown instead of opening it [https://github.com/select2/select2/commit/d2346cc33186c2a00fa2dad29e8e559c42bfea00]
-- Fix focus issue with the multiple select search box when the `change` event was triggered [https://github.com/select2/select2/commit/698fe7b9e187e182f679aa679eb8b0ecb64a846b, https://github.com/select2/select2/commit/88503d2c67dc7f4fb9395a17f17edfe4948cf738, https://github.com/select2/select2/commit/dd2990adead92593a2dffff6ae004ea8b647d130]
+- Fix focus Request with the multiple select search box when the `change` event was triggered [https://github.com/select2/select2/commit/698fe7b9e187e182f679aa679eb8b0ecb64a846b, https://github.com/select2/select2/commit/88503d2c67dc7f4fb9395a17f17edfe4948cf738, https://github.com/select2/select2/commit/dd2990adead92593a2dffff6ae004ea8b647d130]
 - Fix bug in `ArrayAdapter` where the existing `<option>` data would be used instead of the array data [https://github.com/select2/select2/pull/3565]
 - Remove random call to `$dropdownContainer.width()` in the `AttachBody` decorator [https://github.com/select2/select2/pull/3654]
 - Fix memory leak in `AttachBody` decorator [https://github.com/select2/select2/commit/671f5a2ce21005090e0b69059799cd3dd1fbbf84]
 - Selections can no longer be removed when Select2 is in a disabled state [https://github.com/select2/select2/commit/68d068f1d2c7722d011d285a291d1f974bf09772, https://github.com/select2/select2/commit/7d8f86cbf85ebd2179195ff6a2a7a1c5dcb9da58]
 - Remove redundant `open` event trigger [https://github.com/select2/select2/pull/3507]
-- Correct references to `this` in `ajax.data` and `ajax.url` callback functions [https://github.com/select2/select2/issues/3361]
+- Correct references to `this` in `ajax.data` and `ajax.url` callback functions [https://github.com/select2/select2/Requests/3361]
 - Apply select2('option') calls on all elements [https://github.com/select2/select2/pull/3495]
 
 ### Design
 
 - Fixed original `<select>` not always being hidden correctly in some cases [https://github.com/select2/select2/pull/3301]
-- Fix potential issue with Bootstrap's gradients in Internet Explorer [https://github.com/select2/select2/pull/3307]
+- Fix potential Request with Bootstrap's gradients in Internet Explorer [https://github.com/select2/select2/pull/3307]
 - Improve compatibility with Zurb Foundation [https://github.com/select2/select2/pull/3290]
 - Remove padding on mobile safari search field in multiple selects [https://github.com/select2/select2/pull/3605]
-- Fix the clear button appearing beneath long text [https://github.com/select2/select2/issues/3306]
-- Migrate the CSS classes for the "Loading more results" message to BEM [https://github.com/select2/select2/issues/3889]
-- Fix inline search not displaying properly in Safari [https://github.com/select2/select2/issues/3459]
+- Fix the clear button appearing beneath long text [https://github.com/select2/select2/Requests/3306]
+- Migrate the CSS classes for the "Loading more results" message to BEM [https://github.com/select2/select2/Requests/3889]
+- Fix inline search not displaying properly in Safari [https://github.com/select2/select2/Requests/3459]
 
 ### Documentation
 
@@ -168,7 +168,7 @@ This is the first bugfix release of Select2 4.0.0. It builds upon the [first rel
 - Polish translation: Fixed typo in maximum selected message [https://github.com/select2/select2/pull/3587]
 - Add Malay translation [https://github.com/select2/select2/pull/3635]
 - Add `errorLoading` for Indonesian translation [https://github.com/select2/select2/pull/3635]
-- Correct grammar issues in Hebrew translation [https://github.com/select2/select2/pull/3911]
+- Correct grammar Requests in Hebrew translation [https://github.com/select2/select2/pull/3911]
 - Add `errorLoading` for Danish translation [https://github.com/select2/select2/pull/3870]
 - Add Arabic translation [https://github.com/select2/select2/pull/3859]
 

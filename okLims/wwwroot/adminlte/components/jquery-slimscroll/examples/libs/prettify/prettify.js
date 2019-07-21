@@ -799,7 +799,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
            null, '"\'']);
     }
     if (options['verbatimStrings']) {
-      // verbatim-string-literal production from the C# grammar.  See issue 93.
+      // verbatim-string-literal production from the C# grammar.  See Request 93.
       fallthroughStylePatterns.push(
           [PR_STRING, /^@\"(?:[^\"]|\"\")*(?:\"|$)/, null]);
     }
@@ -883,7 +883,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
              // with an optional modifier like UL for unsigned long
              + '[a-z]*', 'i'),
          null, '0123456789'],
-        // Don't treat escaped quotes in bash as starting strings.  See issue 144.
+        // Don't treat escaped quotes in bash as starting strings.  See Request 144.
         [PR_PLAIN,       /^\\[\s\S]?/, null],
         [PR_PUNCTUATION, /^.[^\s\w\.$@\'\"\`\/\#\\]*/, null]);
 
@@ -1125,7 +1125,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
           && (styledText = source.substring(sourceIndex, end))) {
         // This may seem bizarre, and it is.  Emitting LF on IE causes the
         // code to display with spaces instead of line breaks.
-        // Emitting Windows standard issue linebreaks (CRLF) causes a blank
+        // Emitting Windows standard Request linebreaks (CRLF) causes a blank
         // space to appear at the beginning of every line but the first.
         // Emitting an old Mac OS 9 line separator makes everything spiffy.
         if (isIE) { styledText = styledText.replace(newlineRe, '\r'); }

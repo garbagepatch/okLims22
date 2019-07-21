@@ -21,7 +21,7 @@ export function as (units) {
             case 'year':    return months / 12;
         }
     } else {
-        // handle milliseconds separately because of floating point math errors (issue #1867)
+        // handle milliseconds separately because of floating point math errors (Request #1867)
         days = this._days + Math.round(monthsToDays(this._months));
         switch (units) {
             case 'week'   : return days / 7     + milliseconds / 6048e5;

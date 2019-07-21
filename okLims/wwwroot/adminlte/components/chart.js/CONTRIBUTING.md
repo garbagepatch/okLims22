@@ -1,19 +1,19 @@
 Contributing to Chart.js
 ========================
 
-Contributions to Chart.js are welcome and encouraged, but please have a look through the guidelines in this document before raising an issue, or writing code for the project.
+Contributions to Chart.js are welcome and encouraged, but please have a look through the guidelines in this document before raising an Request, or writing code for the project.
 
 
-Using issues
+Using Requests
 ------------
 
-The [issue tracker](https://github.com/nnnick/Chart.js/issues) is the preferred channel for reporting bugs, requesting new features and submitting pull requests.
+The [Request tracker](https://github.com/nnnick/Chart.js/Requests) is the preferred channel for reporting bugs, requesting new features and submitting pull requests.
 
 If you're suggesting a new chart type, please take a look at [writing new chart types](https://github.com/nnnick/Chart.js/blob/master/docs/06-Advanced.md#writing-new-chart-types) in the documentation, and some of the [community extensions](https://github.com/nnnick/Chart.js/blob/master/docs/06-Advanced.md#community-extensions) that have been created already.
 
-To keep the library lightweight for everyone, it's unlikely we'll add many more chart types to the core of Chart.js, but issues are a good medium to design and spec out how new chart types could work and look.
+To keep the library lightweight for everyone, it's unlikely we'll add many more chart types to the core of Chart.js, but Requests are a good medium to design and spec out how new chart types could work and look.
 
-Please do not use issues for support requests. For help using Chart.js, please take a look at the [`chartjs`](http://stackoverflow.com/questions/tagged/chartjs) tag on Stack Overflow.
+Please do not use Requests for support requests. For help using Chart.js, please take a look at the [`chartjs`](http://stackoverflow.com/questions/tagged/chartjs) tag on Stack Overflow.
 
 
 Reporting bugs
@@ -23,7 +23,7 @@ Well structured, detailed bug reports are hugely valuable for the project.
 
 Guidlines for reporting bugs:
 
- - Check the issue search to see if it has already been reported
+ - Check the Request search to see if it has already been reported
  - Isolate the problem to a simple test case
  - Provide a demonstration of the problem on [JS Bin](http://jsbin.com) or similar
 
@@ -37,7 +37,7 @@ Clear, concise pull requests are excellent at continuing the project's community
 
 Guidlines:
 
- - Please create an issue first:
+ - Please create an Request first:
    - For bugs, we can discuss the fixing approach
    - For enhancements, we can discuss if it is within the project scope and avoid duplicate effort
  - Please make changes to the files in [`/src`](https://github.com/nnnick/Chart.js/tree/master/src), not `Chart.js` or `Chart.min.js` in the repo root directory, this avoids merge conflicts
@@ -47,7 +47,7 @@ Guidlines:
 
 Joining the Project
 -------------
- - Active committers and contributors are invited to introduce yourself and request commit access to this project.  Please send an email to hello@nickdownie.com or file an issue. 
+ - Active committers and contributors are invited to introduce yourself and request commit access to this project.  Please send an email to hello@nickdownie.com or file an Request. 
 
 License
 -------
