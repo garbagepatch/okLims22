@@ -17,8 +17,7 @@ using okLims.Models;
 using okLims.Services;
 
 using okLims.Messages;
-
-
+using static Microsoft.AspNetCore.Razor.Language.TagHelperMetadata;
 
 namespace okLims
 {
@@ -26,19 +25,19 @@ namespace okLims
     {
         public Startup(IConfiguration configuration)
         {
-SyncfusionLicenseProvider.RegisterLicense("MDAxQDMxMzcyZTMyMmUzMEZna05lYWxBSk1abUIzRHM0UGE4SnczSkxnaVl0TWJweHo0NU4xeE9SL289");
-Configuration = configuration;
+            SyncfusionLicenseProvider.RegisterLicense("MDAxQDMxMzcyZTMyMmUzMEZna05lYWxBSk1abUIzRHM0UGE4SnczSkxnaVl0TWJweHo0NU4xeE9SL289");
+            Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
-  
-    // This method gets called by the runtime. Use this method to add services to the container.
-    public void ConfigureServices(IServiceCollection services)
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-         
-               
+
+
             // Get Identity Default Options
             IConfigurationSection identityDefaultOptionsConfigurationSection = Configuration.GetSection("IdentityDefaultOptions");
 
@@ -102,7 +101,7 @@ Configuration = configuration;
             services.AddTransient<IRoles, Roles>();
 
             services.AddTransient<IFunctional, Functional>();
-           
+
             services.AddMvc()
             .AddJsonOptions(options =>
             {
@@ -117,7 +116,7 @@ Configuration = configuration;
             options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
             options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
         });
-         
+
 
         }
 
@@ -129,7 +128,7 @@ Configuration = configuration;
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
-               
+
             }
             else
             {
@@ -146,8 +145,10 @@ Configuration = configuration;
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=UserRole}/{action=UserProfile}/{id?}");
-           
- });
+
+            });
+
+
         }
     }
 }

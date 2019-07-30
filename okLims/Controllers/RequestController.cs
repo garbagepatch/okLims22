@@ -40,7 +40,7 @@ namespace okLims.Controllers
         public IActionResult Index()
         {
 
-            ViewBag.data = new string[] { "Submitted", "Completed" };
+          
             return View();
             }
         public IActionResult Detail(int id)
@@ -65,11 +65,34 @@ namespace okLims.Controllers
             return View();
             
         }
-      public IActionResult SubmitRequest()
+        [AllowAnonymous]
+      public IActionResult SubmitRequest(int id = 0)
         {
-            return View(); 
+            if (id == 0)
+            {
+                return View(new Request());
+            }else 
+            return View(_context.Request.Find(id)); 
         }
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> SubmitRequest([Bind("RequestId, RequesterEmail, Start, End, LaboratoryId, SizeID, FilterID, ControllerID, SpecialDetails, StatusID")] Request request)
+        {
+            if (ModelState.IsValid)
+            {
 
+                if (request.RequestId == 0)
+                {
+                    _context.Add(request);
+                }
+                else
+                    _context.Update(request);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+               
+            }
+            return View(request);
+        }
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> EmailerOnCompletion( int id)

@@ -17,6 +17,7 @@ namespace okLims.Models
         public int ControllerID { get; set; }
         public int SizeID { get; set; }
         public int FilterID { get; set; }
+        public int StatusID { get; set; }
       
         public int LaboratoryId { get; set; }
 

@@ -286,8 +286,7 @@ namespace okLims.Migrations
 
                     b.Property<int>("ControllerID");
 
-                    b.Property<string>("End")
-                        .IsRequired();
+                    b.Property<DateTime>("End");
 
                     b.Property<int>("FilterID");
 
@@ -299,8 +298,7 @@ namespace okLims.Migrations
 
                     b.Property<string>("SpecialDetails");
 
-                    b.Property<string>("Start")
-                        .IsRequired();
+                    b.Property<DateTime>("Start");
 
                     b.Property<int>("StatusID");
 
@@ -343,6 +341,8 @@ namespace okLims.Migrations
 
                     b.Property<string>("Start");
 
+                    b.Property<int>("StatusID");
+
                     b.HasKey("RequestLineId");
 
                     b.HasIndex("RequestId");
@@ -382,6 +382,8 @@ namespace okLims.Migrations
                     b.Property<string>("OldPassword");
 
                     b.Property<string>("Password");
+
+                    b.Property<string>("ProfilePicture");
 
                     b.HasKey("UserProfileId");
 

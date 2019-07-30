@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,5 +30,7 @@ namespace okLims.Services
             string smtpHost,
             int smtpPort,
             bool smtpSSL);
+
+        Task<string> UploadFile(List<IFormFile> files, IHostingEnvironment env, string uploadFolder);
     }
 }

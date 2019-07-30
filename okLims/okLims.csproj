@@ -8,18 +8,53 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Mapping\**" />
+    <Compile Remove="ServiceLocation\**" />
+    <Compile Remove="Views\Designer\**" />
+    <Compile Remove="Views\Document\**" />
+    <Content Remove="Mapping\**" />
+    <Content Remove="ServiceLocation\**" />
+    <Content Remove="Views\Designer\**" />
+    <Content Remove="Views\Document\**" />
+    <EmbeddedResource Remove="Mapping\**" />
+    <EmbeddedResource Remove="ServiceLocation\**" />
+    <EmbeddedResource Remove="Views\Designer\**" />
+    <EmbeddedResource Remove="Views\Document\**" />
+    <None Remove="Mapping\**" />
+    <None Remove="ServiceLocation\**" />
+    <None Remove="Views\Designer\**" />
+    <None Remove="Views\Document\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\DesignerController.cs" />
+    <Compile Remove="Controllers\DocumentController.cs" />
+    <Compile Remove="Controllers\SettingsController.cs" />
+    <Compile Remove="Extensions\EmployeeExtensions.cs" />
     <Compile Remove="Migrations\20190708090832_kkkk.cs" />
     <Compile Remove="Migrations\20190708090832_kkkk.Designer.cs" />
     <Compile Remove="Migrations\20190708182659_yoobly.cs" />
     <Compile Remove="Migrations\20190708182659_yoobly.Designer.cs" />
+    <Compile Remove="Models\DesignerModel.cs" />
+    <Compile Remove="Models\DocumentHistoryModel.cs" />
+    <Compile Remove="Models\DocumentListModel.cs" />
+    <Compile Remove="Models\DocumentModel.cs" />
+    <Compile Remove="Models\LoadTestingStatistics.cs" />
+    <Compile Remove="Models\SettingsModel.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Controllers\workflowcallback.json" />
     <Content Remove="Web.config" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.3" />
+    <PackageReference Include="Autofac.Configuration" Version="4.1.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <PackageReference Include="JsonSubTypes" Version="1.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.11">
       <PrivateAssets>all</PrivateAssets>
@@ -27,9 +62,16 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="RestSharp" Version="105.1.0" />
     <PackageReference Include="Sendgrid" Version="9.9.0" />
     <PackageReference Include="Stateless" Version="4.2.1" />
     <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="17.1.0.53" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
+    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
+    <PackageReference Include="WorkflowCore" Version="2.0.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="4.0.9" />
+    <PackageReference Include="WorkflowEngine.NETCore-Designer" Version="4.0.12" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForMSSQL" Version="4.0.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,7 +86,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Services\" />
-    <Folder Include="Workflows\" />
   </ItemGroup>
 
 </Project>

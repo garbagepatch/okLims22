@@ -72,9 +72,6 @@
                 adaptor: new ej.WebApiAdaptor()
             });
 
-
-
-
             dataManager.ready.done(function (e) {
                 $("#Grid").ejGrid({
                     dataSource: ej.DataManager({
@@ -118,18 +115,20 @@
                         { field: "RequesterEmail", headerText: 'RequesterEmail', allowEditing: true },
                         { field: "FilterID", headerText: 'Filter Type', foreignKeyField: "FilterID", foreignKeyValue: "filterType", dataSource: dataManagerFilterType, editType: "dropdownedit" },
                         { field: "SizeID", headerText: 'FilterSize', foreignKeyField: "SizeID", foreignKeyValue: "filterSize", dataSource: dataManagerFilterSize, editType: "dropdownedit" },
-                        { field: "Start", headerText: 'Order Date', editType: "datepicker", format: "{0:MM/dd/yyyy}" },
-                        { field: "End", headerText: 'Delivery Date', editType: "datepicker", format: "{0:MM/dd/yyyy}" },
+                        { field: "Start", headerText: 'Order Date', editType: "datetimepicker", format: "{0:MM/dd/yyyy}" },
+                        { field: "End", headerText: 'Delivery Date', editType: "datetimepicker", format: "{0:MM/dd/yyyy}" },
                         { field: "ControllerID", headerText: 'Controller Type', foreignKeyField: "ControllerID", foreignKeyValue: "controllerType", dataSource: dataManagerControllerType },
                         { field: "LaboratoryId", headerText: 'Laboratory Name', allowEditing: true, foreignKeyField: "LaboratoryId", foreignKeyValue: "LaboratoryName", dataSource: dataManagerLaboratory },
                         { field: "SpecialDetails", headerText: 'Special Details', allowEditing: true, editType: "text", },
-                        { field: "RequestStatus", headerText: 'Status', editType: "dropdownedit", allowEditing: true, foreignKeyField: "StatusID", foreignKeyValue: "Status", dataSource: dataManagerRequestStatus,  placeholder:"Submitted"},
+                        { field: "StatusID", headerText: 'Status', editType: "dropdownedit", allowEditing: true, foreignKeyField: "StatusID", foreignKeyValue: "Status", dataSource: dataManagerRequestStatus, defaultValue: 'Submitted'},
                            
                         
                     ],
                     actionComplete: "complete",
+                    
            
                 });
+                grid.appendTo('#Grid');
             });
 
 
@@ -142,8 +141,9 @@
         };
         function begin(args) {
             if (args.requestType === "beginEdit") {
-                if (args.rowData.RequestStatus.value = "Completed") {
+                if (args.rowData.dataManagerRequestStatus.foreignKeyValue = "Completed") {
                     args.cancel = true;
+                   
 
                 }
             }

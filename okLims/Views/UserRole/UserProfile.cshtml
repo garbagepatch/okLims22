@@ -25,18 +25,38 @@
                 </div>
             </div>
             <div class="box-body">
-                <div class="col-lg-8">
-                    <div class="form-group">
-                        <div class="col-lg-3">Email</div>
-                        <div class="col-lg-9"><input class="form-control" value="@profile.Email" disabled /></div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img id="profilePicture" class="profile-user-img img-responsive img-circle" src="@profile.ProfilePicture" alt="User profile picture">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="cols-sample-area">
+                                    <div class="frame">
+                                        <div class="control">
+                                            <div id="UploadDefault"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-lg-3">First Name</div>
-                        <div class="col-lg-9"><input class="form-control" value="@profile.FirstName" disabled /></div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-3">Last Name</div>
-                        <div class="col-lg-9"><input class="form-control" value="@profile.LastName" disabled /></div>
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <div class="col-lg-3">Email</div>
+                            <div class="col-lg-9"><input class="form-control" value="@profile.Email" disabled /></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-3">First Name</div>
+                            <div class="col-lg-9"><input class="form-control" value="@profile.FirstName" disabled /></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-3">Last Name</div>
+                            <div class="col-lg-9"><input class="form-control" value="@profile.LastName" disabled /></div>
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -175,14 +195,13 @@
     <script type="text/javascript">
         $(function () {
 
-            $("#UploadDefault").ejUploadbox({
+                       $("#UploadDefault").ejUploadbox({
                 saveUrl: "/api/UploadProfilePicture",
                 allowDragAndDrop: true,
                 multipleFilesSelection: false,
                 success: "uploadSuccess",
                 autoUpload: true,
             });
-
             var dataManager = ej.DataManager({
                 url: "/api/User/GetByApplicationUserId/@Model.Id",
                 adaptor: new ej.WebApiAdaptor(),

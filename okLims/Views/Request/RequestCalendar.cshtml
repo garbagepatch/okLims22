@@ -1,150 +1,129 @@
 @using Syncfusion.EJ2.Schedule
 @using Syncfusion.EJ2
 @using Syncfusion.EJ2.Buttons
-@model okLims.Models.Request;
+@model okLims.Models.Request
 
 
 @{
-  ViewData["Title"] = "Request";
+    ViewData["Title"] = "Request";
+    var dataManager = new DataManager()
+    {
+        Url = "/api/Request",
+        Adaptor = "WebApiAdaptor",
+        CrossDomain = true
+    };
+
+
+
 }
-<div class="content-wrapper">
-
-  <!-- Main content -->
-  <section class="content">
-    <!-- Default box -->
-    <div class="box">
-      <div class="box-header with-border">
-        <h3 class="box-title text-primary"><i class="fa fa-certificate"></i> @ViewData["Title"]</h3>
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                  title="Collapse">
-            <i class="fa fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-            <i class="fa fa-times"></i>
-          </button>
-        </div>
-      </div>
-      <div class="box-body">
-        <div id="schedule"></div>
-      </div>
-      <!-- /.box-body -->
-      <div class="box-footer">
-
-      </div>
-      <!-- /.box-footer-->
+<body>
+@section ControlsSection{
+    <div class="control-section">
+        <ejs-schedule id="schedule" width="100%" height="650px" startHour="08:00" endHour="18:00" selectedDate="new DateTime(2018, 2, 15)" readonly="true">
+            <e-schedule-eventsettings dataSource="@ViewBag.appointments"></e-schedule-eventsettings>
+            <e-schedule-workhours start="08:00"></e-schedule-workhours>
+            <e-schedule-views>
+                <e-schedule-view option="Week" eventTemplate="#event-template"></e-schedule-view>
+                <e-schedule-view option="TimelineWeek" eventTemplate="#timeline-event-template"></e-schedule-view>
+            </e-schedule-views>
+        </ejs-schedule>
     </div>
-    <!-- /.box -->
-  </section>
-  <!-- /.content -->
-</div>
 
+    <style>
 
-<div>
-  <ejs-button id="btn1" content="ADD"></ejs-button>
-  <ejs-button id="btn2" content="EDIT"></ejs-button>
-  <ejs-button id="btn3" content="DELETE"></ejs-button>
-</div>
-@section Scripts{
+        .e-schedule .e-vertical-view .e-content-wrap .e-appointment,
+        .e-schedule .e-timeline-view .e-content-wrap .e-appointment {
+            border-radius: 8px;
+        }
 
-  <script type="text/javascript">
-    $(function () {
+            .e-schedule .e-vertical-view .e-content-wrap .e-appointment .e-appointment-details {
+                padding: 0;
+                height: 100%;
+            }
 
-      var dataManager = ej.DataManager({
-        url: "/api/Request",
-        adaptor: new ej.WebApiAdaptor(),
-        offline: true
-      });
+        .e-schedule .template-wrap {
+            height: 100%;
+            white-space: normal;
+        }
 
-      var dataManagerFilterType = ej.DataManager({
-        url: "/api/FilterType",
-        adaptor: new ej.WebApiAdaptor()
-      });
+            .e-schedule .template-wrap .image {
+                padding: 8px 0 4px;
+            }
 
-      var dataManagerFilterSize = ej.DataManager({
-        url: "/api/FilterSize",
-        adaptor: new ej.WebApiAdaptor()
-      });
+                .e-schedule .template-wrap .image img {
+                    height: 100%;
+                    width: 100%;
+                    padding: 10px 25%;
+                }
 
-      var dataManagerControllerType = ej.DataManager({
-        url: "/api/ControllerType",
-        adaptor: new ej.WebApiAdaptor()
-      });
-      var dataManagerLaboratory = ej.DataManager({
-        url: "/api/Laboratory",
-        adaptor: new ej.WebApiAdaptor()
-      });
-      dataManager.ready.done(function (e) {
-        $("#schedule").ejSchedule({
-          dataSource: ej.DataManager({
-            json: e.result,
-            adaptor: new ej.remoteSaveAdaptor(),
-            insertUrl: "/api/Request/Insert",
-            updateUrl: "/api/Request/Update",
-            removeUrl: "/api/Request/Remove",
-          }),
-          currentDate: new Date(19, 7, 9),
-          appointmentSettings: {
+            .e-schedule .template-wrap .subject {
+                font-weight: 600;
+                font-size: 15px;
+                padding: 4px 4px 4px;
+                height: 25px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
 
-            id: { field: "RequestId", headerText: 'Request Id', isPrimaryKey: true, isIdentity: true, visible: false },
-            subject: { field: "RequesterEmail", headerText: 'Requester Email' },
-            location: { field: "LaboratoryId", headerText: 'Laboratory Name', foreignKeyField: "LaboratoryId", foreignKeyValue: "LaboratoryName", dataSource: dataManagerLaboratory },
-            startTime: { field: "Start", headerText: 'Start Time', editType: "datepickeredit" },
-            endTime: { field: "End", headerText: 'End Time', editType: "datepickeredit" },
-            description: { field: "SpecialDetails", headerText: 'Special Details', editType: "text" },
-            allday: false,
-            recurrence: false,
-            filtertype: { field: "FilterID", headerText: 'Filter Type', foreignKeyField: "FilterID", foreignKeyValue: "filterType", dataSource: dataManagerFilterType, editType: "dropdownedit" },
-            filtersize: { field: "SizeID", headerText: 'FilterSize', foreignKeyField: "SizeID", foreignKeyValue: "filterSize", dataSource: dataManagerFilterSize, editType: "dropdownedit" },
-            controllertype: { field: "ControllerID", headerText: 'Controller Type', foreignKeyField: "ControllerID", foreignKeyValue: "controllerType", dataSource: dataManagerControllerType }
-          },
-          actionComplete: "complete",
-        });
-      });
-    });
+            .e-schedule .template-wrap .time {
+                height: 50px;
+            }
 
-    $(function () {
-      document.getElementById('btn1').onclick = function () {
-        var scheduleObj = document.getElementById('RequestId').ej2_instances[0];
-        var Data = [{
-          RequestId: dataManager.RequestId,
-          Start: dataManager.Start,
-          End: dataManager.End,
-          SpecialDetails: dataManager.SpecialDetails,
-          AllDay: false,
-          Recurrence: false,
-          FilterID: dataManagerFilterType.filtertype,
-          SizeID: dataManagerFilterSize.filtersize,
-          LaboratoryId: dataManagerLaboratory.LaboratoryName,
-          ControllerID: dataManagerControllerType.controllertype,
-          RequesterEmail: dataManager.RequesterEmail
+            .e-schedule .template-wrap .time,
+            .e-schedule .template-wrap .description {
+                font-size: 12px;
+                padding: 4px 6px 4px;
+                overflow: hidden;
+            }
 
-        }];
-        scheduleObj.addEvent(Data);
-        document.getElementById('btn1').setAttribute('disabled', 'true');
-      };
-      document.getElementById('btn2').onclick = function () {
-        var scheduleObj = document.getElementById('RequestId').ej2_instances[0];
-        var Data = {
-          RequestId: dataManager.RequestId,
-          RequesterEmail: dataManager.RequesterEmail,
-          SpecialDetails: dataManager.SpecialDetails,
-          LaboratoryId: dataManager.LaboratoryName,
-          Start: datamanager.Start,
-          EndTime: dataManager.End,
-          FilterID: dataManager.filtertype,
-          SizeID: dataManager.filtersize,
-          ControllerID: dataManager.controllertype
+            .e-schedule .template-wrap .footer {
+                position: absolute;
+                bottom: 0;
+                height: 50px;
+                width: 100%;
+            }
 
+        .e-schedule .e-timeline-view .e-appointment .e-appointment-details {
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .e-schedule .e-timeline-view .template-wrap {
+            width: 100%;
+        }
+
+            .e-schedule .e-timeline-view .template-wrap .subject {
+                font-size: 16px;
+                height: 36px;
+                text-align: center;
+            }
+    </style>
+
+    <script id="event-template" type="text/x-template">
+        <div class='template-wrap' style='background:${SecondaryColor}'>
+            <div class="subject" style='background:${PrimaryColor}'>${Subject}</div>
+            <div class="time" style='background:${PrimaryColor}'>Time: ${getTimeString(data.StartTime)} - ${getTimeString(data.EndTime)}</div>
+            <div class="image">
+                <img src="@Url.Content("~/css/schedule/images/${ImageName}.svg")" alt="${ImageName}" />
+            </div>
+            <div class="description">${Description}</div>
+            <div class="footer" style='background:${PrimaryColor}'></div>
+        </div>
+    </script>
+
+    <script id="timeline-event-template" type="text/x-template">
+        <div class='template-wrap' style='background:${PrimaryColor}'>
+            <div class="subject" style='background:${SecondaryColor}; border-left: 15px solid ${PrimaryColor};border-right: 15px solid ${PrimaryColor};'>${Subject}</div>
+        </div>
+    </script>
+
+    <script type="text/javascript">
+        var instance = new ej.base.Internationalization();
+        window.getTimeString = function (value) {
+            return instance.formatDate(value, { skeleton: 'hm' });
         };
-        scheduleObj.saveEvent(Data);
-        document.getElementById('btn2').setAttribute('disabled', 'true');
-      };
-      document.getElementById('btn3').onclick = function () {
-        var scheduleObj = document.getElementById('RequestId').ej2_instances[0];
-        scheduleObj.deleteEvent(4);
-        document.getElementById('btn3').setAttribute('disabled', 'true');
-      }
-    });
-  </script>
+    </script>
 }
+    </body>

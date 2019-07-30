@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using okLims.Data;
@@ -99,8 +99,9 @@ namespace okLims.Controllers.api
             return Ok(Request);
         }
         [HttpGet("[action]/{id}")]
-        public IActionResult SendEmailOnCompletion(int id)
+        public IActionResult OnCompletion(int id)
         {
+
             return Ok();
         }
     }
