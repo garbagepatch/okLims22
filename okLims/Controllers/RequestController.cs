@@ -22,12 +22,12 @@ namespace okLims.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly Services.IEmailSender _emailSender;
+        private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
         public RequestController(ApplicationDbContext context,
              UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
-        Services.IEmailSender emailSender,
+        IEmailSender emailSender,
         ILogger<AccountController> logger)
         {
             _userManager = userManager;
@@ -97,12 +97,16 @@ namespace okLims.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> EmailerOnCompletion( int id)
         {
-           Request request = _context.Request.SingleOrDefault(x => x.RequestId.Equals(id));
-
-            if (request.RequestStatus.Status == "Completed")
+            if (ModelState.IsValid)
             {
-               
-                await _emailSender.SendEmailOnCompletion(request.RequesterEmail);
+
+                Request request = _context.Request.SingleOrDefault(x => x.RequestId.Equals(id));
+
+                if (request.StatusID == 2)
+                {
+
+                    _emailSender.SendEmailOnCompletion(request.RequesterEmail);
+                }
             }
             return View();
         }

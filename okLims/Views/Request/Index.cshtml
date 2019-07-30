@@ -2,7 +2,7 @@
     ViewData["Title"] = "Request";
 
 }
-@model  Request
+@model Request
 
 
 <div class="content-wrapper">
@@ -39,7 +39,7 @@
 
 
 @section Scripts{
-@using okLims.Extensions
+    @using okLims.Extensions
     <script type="text/javascript">
         $(function () {
 
@@ -120,20 +120,20 @@
                         { field: "ControllerID", headerText: 'Controller Type', foreignKeyField: "ControllerID", foreignKeyValue: "controllerType", dataSource: dataManagerControllerType },
                         { field: "LaboratoryId", headerText: 'Laboratory Name', allowEditing: true, foreignKeyField: "LaboratoryId", foreignKeyValue: "LaboratoryName", dataSource: dataManagerLaboratory },
                         { field: "SpecialDetails", headerText: 'Special Details', allowEditing: true, editType: "text", },
-                        { field: "StatusID", headerText: 'Status', editType: "dropdownedit", allowEditing: true, foreignKeyField: "StatusID", foreignKeyValue: "Status", dataSource: dataManagerRequestStatus, defaultValue: 'Submitted'},
-                           
-                        
+                        { headerText: 'Commands', width: 120, commands: [{ buttonOption: { content: 'Details', cssClass: 'e-primary', click: onClick},
+
+
                     ],
                     actionComplete: "complete",
-                    
-           
+
+
                 });
                 grid.appendTo('#Grid');
             });
 
 
         });
-       
+
         function complete(args) {
             if (args.requestType == 'beginedit') {
                 $("#" + this._id + "_dialogEdit").ejDialog({ title: "Edit Record" });
@@ -141,19 +141,24 @@
         };
         function begin(args) {
             if (args.requestType === "beginEdit") {
-                if (args.rowData.dataManagerRequestStatus.foreignKeyValue = "Completed") {
+                if (args.rowData.StatusID === "2") {
                     args.cancel = true;
-                   
+
+                    function custombutton(e) {
+
+                    }
+
+
 
                 }
             }
         };
-                
-        
-        
-        
+
+
+
+
     </script>
-
-
-}
-   
+    <script id="actionTemplate" type="text/x-template">
+        <input type='button' value='Action' onClick="onClick(event);">
+        </script>
+        }
