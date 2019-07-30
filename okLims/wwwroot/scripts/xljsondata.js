@@ -82,7 +82,7 @@
 
     window.visaDetail = [
 			{ ID: "Greater than 6", Type: "", TypeOfVisa: "Text Length Less than 35", Value: "", VisaFees: "Between 150 to 200", FNo: "", NoOfPassenger: "List", DDate: "", Date: "Greater than 07/09/2014", DTime: "", Time: "Greater than 11:23:23  AM" },
-			{ ID: 1, Type: "", TypeOfVisa: "Business", Value: "", VisaFees: "$160.00", FNo: "", NoOfPassenger: "1", DDate: "", Date: "02/14/2014", DTime: "", Time: "11:34:32 AM" },
+			{ ID: 1, Type: "", TypeOfVisa: "", Value: "", VisaFees: "$160.00", FNo: "", NoOfPassenger: "1", DDate: "", Date: "02/14/2014", DTime: "", Time: "11:34:32 AM" },
 			{ ID: 2, Type: "", TypeOfVisa: "Religious Worker", Value: "", VisaFees: "$190.00", FNo: "", NoOfPassenger: "2", DDate: "", Date: "06/11/2014", DTime: "", Time: "05:56:32 AM" },
 			{ ID: 3, Type: "", TypeOfVisa: "Temporary Workers/Employment or Trainees", Value: "", VisaFees: "$190.00", FNo: "", NoOfPassenger: "3", DDate: "", Date: "03/04/2012", DTime: "", Time: "07:16:22 AM" },
 			{ ID: 4, Type: "", TypeOfVisa: "Transiting the United States", Value: "", VisaFees: "$160.00", FNo: "", NoOfPassenger: "4", DDate: "", Date: "07/27/2014", DTime: "", Time: "03:32:44 AM" },

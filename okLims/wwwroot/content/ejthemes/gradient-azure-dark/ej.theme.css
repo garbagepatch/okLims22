@@ -1710,10 +1710,10 @@ e-excelfilter .e-menu .e-list.e-fghdrcolor.e-mhover.e-mfocused,
 .e-schedule .e-monthcellhighlight {
   background: black;
 }
-.e-schedule .e-businesshighlightworkcells {
+.e-schedule .e-highlightworkcells {
   
 }
-.e-schedule .e-businesshighlightworkcells {
+.e-schedule .e-highlightworkcells {
   background: black;
 }
 .e-schedule .e-scheduleheader {
@@ -2171,10 +2171,10 @@ e-excelfilter .e-menu .e-list.e-fghdrcolor.e-mhover.e-mfocused,
   .e-schedule .e-monthcellhighlight {
     background: black !important;
   }
-  .e-schedule .e-businesshighlightworkcells {
+  .e-schedule .e-highlightworkcells {
     
   }
-  .e-schedule .e-businesshighlightworkcells {
+  .e-schedule .e-highlightworkcells {
     background: black !important;
   }
   .e-schedule .e-nextapp,

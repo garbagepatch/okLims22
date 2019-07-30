@@ -1,4 +1,4 @@
-window.GroupingList = ["GRIDS", "DATA SCIENCE", "DATA VISUALIZATION", "FILE FORMATS", "LAYOUT", "ICONS", "EDITORS", "NAVIGATION", "NOTIFICATION", "BUSINESS INTELLIGENCE", "REPORTING", "FRAMEWORK", "MISCELLANEOUS", "INTEGRATION", "MEDIA"];
+window.GroupingList = ["GRIDS", "DATA SCIENCE", "DATA VISUALIZATION", "FILE FORMATS", "LAYOUT", "ICONS", "EDITORS", "NAVIGATION", "NOTIFICATION", " INTELLIGENCE", "REPORTING", "FRAMEWORK", "MISCELLANEOUS", "INTEGRATION", "MEDIA"];
 
 window.SamplesList = [
             {
@@ -650,7 +650,7 @@ window.SamplesList = [
 				    {
 				        "id": "4", "name": " Organizational Chart", "querystring": "diagram", "childcount": "1", "type": "", samples: [
                             { "id": "1", "name": "Team", "querystring": "teamorgchart", "liveediturl": "Sync_qdjkxufh", "childcount": "0", "type": "", scriptDeps: ["diagramscripts/diagramcommon"] },
-                            { "id": "2", "name": "Business Management", "querystring": "businessorgchart", "liveediturl": "Sync_avypscio", "childcount": "0", "type": "", scriptDeps: ["diagramscripts/diagramcommon"] },
+                            { "id": "2", "name": " Management", "querystring": "orgchart", "liveediturl": "Sync_avypscio", "childcount": "0", "type": "", scriptDeps: ["diagramscripts/diagramcommon"] },
                             { "id": "3", "name": "University", "querystring": "universityorgchart", "liveediturl": "Sync_c0z3brs5", "childcount": "0", "type": "", scriptDeps: ["diagramscripts/diagramcommon"] }
 				        ]
 				    },
@@ -896,7 +896,7 @@ window.SamplesList = [
     ]
 },
 {
-    "name": "PivotGrid", "id": "pivotgrid", "Group": "BUSINESS INTELLIGENCE", "childcount": "1", "querystring": "Relational", "type": "", "isResponsive": "true",
+    "name": "PivotGrid", "id": "pivotgrid", "Group": " INTELLIGENCE", "childcount": "1", "querystring": "Relational", "type": "", "isResponsive": "true",
     "ugurl": "//help.syncfusion.com/js/pivotgrid/overview",
     "forumurl": "https://www.syncfusion.com/forums/javascript/pivotgrid",
     "kburl": "https://www.syncfusion.com/kb/javascript/ejpivotgrid",
@@ -963,7 +963,7 @@ window.SamplesList = [
     ]
 },
 {
-    "name": "PivotChart", "id": "pivotchart", "Group": "BUSINESS INTELLIGENCE", "childcount": "1", "querystring": "Relational", "type": "update", "isResponsive": "true",
+    "name": "PivotChart", "id": "pivotchart", "Group": " INTELLIGENCE", "childcount": "1", "querystring": "Relational", "type": "update", "isResponsive": "true",
     "ugurl": "//help.syncfusion.com/js/overview",
     "forumurl": "https://www.syncfusion.com/forums/javascript",
     "kburl": "https://www.syncfusion.com/kb/javascript",
@@ -1012,7 +1012,7 @@ window.SamplesList = [
     ]
 },
   {
-      "name": "PivotTreeMap", "id": "pivottreemap", "Group": "BUSINESS INTELLIGENCE", "childcount": "1", "querystring": "Default Functionalities", "type": "", "isResponsive": "true",
+      "name": "PivotTreeMap", "id": "pivottreemap", "Group": " INTELLIGENCE", "childcount": "1", "querystring": "Default Functionalities", "type": "", "isResponsive": "true",
       "ugurl": "//help.syncfusion.com/js/pivottreemap/overview",
       "forumurl": "https://www.syncfusion.com/forums/javascript/pivottreemap",
       "kburl": "https://www.syncfusion.com/kb/javascript",
@@ -1033,7 +1033,7 @@ window.SamplesList = [
       ]
   },
 {
-    "name": "PivotClient", "id": "pivotclient", "Group": "BUSINESS INTELLIGENCE", "childcount": "1", "querystring": "Relational", "type": "update", "isResponsive": "true",
+    "name": "PivotClient", "id": "pivotclient", "Group": " INTELLIGENCE", "childcount": "1", "querystring": "Relational", "type": "update", "isResponsive": "true",
     "ugurl": "//help.syncfusion.com/js/overview",
     "forumurl": "https://www.syncfusion.com/forums/javascript",
     "kburl": "https://www.syncfusion.com/kb/javascript",
@@ -1086,7 +1086,7 @@ window.SamplesList = [
     ]
 },
 {
-    "name": "PivotGauge", "id": "pivotgauge", "Group": "BUSINESS INTELLIGENCE", "childcount": "1", "querystring": "Relational", "type": "", "isResponsive": "false",
+    "name": "PivotGauge", "id": "pivotgauge", "Group": " INTELLIGENCE", "childcount": "1", "querystring": "Relational", "type": "", "isResponsive": "false",
     "samples": [
         {
             "id": "1", "name": "Relational", "querystring": "pivotgauge", "childcount": "1", "samples": [

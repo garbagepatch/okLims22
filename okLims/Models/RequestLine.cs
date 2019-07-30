@@ -8,22 +8,11 @@ namespace okLims.Models
 {
     public class RequestLine
     {
-        public int RequestLineId { get; set; }
-        public Request Request { get; set; }
-        public int RequestId { get; set; }
-        public string Start { get; set; }
-        public string End { get; set; }
-
-        public int ControllerID { get; set; }
-        public int SizeID { get; set; }
-        public int FilterID { get; set; }
-        public int StatusID { get; set; }
-      
-        public int LaboratoryId { get; set; }
-
-        public string SpecialDetails { get; set; }
-        public string RequesterEmail { get; set; }
-       
+      public int Count { get; set; }
+        public int Page { get; set; }
+        public int PageSize { get; set; }
+        [NotMapped]
+        public List<RequestModel> RequestModels { get; set; }
 
     }
 }

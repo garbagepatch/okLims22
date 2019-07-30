@@ -31,7 +31,7 @@
 #
 # Earlier editions of these tables also used the North American style
 # for time zones in Brazil, but this was incorrect, as Brazilians say
-# "summer time".  Reinaldo Goulart, a Sao Paulo businessman active in
+# "summer time".  Reinaldo Goulart, a Sao Paulo man active in
 # the railroad sector, writes (1999-07-06):
 #	The subject of time zones is currently a matter of discussion/debate in
 #	Brazil.  Let's say that "the Brasilia time" is considered the
@@ -652,7 +652,7 @@ Zone	America/La_Paz	-4:32:36 -	LMT	1890
 # The mayor of Rio recently attempted to change the time zone rules
 # just in his city, in order to leave more summer time for the tourist trade.
 # The rule change lasted only part of the day;
-# the federal government refused to follow the city's rules, and business
+# the federal government refused to follow the city's rules, and 
 # was in a chaos, so the mayor backed down that afternoon.
 
 # From IATA SSIM (1996-02):

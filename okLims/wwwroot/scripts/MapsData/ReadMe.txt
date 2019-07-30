@@ -14,7 +14,7 @@ https://research.cip.cgiar.org/gis/index.php
 //cloudmade.com/terms_conditions
 
 //www.census.gov/geo/maps-data/data/tiger-cart-boundary.html
-https://www.census.gov/compendia/statab/cats/business_enterprise/patents_trademarks_copyrights.html
+https://www.census.gov/compendia/statab/cats/_enterprise/patents_trademarks_copyrights.html
 https://www.census.gov/aboutus/
 
 

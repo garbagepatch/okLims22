@@ -1,0 +1,48 @@
+{
+  "defaultAssembly": "Mssql",
+  "components": [
+    {
+      "type": "Mssql.SampleContext"
+    },
+    {
+      "type": "Mssql.Implementation.RequestRepository",
+      "services": [
+        {
+          "type": "Business.DataAccess.IRequestRepository, Business"
+        }
+      ]
+    },
+    {
+      "type": "Mssql.Implementation.EmployeeRepository",
+      "services": [
+        {
+          "type": "Business.DataAccess.IEmployeeRepository, Business"
+        }
+      ]
+    },
+    {
+      "type": "Mssql.Implementation.SettingsProvider",
+      "services": [
+        {
+          "type": "Business.DataAccess.ISettingsProvider, Business"
+        }
+      ]
+    },
+    {
+      "type": "Mssql.Implementation.PersistenceProviderContainer",
+      "services": [
+        {
+          "type": "Business.DataAccess.IPersistenceProviderContainer, Business"
+        }
+      ]
+    },
+    {
+      "type": "Mssql.Implementation.InboxRepository",
+      "services": [
+        {
+          "type": "Business.DataAccess.IInboxRepository, Business"
+        }
+      ]
+    }
+  ]
+}

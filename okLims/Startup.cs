@@ -15,25 +15,39 @@ using Newtonsoft.Json.Serialization;
 using okLims.Data;
 using okLims.Models;
 using okLims.Services;
+using AutoMapper;
 
-using okLims.Messages;
 using static Microsoft.AspNetCore.Razor.Language.TagHelperMetadata;
+using Autofac;
+using OptimaJet.Workflow.Core.Runtime;
+using Autofac.Extensions.DependencyInjection;
+using Autofac.Configuration;
+using Business.Workflow;
+using okLims.ServiceLocation;
 
 namespace okLims
 {
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
-            SyncfusionLicenseProvider.RegisterLicense("MDAxQDMxMzcyZTMyMmUzMEZna05lYWxBSk1abUIzRHM0UGE4SnczSkxnaVl0TWJweHo0NU4xeE9SL289");
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
 
+        public IContainer Container { get; private set; }
+
+        public WorkflowRuntime Runtime { get; private set; }
+
+
+
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
+            services.AddAutoMapper();
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -116,9 +130,26 @@ namespace okLims
             options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
             options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
         });
+            var builder = new ContainerBuilder();
 
+            builder.Populate(services);
 
+            var config = new ConfigurationBuilder();
+            config.AddJsonFile("autofac.json");
+            var module = new ConfigurationModule(config.Build());
+
+            builder.RegisterInstance(Configuration);
+
+            builder.RegisterModule(module);
+
+            Container = builder.Build();
+
+            // Create the IServiceProvider based on the container.
+            return new AutofacServiceProvider(Container);
         }
+
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -147,9 +178,10 @@ namespace okLims
                     template: "{controller=UserRole}/{action=UserProfile}/{id?}");
 
             });
-
+            Runtime = WorkflowInit.Create(new DataServiceProvider(Container));
 
         }
+
+
     }
 }
-

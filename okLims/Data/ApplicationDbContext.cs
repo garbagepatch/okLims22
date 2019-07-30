@@ -24,7 +24,7 @@ namespace okLims.Data
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<NumberSequence> NumberSequence { get; set; }
-        public DbSet<Request> Request { get; set; }
+        public DbSet<RequestModel> RequestModel { get; set; }
         public DbSet<Laboratory> Laboratory { get; set; }
         public DbSet<FilterType> FilterType { get; set; }
         public DbSet<ControllerType> ControllerType { get; set; }
@@ -32,7 +32,7 @@ namespace okLims.Data
         public DbSet<UserProfile> UserProfile { get; set; }  
         public DbSet<RequestLine> RequestLine { get; set; }
         public DbSet<Instrument> Instrument { get; set; }
-        public DbSet<RequestStatus> RequestStatus { get; set; }
+      public DbSet<RequestHistoryModel> RequestHistory { get; set; }
         
     }
 }

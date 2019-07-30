@@ -247,7 +247,7 @@ Rule	Egypt	2007	only	-	Sep	Thu>=1	23:00s	0	-
 # than the year of the Gregorian calendar, Ramadan shifts earlier each
 # year. This year it will be observed September 13 (September is quite
 # hot in Egypt), and the idea is to make fasting easier for workers by
-# shifting business hours one hour out of daytime heat. Consequently,
+# shifting  hours one hour out of daytime heat. Consequently,
 # unless discontinued, next DST may end Thursday 28 August 2008.
 # From Paul Eggert (2007-08-17):
 # For lack of better info, assume the new rule is last Thursday in August.

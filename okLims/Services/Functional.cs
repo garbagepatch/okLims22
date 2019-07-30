@@ -75,19 +75,18 @@ namespace okLims.Services
                 await _context.ControllerType.AddAsync(new ControllerType { ControllerID = 1, controllerType = "Finesse" });
                 await _context.ControllerType.AddAsync(new ControllerType { ControllerID = 2, controllerType = "In-Control" });
                 await _context.SaveChangesAsync();
-                await _context.RequestStatus.AddAsync(new RequestStatus { Status = "Submitted", StatusID = 1 });
-                await _context.RequestStatus.AddAsync(new RequestStatus { Status = "Completed", StatusID = 2 });
+          
                 await _context.SaveChangesAsync();
 
 
-                List<Request> requests = new List<Request>()
+                List<RequestModel> requests = new List<RequestModel>()
                 {
-                    new Request{RequesterEmail = "crossmedders@gmail.com"},
+                    new RequestModel{RequesterEmail = "crossmedders@gmail.com"},
 
-                    new Request{RequesterEmail = "cmedders@amgen.com"},
+                    new RequestModel{RequesterEmail = "cmedders@amgen.com"},
 
                 };
-                await _context.Request.AddRangeAsync(requests);
+                await _context.RequestModel.AddRangeAsync(requests);
                 await _context.SaveChangesAsync();
                 await _context.ApplicationUser.AddAsync(new ApplicationUser { Email = "crossmedders@gmail.com", EmailConfirmed = true, UserName = "crossmedders@gmail.com" });
                 await _context.SaveChangesAsync();

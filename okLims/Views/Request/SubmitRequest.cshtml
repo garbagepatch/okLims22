@@ -1,4 +1,4 @@
-﻿@model okLims.Models.Request
+﻿@model okLims.Models.RequestModel
     @{Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 <header>
@@ -73,13 +73,7 @@
                                     <label asp-for="SpecialDetails">Special Details</label>
                                     <ejs-textbox id="SpecialDetails" multiline="true" placeholder="Special Details" floatLabelType="Auto" ejs-for="@Model.SpecialDetails"></ejs-textbox>
                                 </div>
-                               <div class="form-group">
-                                   <label asp-for="StatusID">Status</label>
-                                   <ejs-dropdownlist id="StatusID" enabled="false" value="1">
-                                       <e-data-manager adaptor="WebApiAdaptor" url="/api/RequestStatus" crossDomain="true"></e-data-manager>  
-                                       <e-dropdownlist-fields text="Status" value="StatusID"></e-dropdownlist-fields>
-                                   </ejs-dropdownlist>
-                               </div>
+                              
                                 <div id="submitbutton">
 
                                     <ejs-button id="submitButton" content="Submit"></ejs-button>

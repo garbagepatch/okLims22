@@ -278,7 +278,7 @@ namespace okLims.Migrations
                     b.ToTable("NumberSequence");
                 });
 
-            modelBuilder.Entity("okLims.Models.Request", b =>
+            modelBuilder.Entity("okLims.Models.RequestModel", b =>
                 {
                     b.Property<int>("RequestId")
                         .ValueGeneratedOnAdd()
@@ -317,7 +317,7 @@ namespace okLims.Migrations
                     b.ToTable("Request");
                 });
 
-            modelBuilder.Entity("okLims.Models.RequestLine", b =>
+            modelBuilder.Entity("okLims.Models.RequestModelLine", b =>
                 {
                     b.Property<int>("RequestLineId")
                         .ValueGeneratedOnAdd()
@@ -350,7 +350,7 @@ namespace okLims.Migrations
                     b.ToTable("RequestLine");
                 });
 
-            modelBuilder.Entity("okLims.Models.RequestStatus", b =>
+            modelBuilder.Entity("okLims.Models.RequestModelStatus", b =>
                 {
                     b.Property<int>("StatusID")
                         .ValueGeneratedOnAdd()
@@ -435,41 +435,6 @@ namespace okLims.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("okLims.Models.Request", b =>
-                {
-                    b.HasOne("okLims.Models.ControllerType", "ControllerType")
-                        .WithMany()
-                        .HasForeignKey("ControllerID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("okLims.Models.FilterType", "FilterType")
-                        .WithMany()
-                        .HasForeignKey("FilterID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("okLims.Models.Laboratory", "Laboratory")
-                        .WithMany()
-                        .HasForeignKey("LaboratoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("okLims.Models.FilterSize", "FilterSize")
-                        .WithMany()
-                        .HasForeignKey("SizeID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("okLims.Models.RequestStatus", "RequestStatus")
-                        .WithMany()
-                        .HasForeignKey("StatusID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("okLims.Models.RequestLine", b =>
-                {
-                    b.HasOne("okLims.Models.Request", "Request")
-                        .WithMany("RequestLines")
-                        .HasForeignKey("RequestId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
 #pragma warning restore 612, 618
         }
     }
